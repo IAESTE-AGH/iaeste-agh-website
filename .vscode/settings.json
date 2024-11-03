@@ -4,9 +4,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
   "editor.quickSuggestions": {
     "strings": true
   },
