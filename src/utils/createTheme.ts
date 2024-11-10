@@ -9,7 +9,7 @@ import type {
     FontSettings,
 } from '@/types';
 
-interface createThemeFromTemplateProps {
+interface createThemeFromDefaultProps {
     colors: {
         isDark?: boolean;
         border?: Border;
@@ -72,8 +72,8 @@ interface createThemeFromTemplateProps {
     };
 }
 
-export function createThemeFromTemplate(
-    props?: createThemeFromTemplateProps
+export function createThemeFromDefault(
+    props?: createThemeFromDefaultProps
 ): Theme {
     return {} as Theme;
 }
