@@ -75,6 +75,9 @@ interface createThemeFromDefaultProps {
 export function createThemeFromDefault(
     props?: createThemeFromDefaultProps
 ): Theme {
+    const theme = createDefaultTheme();
+    if (!props) return theme;
+    // TODO: Implement the function to create a theme from the default theme
     return {} as Theme;
 }
 
