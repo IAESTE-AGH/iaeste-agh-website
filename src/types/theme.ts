@@ -67,4 +67,7 @@ interface FontSettings {
 
 type SpacingValue = number | `${number}px`;
 type RadiusValue = number | `${number}px`;
+<<<<<<< HEAD
 type Border = `${number}px solid ${Color}`;
+=======
+>>>>>>> 4669fdde7fb4461951cf9978e55212b1d1f335dd
