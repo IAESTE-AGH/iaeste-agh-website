@@ -30,10 +30,15 @@ export interface Theme {
       primary: Color;
       secondary: Color;
     };
+    accent: {
+      primary: Color;
+      secondary: Color;
+    };
     text: {
-      onLight: Color;
-      onDark: Color;
+      default: Color;
+      contrast: Color;
       link: Color;
+      linkContrast: Color;
     };
     gradients: Record<string, LinearGradient>;
     shadows: Record<string, BoxShadow>;
