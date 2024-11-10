@@ -1,4 +1,12 @@
-import type { BoxShadow, Color, LinearGradient } from './color';
+import type {
+  BoxShadow,
+  Color,
+  LinearGradient,
+  SpacingValue,
+  RadiusValue,
+  FontSettings,
+  Border,
+} from '.';
 
 export interface Theme {
   colors: {
@@ -57,17 +65,3 @@ export interface Theme {
     };
   };
 }
-
-interface FontSettings {
-  fontFamily: string;
-  fontSize: string;
-  fontWeight: number;
-  lineHeight: number;
-}
-
-type SpacingValue = number | `${number}px`;
-type RadiusValue = number | `${number}px`;
-<<<<<<< HEAD
-type Border = `${number}px solid ${Color}`;
-=======
->>>>>>> 4669fdde7fb4461951cf9978e55212b1d1f335dd
