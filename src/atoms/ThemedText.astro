@@ -1,0 +1,63 @@
+---
+import type { Color, TextVariant } from '@/types';
+import type { HTMLAttributes, HTMLTag } from 'astro/types';
+
+type X<T> = {
+	variant?: T;
+	href: string;
+};
+
+type Props = {
+	color?: Color;
+	beforeIcon?: HTMLElement;
+	afterIcon?: HTMLElement;
+	children: string;
+} & (
+	| (X<'link'> & HTMLAttributes<'a'>)
+	| (Partial<X<Omit<TextVariant, 'link'>>> & HTMLAttributes<'p'>)
+);
+
+const { color, variant = 'body', href, beforeIcon, afterIcon } = Astro.props;
+
+var Element: HTMLTag = 'p';
+switch (variant) {
+	case 'display':
+	case 'h1':
+		Element = 'h1';
+		break;
+	case 'h2':
+		Element = 'h2';
+		break;
+	case 'h3':
+		Element = 'h3';
+		break;
+	case 'h4':
+		Element = 'h4';
+		break;
+	case 'h5':
+		Element = 'h5';
+		break;
+	case 'h6':
+		Element = 'h6';
+		break;
+	case 'link':
+		Element = 'a';
+		break;
+}
+---
+
+{
+	Element === 'a' ? (
+		<Element href={href} style={{ color: color }}>
+			{beforeIcon}
+			<slot />
+			{afterIcon}
+		</Element>
+	) : (
+		<Element class:list={[variant]} style={{ color: color }}>
+			{beforeIcon}
+			<slot />
+			{afterIcon}
+		</Element>
+	)
+}
