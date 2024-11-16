@@ -12,6 +12,7 @@ type Props = {
 	beforeIcon?: HTMLElement;
 	afterIcon?: HTMLElement;
 	children: string;
+    isBold: boolean;
 } & (
 	| (X<'link'> & HTMLAttributes<'a'>)
 	| (Partial<X<Omit<TextVariant, 'link'>>> & HTMLAttributes<'p'>)
