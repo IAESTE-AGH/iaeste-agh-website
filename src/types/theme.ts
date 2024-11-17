@@ -45,29 +45,19 @@ export interface Theme {
         shadows: Record<string, BoxShadow>;
     };
     typography: {
-        bold: {
-            display: FontSettings;
-            h1: FontSettings;
-            h2: FontSettings;
-            h3: FontSettings;
-            h4: FontSettings;
-            h5: FontSettings;
-            h6: FontSettings;
-            label: FontSettings;
-            body: FontSettings;
-            link: FontSettings;
+        weights: {
+            regular: number;
+            bold: number;
         };
-        regular: {
-            display: FontSettings;
-            h1: FontSettings;
-            h2: FontSettings;
-            h3: FontSettings;
-            h4: FontSettings;
-            h5: FontSettings;
-            h6: FontSettings;
-            label: FontSettings;
-            body: FontSettings;
-            link: FontSettings;
-        };
+        display: FontSettings;
+        h1: FontSettings;
+        h2: FontSettings;
+        h3: FontSettings;
+        h4: FontSettings;
+        h5: FontSettings;
+        h6: FontSettings;
+        label: FontSettings;
+        body: FontSettings;
+        link: FontSettings;
     };
 }

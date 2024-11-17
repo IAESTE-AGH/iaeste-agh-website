@@ -5,7 +5,6 @@ export type { Theme };
 export interface FontSettings {
     fontFamily: string;
     fontSize: FontSize;
-    fontWeight: number;
     lineHeight: LineHeight;
     textDecoration?: 'none' | 'underline';
 }
