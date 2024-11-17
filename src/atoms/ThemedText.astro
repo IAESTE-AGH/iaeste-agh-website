@@ -12,13 +12,20 @@ type Props = {
 	beforeIcon?: HTMLElement;
 	afterIcon?: HTMLElement;
 	children: string;
-    isBold: boolean;
+	isBold?: boolean;
 } & (
 	| (X<'link'> & HTMLAttributes<'a'>)
 	| (Partial<X<Omit<TextVariant, 'link'>>> & HTMLAttributes<'p'>)
 );
 
-const { color, variant = 'body', href, beforeIcon, afterIcon } = Astro.props;
+const {
+	color,
+	variant = 'body',
+	href,
+	beforeIcon,
+	afterIcon,
+	isBold = false,
+} = Astro.props;
 
 var Element: HTMLTag = 'p';
 switch (variant) {
@@ -55,7 +62,10 @@ switch (variant) {
 			{afterIcon}
 		</Element>
 	) : (
-		<Element class:list={[variant]} style={{ color: color }}>
+		<Element
+			class:list={[variant, { bold: isBold }]}
+			style={{ color: color }}
+		>
 			{beforeIcon}
 			<slot />
 			{afterIcon}
