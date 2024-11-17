@@ -1,0 +1,58 @@
+---
+import type { Color, TextVariant } from '@/types';
+import type { HTMLAttributes, HTMLTag } from 'astro/types';
+
+type Props = {
+	color?: Color;
+	beforeIcon?: HTMLElement;
+	afterIcon?: HTMLElement;
+	children: string;
+	isBold?: boolean;
+	variant?: TextVariant;
+};
+
+const {
+	color,
+	variant = 'body',
+	beforeIcon,
+	afterIcon,
+	isBold = false,
+} = Astro.props;
+
+var Element: HTMLTag = 'p';
+switch (variant) {
+	case 'display':
+	case 'h1':
+		Element = 'h1';
+		break;
+	case 'h2':
+		Element = 'h2';
+		break;
+	case 'h3':
+		Element = 'h3';
+		break;
+	case 'h4':
+		Element = 'h4';
+		break;
+	case 'h5':
+		Element = 'h5';
+		break;
+	case 'h6':
+		Element = 'h6';
+		break;
+	case 'body':
+		break;
+	case 'link':
+		Element = 'span';
+		break;
+	default:
+		Element = 'p';
+		break;
+}
+---
+
+<Element class:list={[variant, { bold: isBold }]} style={{ color: color }}>
+	{beforeIcon}
+	<slot />
+	{afterIcon}
+</Element>

@@ -1,4 +1,5 @@
 ---
+import { theme } from '@/currentTheme';
 import { getLangFromUrl } from '@/i18n/utils';
 
 interface Props {
@@ -15,54 +16,169 @@ const lang = getLangFromUrl(Astro.url);
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
 		<slot />
 	</body>
-</html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-	@font-face {
-		font-family: "League Spartan";
-		src: url("/fonts/LeagueSpartan-VariableFont_wght.ttf") format("truetype-variations");
-		font weight: 100 900;
-		font-style: normal;
-		font-display: swap;
-	}
 
-	@font-face {
-		font-family: "Libre Baskerville";
-		src: url("/fonts/LibreBaskerville-Italic.ttf") format("truetype");
-		font-weight: 400;
-		font-style: italic;
-		font-display: swap;
-	}
-</style>
+	<style
+		is:global
+		define:vars={// transforms the theme object to CSS variables
+		// check the browser's dev tools to see all available variables
+		Object.entries(theme).reduce((acc, [key, value]) => {
+			// @ts-ignore
+			if (typeof value === 'string') acc[`${key}`] = value;
+			else
+				Object.entries(value).forEach(([k, v]) => {
+					// @ts-ignore
+					if (typeof v === 'string') acc[`${key}-${k}`] = v;
+					else
+						Object.entries(v).forEach(
+							// @ts-ignore
+							([kk, vv]) => (acc[`${key}-${k}-${kk}`] = vv)
+						);
+				});
+			return acc;
+		}, {})}
+	>
+		* {
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+		}
+
+		html {
+			font-family: system-ui, sans-serif;
+			background: var(--colors-background-primary);
+		}
+		code {
+			font-family:
+				Menlo,
+				Monaco,
+				Lucida Console,
+				Liberation Mono,
+				DejaVu Sans Mono,
+				Bitstream Vera Sans Mono,
+				Courier New,
+				monospace;
+		}
+
+		@font-face {
+			font-family: 'League Spartan';
+			src: url('/fonts/LeagueSpartan-VariableFont_wght.ttf')
+				format('truetype-variations');
+			font-style: normal;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'Libre Baskerville';
+			src: url('/fonts/LibreBaskerville-Italic.ttf') format('truetype');
+			font-weight: 400;
+			font-style: italic;
+			font-display: swap;
+		}
+
+		.bold {
+			font-weight: var(--typography-weights-bold);
+		}
+
+		.display {
+			font-family: var(--typography-display-fontFamily);
+			font-size: var(--typography-display-fontSize);
+			line-height: var(--typography-display-lineHeight);
+		}
+
+		.h1 {
+			font-family: var(--typography-h1-fontFamily);
+			font-size: var(--typography-h1-fontSize);
+			line-height: var(--typography-h1-lineHeight);
+		}
+
+		.h2 {
+			font-family: var(--typography-h2-fontFamily);
+			font-size: var(--typography-h2-fontSize);
+			line-height: var(--typography-h2-lineHeight);
+		}
+
+		.h3 {
+			font-family: var(--typography-h3-fontFamily);
+			font-size: var(--typography-h3-fontSize);
+			line-height: var(--typography-h3-lineHeight);
+		}
+
+		.h4 {
+			font-family: var(--typography-h4-fontFamily);
+			font-size: var(--typography-h4-fontSize);
+			line-height: var(--typography-h4-lineHeight);
+		}
+
+		.h5 {
+			font-family: var(--typography-h5-fontFamily);
+			font-size: var(--typography-h5-fontSize);
+			line-height: var(--typography-h5-lineHeight);
+		}
+
+		.h6 {
+			font-family: var(--typography-h6-fontFamily);
+			font-size: var(--typography-h6-fontSize);
+			line-height: var(--typography-h6-lineHeight);
+		}
+
+		.body {
+			font-family: var(--typography-body-fontFamily);
+			font-size: var(--typography-body-fontSize);
+			line-height: var(--typography-body-lineHeight);
+		}
+
+		.link {
+			font-family: var(--typography-link-fontFamily);
+			font-size: var(--typography-link-fontSize);
+			line-height: var(--typography-link-lineHeight);
+			text-decoration: var(--typography-link-textDecoration);
+			display: inline-block;
+			width: min-content;
+			position: relative;
+			color: var(--colors-text-link);
+		}
+
+		.link:hover {
+			color: var(--colors-text-link);
+		}
+
+		.link:hover::before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 100%;
+			height: 100%;
+			background-color: var(--colors-background-accent);
+			padding-block: 4px;
+			padding-inline: 8px;
+			border-radius: 4px;
+			z-index: -1;
+		}
+
+		.button {
+			color: var(--colors-text-contrast);
+			border: var(--border);
+			background-color: var(--colors-accent-secondary);
+			padding-block: var(--spacing-xs);
+			display: block;
+			text-align: center;
+			border-radius: var(--borderRadius-md);
+			text-decoration: none;
+		}
+
+		.button a {
+			color: var(--colors-text-contrast);
+			text-decoration: none;
+		}
+	</style>
+</html>
