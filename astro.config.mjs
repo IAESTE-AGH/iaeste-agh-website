@@ -6,9 +6,11 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [icon({
-    include: {
-      solar: ['*'],
-    },
-  }), react()],
+    integrations: [
+        icon({
+            include: {
+                solar: ['*'],
+            },
+        }),
+    ],
 });
