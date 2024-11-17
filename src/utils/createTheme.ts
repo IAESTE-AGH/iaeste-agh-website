@@ -10,23 +10,23 @@ import type {
 } from '@/types';
 
 interface createThemeFromDefaultProps {
+    border?: Border;
+    borderRadius: {
+        default: RadiusValue;
+        sm?: RadiusValue;
+        md?: RadiusValue;
+        lg?: RadiusValue;
+    };
+    spacing: {
+        default: SpacingValue;
+        xs?: SpacingValue;
+        sm?: SpacingValue;
+        md?: SpacingValue;
+        lg?: SpacingValue;
+        xl?: SpacingValue;
+    };
     colors: {
         isDark?: boolean;
-        border?: Border;
-        borderRadius: {
-            default: RadiusValue;
-            sm?: RadiusValue;
-            md?: RadiusValue;
-            lg?: RadiusValue;
-        };
-        spacing: {
-            default: SpacingValue;
-            xs?: SpacingValue;
-            sm?: SpacingValue;
-            md?: SpacingValue;
-            lg?: SpacingValue;
-            xl?: SpacingValue;
-        };
         background: {
             primary: Color;
             secondary?: Color;
@@ -42,33 +42,23 @@ interface createThemeFromDefaultProps {
             linkContrast: Color;
         };
         gradients: Record<string, LinearGradient>;
-        shadows: Record<string, BoxShadow>;
     };
+    shadows: Record<string, BoxShadow>;
     typography: {
-        bold?: {
-            display: FontSettings;
-            h1: FontSettings;
-            h2: FontSettings;
-            h3: FontSettings;
-            h4: FontSettings;
-            h5: FontSettings;
-            h6: FontSettings;
-            label: FontSettings;
-            body: FontSettings;
-            link: FontSettings;
+        weights: {
+            regular: number;
+            bold: number;
         };
-        regular: {
-            display: FontSettings;
-            h1: FontSettings;
-            h2: FontSettings;
-            h3: FontSettings;
-            h4: FontSettings;
-            h5: FontSettings;
-            h6: FontSettings;
-            label: FontSettings;
-            body: FontSettings;
-            link: FontSettings;
-        };
+        display: FontSettings;
+        h1: FontSettings;
+        h2: FontSettings;
+        h3: FontSettings;
+        h4: FontSettings;
+        h5: FontSettings;
+        h6: FontSettings;
+        label: FontSettings;
+        body: FontSettings;
+        link: FontSettings;
     };
 }
 
