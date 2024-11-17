@@ -113,8 +113,8 @@ export function createDefaultTheme(): Theme {
             },
             background: {
                 primary: white,
-                secondary: light_blue_50,
-                accent: white,
+                secondary: white,
+                accent: light_blue_50,
             },
             accent: {
                 primary: IAESTE_Blue,
