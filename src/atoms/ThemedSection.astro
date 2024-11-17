@@ -1,0 +1,29 @@
+---
+import ThemedText from './ThemedText.astro';
+
+type Props = {
+    title: string;
+    children?: HTMLElement[] | HTMLElement;
+};
+
+const { title } = Astro.props;
+---
+
+<section class="section">
+    <ThemedText variant={'display'} isBold>{title}</ThemedText>
+  <slot />
+</section>
+
+<style>
+    .section {
+        padding-block: var(--colors-spacing-xl);
+        padding-inline: var(--colors-spacing-lg);
+        background-color: var(--colors-background-secondary);
+        border-radius: var(--colors-borderRadius-default);
+        border: var(--colors-border);
+        display: flex;
+        flex-direction: column;
+        gap: var(--colors-spacing-md);
+        overflow: hidden;
+    }
+</style>
