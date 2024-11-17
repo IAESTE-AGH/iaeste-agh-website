@@ -1,5 +1,9 @@
 # iaeste-agh-website
 
+## Design pattern
+
+This project will be using the [Atomic Design Pattern](https://atomicdesign.bradfrost.com/chapter-2/)
+
 ## Development Environment Setup
 
 This project can be easily set up using **Docker** and **Dev Containers** in **Visual Studio Code**. Follow these steps to get your environment up and running quickly.
@@ -30,11 +34,12 @@ If you have the Dev Containers extension installed
 ### 3. Work Within the Dev Container
 
 Once the container has started, VS Code will open the project inside the Dev Container environment, allowing you to: - Access all required dependencies (Node, Prettier, etc.) pre-installed. - Use terminal commands and tools as if they were installed locally. - Run and debug the application directly within the Dev Container.
+
 > **Note**: Make sure to review the `.devcontainer/Dockerfile` and `.devcontainer/devcontainer.json` files to understand the installed dependencies and settings
 
 ### 4. Running the Application
 
-You can now run the application as you would locally. For example, if this is a Node.js project: ```npm run start```
+You can now run the application as you would locally. For example, if this is a Node.js project: `npm run start`
 
 ## Additional Configuration
 
