@@ -3,18 +3,44 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@atoms/*": ["src/atoms/*"],
-      "@molecules/*": ["src/molecules/*"],
-      "@organisms/*": ["src/organisms/*"],
-      "@templates/*": ["src/templates/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@pages/*": ["src/pages/*"],
-      "@icons/*": ["src/icons/*"],
-      "@content/*": ["src/content/*"],
-      "@data/*": ["src/data/*"],
-      "@types/*": ["src/types/*"],
-      "@utils/*": ["src/utils/*"]
-    }
+      "@/*": [
+        "src/*"
+      ],
+      "@atoms/*": [
+        "src/atoms/*"
+      ],
+      "@molecules/*": [
+        "src/molecules/*"
+      ],
+      "@organisms/*": [
+        "src/organisms/*"
+      ],
+      "@templates/*": [
+        "src/templates/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@icons/*": [
+        "src/icons/*"
+      ],
+      "@content/*": [
+        "src/content/*"
+      ],
+      "@data/*": [
+        "src/data/*"
+      ],
+      "@types/*": [
+        "src/types/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }
