@@ -9,23 +9,23 @@ import type {
 } from '.';
 
 export interface Theme {
+    border: Border;
+    borderRadius: {
+        default: RadiusValue;
+        sm: RadiusValue;
+        md: RadiusValue;
+        lg: RadiusValue;
+    };
+    spacing: {
+        default: SpacingValue;
+        xs: SpacingValue;
+        sm: SpacingValue;
+        md: SpacingValue;
+        lg: SpacingValue;
+        xl: SpacingValue;
+    };
     colors: {
         isDark: boolean;
-        border: Border;
-        borderRadius: {
-            default: RadiusValue;
-            sm: RadiusValue;
-            md: RadiusValue;
-            lg: RadiusValue;
-        };
-        spacing: {
-            default: SpacingValue;
-            xs: SpacingValue;
-            sm: SpacingValue;
-            md: SpacingValue;
-            lg: SpacingValue;
-            xl: SpacingValue;
-        };
         background: {
             primary: Color;
             secondary: Color;
@@ -42,8 +42,8 @@ export interface Theme {
             linkContrast: Color;
         };
         gradients: Record<string, LinearGradient>;
-        shadows: Record<string, BoxShadow>;
     };
+    shadows: Record<string, BoxShadow>;
     typography: {
         weights: {
             regular: number;

@@ -94,23 +94,23 @@ export function createDefaultTheme(): Theme {
     };
 
     return {
+        border: `2px solid ${light_blue_50}`,
+        borderRadius: {
+            default: '24px',
+            sm: '8px',
+            md: '16px',
+            lg: '24px',
+        },
+        spacing: {
+            default: '32px',
+            xs: '16px',
+            sm: '24px',
+            md: '32px',
+            lg: '48px',
+            xl: '96px',
+        },
         colors: {
             isDark: false,
-            border: `2px solid ${light_blue_50}`,
-            borderRadius: {
-                default: '24px',
-                sm: '8px',
-                md: '16px',
-                lg: '24px',
-            },
-            spacing: {
-                default: '32px',
-                xs: '16px',
-                sm: '24px',
-                md: '32px',
-                lg: '48px',
-                xl: '96px',
-            },
             background: {
                 primary: white,
                 secondary: white,
@@ -133,15 +133,15 @@ export function createDefaultTheme(): Theme {
                 iaeste_gradient_4: `linear-gradient(90deg, #652C90, #91268F, #D91B5B)`,
                 iaeste_gradient_5: `linear-gradient(90deg, #F6F18F, #F7DC3C, #FCB31E)`,
             },
-            shadows: {
-                default: [
-                    '43px 89px 28px 0px rgba(163, 163, 163, 0)',
-                    '28px 57px 25px 0px rgba(163, 163, 163, 0.01)',
-                    '7px 14px 16px 0px rgba(163, 163, 163, 0.09)',
-                    '16px 32px 21px 0px rgba(163, 163, 163, 0.05)',
-                    '2px 4px 9px 0px rgba(163, 163, 163, 0.1)',
-                ],
-            },
+        },
+        shadows: {
+            default: [
+                '43px 89px 28px 0px rgba(163, 163, 163, 0)',
+                '28px 57px 25px 0px rgba(163, 163, 163, 0.01)',
+                '7px 14px 16px 0px rgba(163, 163, 163, 0.09)',
+                '16px 32px 21px 0px rgba(163, 163, 163, 0.05)',
+                '2px 4px 9px 0px rgba(163, 163, 163, 0.1)',
+            ],
         },
         typography: {
             weights: fontWeights,
