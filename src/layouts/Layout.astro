@@ -33,7 +33,6 @@ const { title } = Astro.props;
 				Object.entries(value).forEach(([k, v]) => {
 					// @ts-ignore
 					if (typeof v === 'string') acc[`${key}-${k}`] = v;
-					// @ts-ignore
 					else
 						Object.entries(v).forEach(
 							// @ts-ignore
@@ -142,12 +141,12 @@ const { title } = Astro.props;
 
 		.button {
 			color: var(--colors-text-contrast);
-			border: var(--colors-border);
+			border: var(--border);
 			background-color: var(--colors-accent-secondary);
-			padding-block: var(--colors-spacing-xs);
+			padding-block: var(--spacing-xs);
 			display: block;
 			text-align: center;
-			border-radius: var(--colors-borderRadius-md);
+			border-radius: var(--borderRadius-md);
 			text-decoration: none;
 		}
 	</style>
