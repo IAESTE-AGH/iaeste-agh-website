@@ -22,18 +22,33 @@ const { title } = Astro.props;
 		<slot />
 	</body>
 
-	<style is:global define:vars={
-		// transforms the theme object to CSS variables
+	<style
+		is:global
+		define:vars={// transforms the theme object to CSS variables
 		// check the browser's dev tools to see all available variables
 		Object.entries(theme).reduce((acc, [key, value]) => {
+			// @ts-ignore
 			if (typeof value === 'string') acc[`${key}`] = value;
-			else Object.entries(value).forEach(([k, v]) => {
-				if (typeof v === 'string') acc[`${key}-${k}`] = v;
-				else Object.entries(v).forEach(([kk, vv]) => (acc[`${key}-${k}-${kk}`] = vv));
-			});
+			else
+				Object.entries(value).forEach(([k, v]) => {
+					// @ts-ignore
+					if (typeof v === 'string') acc[`${key}-${k}`] = v;
+					// @ts-ignore
+					else
+						Object.entries(v).forEach(
+							// @ts-ignore
+							([kk, vv]) => (acc[`${key}-${k}-${kk}`] = vv)
+						);
+				});
 			return acc;
-		}, {}),
-	}>
+		}, {})}
+	>
+		* {
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+		}
+
 		html {
 			font-family: system-ui, sans-serif;
 			background: var(--colors-background-primary);
@@ -64,11 +79,6 @@ const { title } = Astro.props;
 			font-weight: 400;
 			font-style: italic;
 			font-display: swap;
-		}
-
-		h1, h2, h3, h4, h5, h6, p, a {
-			margin: 0;
-			padding: 0;
 		}
 
 		.bold {
@@ -117,18 +127,28 @@ const { title } = Astro.props;
 			line-height: var(--typography-h6-lineHeight);
 		}
 
-		.p {
+		.body {
 			font-family: var(--typography-body-fontFamily);
 			font-size: var(--typography-body-fontSize);
 			line-height: var(--typography-body-lineHeight);
 		}
 
-		a {
+		.link {
 			font-family: var(--typography-link-fontFamily);
 			font-size: var(--typography-link-fontSize);
 			line-height: var(--typography-link-lineHeight);
 			text-decoration: var(--typography-link-textDecoration);
 		}
-		
+
+		.button {
+			color: var(--colors-text-contrast);
+			border: var(--colors-border);
+			background-color: var(--colors-accent-secondary);
+			padding-block: var(--colors-spacing-xs);
+			display: block;
+			text-align: center;
+			border-radius: var(--colors-borderRadius-md);
+			text-decoration: none;
+		}
 	</style>
 </html>

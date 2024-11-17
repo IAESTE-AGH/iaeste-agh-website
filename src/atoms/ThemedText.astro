@@ -2,26 +2,18 @@
 import type { Color, TextVariant } from '@/types';
 import type { HTMLAttributes, HTMLTag } from 'astro/types';
 
-type X<T> = {
-	variant?: T;
-	href: string;
-};
-
 type Props = {
 	color?: Color;
 	beforeIcon?: HTMLElement;
 	afterIcon?: HTMLElement;
 	children: string;
 	isBold?: boolean;
-} & (
-	| (X<'link'> & HTMLAttributes<'a'>)
-	| (Partial<X<Omit<TextVariant, 'link'>>> & HTMLAttributes<'p'>)
-);
+	variant?: TextVariant;
+};
 
 const {
 	color,
 	variant = 'body',
-	href,
 	beforeIcon,
 	afterIcon,
 	isBold = false,
@@ -48,27 +40,16 @@ switch (variant) {
 	case 'h6':
 		Element = 'h6';
 		break;
+	case 'body':
+		break;
 	case 'link':
-		Element = 'a';
+		Element = 'span';
 		break;
 }
 ---
 
-{
-	Element === 'a' ? (
-		<Element href={href} style={{ color: color }}>
-			{beforeIcon}
-			<slot />
-			{afterIcon}
-		</Element>
-	) : (
-		<Element
-			class:list={[variant, { bold: isBold }]}
-			style={{ color: color }}
-		>
-			{beforeIcon}
-			<slot />
-			{afterIcon}
-		</Element>
-	)
-}
+<Element class:list={[variant, { bold: isBold }]} style={{ color: color }}>
+	{beforeIcon}
+	<slot />
+	{afterIcon}
+</Element>
