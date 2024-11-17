@@ -8,13 +8,14 @@ type Props = {
 	asButton?: boolean;
 	isBold?: boolean;
 	variant?: TextVariant;
+	afterIcon?: HTMLElement;
 };
 
-const { href, asButton = false, isBold, variant } = Astro.props;
+const { href, asButton = false, isBold, variant, afterIcon } = Astro.props;
 ---
 
-<a href={href} class:list={[{ button: asButton }]}>
-	<ThemedText variant={variant} isBold={isBold}>
+<a href={href} class:list={[{ button: asButton }, { link: !asButton }]}>
+	<ThemedText variant={variant} isBold={isBold} afterIcon={afterIcon}>
 		<slot />
 	</ThemedText>
 </a>
