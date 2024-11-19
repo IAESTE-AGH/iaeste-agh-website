@@ -1,17 +1,16 @@
 {
-  "name": "Astro Dev Container",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": "."
-  },
-  "postCreateCommand": "pnpm i",
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "astro-build.astro-vscode",
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode"
-      ]
+    "name": "Astro Dev Container",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "."
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "astro-build.astro-vscode",
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode"
+            ]
+        }
     }
-  }
 }
