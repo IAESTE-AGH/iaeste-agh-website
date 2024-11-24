@@ -10,20 +10,53 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 ---
 
-<ul>
-	<li>
-		<a href={translatePath('#wymiana')}>
-			{t('nav.exchange')}
-		</a>
-	</li>
-	<li>
-		<a href={translatePath('/dla-firm')}>
-			{t('nav.forCompanies')}
-		</a>
-	</li>
-	<li>
-		<a href="#chuj">
-			{t('nav.contact')}
-		</a>
-	</li>
-</ul>
+<style>
+	#logo {
+		width: 160px;
+	}
+	#navbar {
+		border: var(--border);
+		box-shadow: var(--shadows-default);
+		border-radius: var(--borderRadius-default);
+		color: #0b3d59;
+		padding: 6px 36px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: #fff;
+	}
+	#links {
+		display: flex;
+		gap: 6px;
+	}
+
+	#links li {
+		list-style-type: none;
+	}
+
+	#links li a {
+		text-decoration: none;
+		color: var(--colors-text-link);
+	}
+</style>
+
+<nav id="navbar">
+	<img id="logo" src="/images/IAESTE_AGH_Horizontal.png" />
+	<ul id="links">
+		<li>
+			<a href={translatePath('#wymiana')}>
+				{t('nav.exchange')}
+			</a>
+		</li>
+		<li>
+			<a href={translatePath('/dla-firm')}>
+				{t('nav.forCompanies')}
+			</a>
+		</li>
+		<li>
+			<a href="#chuj">
+				{t('nav.contact')}
+			</a>
+		</li>
+	</ul>
+</nav>
