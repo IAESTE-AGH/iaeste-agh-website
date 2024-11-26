@@ -1,6 +1,11 @@
 ---
+import Layout from '@/layouts/Layout.astro';
 import Navigation from '@/molecules/Navigation.astro';
+import Landing from '@/templates/Landing.astro';
 ---
 
 Siema, default page
-<Navigation />
+<Layout title="index">
+    <Landing />
+    <Navigation />
+</Layout>

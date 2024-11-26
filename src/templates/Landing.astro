@@ -1,0 +1,85 @@
+---
+import { ThemedLink, ThemedText } from '@/atoms';
+---
+
+<section id="landing">
+    <div class="text-section">
+        <ThemedText variant="h1" isBold
+            ><div class="test">Work.</div>
+        </ThemedText>
+        <ThemedText variant="h1" color="#1B75BB" isBold
+            ><div class="test">Experience.</div>
+        </ThemedText>
+
+        <ThemedText variant="h1" color="#1B75BB" isBold
+            ><div class="test">Discover.</div>
+        </ThemedText>
+        <div class="btn">
+            <ThemedLink asButton href="#" variant="h5" isBold
+                >Dołącz do nas!</ThemedLink
+            >
+        </div>
+    </div>
+    <div class="double-photo">
+        <img src="src/templates/siema.jpg" alt="#" />
+        <img src="src/templates/siema.jpg" alt="#" />
+    </div>
+    <div class="single-photo">
+        <img src="src/templates/siema.jpg" alt="#" />
+    </div>
+</section>
+
+<style>
+    #landing {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        height: 100%;
+        gap: var(--spacing-md);
+        margin: var(--spacing-md);
+    }
+    .text-section {
+        padding: var(--spacing-sm);
+        border: var(--border);
+        border-radius: var(--borderRadius-lg);
+        height: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: var(--spacing-xl);
+    }
+    .text-section > h1 {
+        color: brown;
+    }
+
+    .double-photo {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        gap: var(--spacing-md);
+    }
+    .double-photo img {
+        border: var(--border);
+        height: 100%;
+        width: 100%;
+        border-radius: var(--borderRadius-lg);
+        background-image: var(--colors-gradients-iaeste_gradient_1);
+    }
+    .single-photo img {
+        border: var(--border);
+        height: 100%;
+        width: 100%;
+        border-radius: var(--borderRadius-lg);
+        background-image: var(--colors-gradients-iaeste_gradient_1);
+    }
+    .text {
+    }
+    .btn {
+        width: 100%;
+    }
+    .test {
+        background: var(--colors-gradients-iaeste_gradient_1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+</style>
