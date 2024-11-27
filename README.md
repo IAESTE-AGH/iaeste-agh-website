@@ -54,9 +54,9 @@ This project can be easily set up using **Docker** and **Dev Containers** in **V
 
 Make sure you have the following installed on your system:
 
--   [Docker](https://www.docker.com/products/docker-desktop) (version 27.3.1 or later)
--   [Visual Studio Code](https://code.visualstudio.com/) (version 1.95 or later)
--   [Dev Containers extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+- [Docker](https://www.docker.com/products/docker-desktop) (version 27.3.1 or later)
+- [Visual Studio Code](https://code.visualstudio.com/) (version 1.95 or later)
+- [Dev Containers extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ## Using Dev Containers in VS Code
 
@@ -85,13 +85,13 @@ You can now run the application as you would locally. For example, if this is a 
 
 ## Additional Configuration
 
--   **Port Forwarding**: Ensure the correct ports are specified in `devcontainer.json` for port forwarding.
--   **Environment Variables**: You can add environment variables in `.devcontainer/devcontainer.json` under the `"containerEnv"` property
+- **Port Forwarding**: Ensure the correct ports are specified in `devcontainer.json` for port forwarding.
+- **Environment Variables**: You can add environment variables in `.devcontainer/devcontainer.json` under the `"containerEnv"` property
 
 ## Troubleshooting
 
 If you encounter issues with Dev Containers or Docker setup:
 
--   Make sure Docker is running and you have access to Docker CLI.
--   Restart Visual Studio Code and try **Reopen in Container** again.
--   Check the logs in the **Dev Containers** output for more detailed error messages.
+- Make sure Docker is running and you have access to Docker CLI.
+- Restart Visual Studio Code and try **Reopen in Container** again.
+- Check the logs in the **Dev Containers** output for more detailed error messages.
