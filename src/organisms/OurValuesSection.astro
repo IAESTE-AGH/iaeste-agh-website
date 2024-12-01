@@ -1,0 +1,64 @@
+---
+import { ThemedText } from '@/atoms';
+import ValueCard from '../molecules/ValueCard.astro';
+import { useTranslations, getLangFromUrl } from '../i18n/utils.ts';
+import type { TranslationKey } from '../i18n/ui.ts';
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
+
+const values = [
+    { title: t('values.trust' as TranslationKey), imageSrc: '/krowa.jpg' },
+    { title: t('values.growth' as TranslationKey), imageSrc: '/krowa.jpg' },
+    { title: t('values.activity' as TranslationKey), imageSrc: '/krowa.jpg' },
+    { title: t('values.friendship' as TranslationKey), imageSrc: '/krowa.jpg' },
+    { title: t('values.diversity' as TranslationKey), imageSrc: '/krowa.jpg' },
+];
+---
+
+<section class="our-values">
+    <div class="section-title">
+        <ThemedText variant="h2" isBold
+            >{t('section.ourValues' as TranslationKey)}</ThemedText
+        >
+    </div>
+    <div class="values-grid">
+        {
+            values.map(value => (
+                <ValueCard title={value.title} imageSrc={value.imageSrc} />
+            ))
+        }
+    </div>
+</section>
+
+<style>
+    .our-values {
+        padding: 2rem;
+        background-color: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin: 2rem auto;
+        max-width: 96%;
+    }
+
+    .section-title {
+        display: flex; /* Pozwala na precyzyjne wyrównanie */
+        text-align: left;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: #333;
+        padding-left: 2rem; /* Wyrównanie do paddingu sekcji */
+    }
+
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(240px, 1fr)
+        ); /* Większe karty */
+        gap: 1.5rem; /* Stałe odstępy między kartami */
+        padding: 0 2rem; /* Symetryczny margines wewnętrzny */
+    }
+</style>
