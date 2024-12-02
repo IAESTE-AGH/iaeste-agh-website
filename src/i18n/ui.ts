@@ -1,9 +1,9 @@
-export const languages = {
+export const supportedLanguages = {
     en: 'English',
     pl: 'Polski',
 };
 
-export const defaultLang = 'pl';
+export const defaultLang: keyof typeof supportedLanguages = 'pl';
 
 export const ui = {
     pl: {
@@ -30,5 +30,5 @@ export const ui = {
     },
 } as const;
 
-export type TranslationKey = keyof (typeof ui)['pl']; // Typowanie wszystkich kluczy tłumaczeń
+export type TranslationKey = keyof (typeof ui)[typeof defaultLang]; // Typowanie wszystkich kluczy tłumaczeń
 export const showDefaultLang = false;
