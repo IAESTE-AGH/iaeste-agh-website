@@ -5,25 +5,51 @@ import {
 	useTranslatedPath,
 } from '../i18n/utils';
 
+import { ThemedLink } from '@/atoms';
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 ---
 
-<ul>
-	<li>
-		<a href={translatePath('#wymiana')}>
+<style>
+	#logo {
+		width: 160px;
+	}
+	#navbar {
+		border: var(--border);
+		box-shadow: var(--shadows-default);
+		border-radius: var(--borderRadius-default);
+		color: var(--colors-accent-primary);
+		padding: 24px 64px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: var(--colors-background-primary);
+	}
+	#links {
+		display: flex;
+		gap: 24px;
+		align-items: center;
+		white-space: nowrap;
+	}
+
+	#links li {
+		list-style-type: none;
+	}
+</style>
+
+<nav id="navbar">
+	<img id="logo" src="/images/IAESTE_AGH_Horizontal.png" />
+	<div id="links">
+		<ThemedLink href={translatePath('#wymiana')}>
 			{t('nav.exchange')}
-		</a>
-	</li>
-	<li>
-		<a href={translatePath('/dla-firm')}>
+		</ThemedLink>
+		<ThemedLink href={translatePath('/dla-firm')}>
 			{t('nav.forCompanies')}
-		</a>
-	</li>
-	<li>
-		<a href="#chuj">
+		</ThemedLink>
+		<ThemedLink href={translatePath('/kontakt')}>
 			{t('nav.contact')}
-		</a>
-	</li>
-</ul>
+		</ThemedLink>
+	</div>
+</nav>
