@@ -5,6 +5,8 @@ import {
 	useTranslatedPath,
 } from '../i18n/utils';
 
+import { ThemedLink } from '@/atoms';
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
@@ -18,17 +20,18 @@ const translatePath = useTranslatedPath(lang);
 		border: var(--border);
 		box-shadow: var(--shadows-default);
 		border-radius: var(--borderRadius-default);
-		color: #0b3d59;
+		color: var(--colors-accent-primary);
 		padding: 24px 64px;
-		margin: 32px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background-color: #fff;
+		background-color: var(--colors-background-primary);
 	}
 	#links {
 		display: flex;
 		gap: 24px;
+		align-items: center;
+		white-space: nowrap;
 	}
 
 	#links li {
@@ -43,21 +46,11 @@ const translatePath = useTranslatedPath(lang);
 
 <nav id="navbar">
 	<img id="logo" src="/images/IAESTE_AGH_Horizontal.png" />
-	<ul id="links">
-		<li>
-			<a href={translatePath('#wymiana')}>
-				{t('nav.exchange')}
-			</a>
-		</li>
-		<li>
-			<a href={translatePath('/dla-firm')}>
-				{t('nav.forCompanies')}
-			</a>
-		</li>
-		<li>
-			<a href="#chuj">
-				{t('nav.contact')}
-			</a>
-		</li>
-	</ul>
+	<div id="links">
+		<ThemedLink href={translatePath('#wymiana')}>Wymiana</ThemedLink>
+		<ThemedLink href={translatePath('/dla-firm')}
+			>{t('nav.forCompanies')}</ThemedLink
+		>
+		<ThemedLink href="#chuj">{t('nav.contact')}</ThemedLink>
+	</div>
 </nav>
