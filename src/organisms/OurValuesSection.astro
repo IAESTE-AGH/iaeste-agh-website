@@ -1,5 +1,5 @@
 ---
-import { ThemedText } from '@/atoms';
+import { ThemedSection, ThemedText } from '@/atoms';
 import ValueCard from '../molecules/ValueCard.astro';
 import { useTranslations, getLangFromUrl } from '../i18n/utils.ts';
 
@@ -16,10 +16,7 @@ const values = [
 ];
 ---
 
-<section class="our-values">
-	<div class="section-title">
-		<ThemedText variant="h1" isBold>{t('section.ourValues')}</ThemedText>
-	</div>
+<ThemedSection title={t('section.ourValues')}>
 	<div class="values-grid">
 		{
 			values.map(value => (
@@ -27,23 +24,9 @@ const values = [
 			))
 		}
 	</div>
-</section>
+</ThemedSection>
 
 <style>
-	.our-values {
-		padding-block: var(--spacing-xl);
-		padding-inline: var(--spacing-lg);
-		background-color: var(--colors-background-primary);
-		border-radius: var(--borderRadius-default);
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-	}
-
-	.section-title {
-		display: flex; /* Pozwala na precyzyjne wyrównanie */
-		text-align: left;
-		margin-bottom: 2rem;
-	}
-
 	.values-grid {
 		display: grid;
 		grid-template-columns: repeat(
