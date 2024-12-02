@@ -42,10 +42,14 @@ const translatePath = useTranslatedPath(lang);
 <nav id="navbar">
 	<img id="logo" src="/images/IAESTE_AGH_Horizontal.png" />
 	<div id="links">
-		<ThemedLink href={translatePath('#wymiana')}>Wymiana</ThemedLink>
+		<ThemedLink href={translatePath('#wymiana')}>
+			{t('nav.exchange')}
+		</ThemedLink>
 		<ThemedLink href={translatePath('/dla-firm')}
 			>{t('nav.forCompanies')}</ThemedLink
 		>
-		<ThemedLink href="#chuj">{t('nav.contact')}</ThemedLink>
+		<ThemedLink href={translatePath('/kontakt')}
+			>{t('nav.contact')}</ThemedLink
+		>
 	</div>
 </nav>
