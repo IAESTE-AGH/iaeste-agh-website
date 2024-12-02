@@ -1,0 +1,55 @@
+---
+// Import niezbędnych komponentów
+import { ThemedText } from '@/atoms';
+
+// Definicja właściwości
+interface Props {
+	imageSrc: string; // Obrazek
+	title: string; // Tytuł wartości
+}
+
+// Przypisanie właściwości z Astro.props
+const { imageSrc = '/krowa.jpg', title } = Astro.props as Props;
+---
+
+<div class="value-card">
+	<div class="image-container">
+		<img src={imageSrc} alt={title} />
+	</div>
+	<div class="value-card-title">
+		<ThemedText variant="h4" isBold>{title}</ThemedText>
+	</div>
+</div>
+
+<style>
+	.value-card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border-radius: var(--borderRadius-default);
+		background-color: var(--colors-background-primary);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		text-align: center;
+		overflow: hidden;
+		transition:
+			transform 0.3s ease,
+			box-shadow 0.3s ease;
+	}
+
+	.image-container {
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		overflow: hidden;
+		background-color: #f0f0f0;
+	}
+
+	.image-container img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover; /* Obraz wypełnia kontener */
+	}
+
+	.value-card-title {
+		margin-block: 1rem;
+	}
+</style>
