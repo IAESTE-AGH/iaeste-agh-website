@@ -1,4 +1,47 @@
+![image](https://i.etsystatic.com/42415510/r/il/f4a769/5422445392/il_570xN.5422445392_5t2j.jpg)
+
 # iaeste-agh-website
+
+## [CSS variables](https://www.w3schools.com/css/css3_variables.asp) available
+
+Shadows should be used all together, I will change this so they are a single variable, so use --shadows-default
+
+This is a list of the variables and their respective values, if you want to use the variable use e.g.
+
+```CSS
+.some-class-name {
+color: var(--name-of-the-variable);
+}
+```
+
+```CSS
+  --border: 2px solid rgba(220, 232, 241, 0.5);
+  --borderRadius-default: 24px;
+  --borderRadius-sm: 8px;
+  --borderRadius-md: 16px;
+  --borderRadius-lg: 24px;
+  --spacing-default: 32px;
+  --spacing-xs: 16px;
+  --spacing-sm: 24px;
+  --spacing-md: 32px;
+  --spacing-lg: 48px;
+  --spacing-xl: 96px;
+  --colors-background-primary: #fff;
+  --colors-background-secondary: #fff;
+  --colors-background-accent: rgba(220, 232, 241, 0.5);
+  --colors-accent-primary: #0B3D59;
+  --colors-accent-secondary: #1B75BB;
+  --colors-text-default: #000;
+  --colors-text-contrast: #fff;
+  --colors-text-link: #0B3D59;
+  --colors-text-linkContrast: #fff;
+  --colors-gradients-iaeste_gradient_1: linear-gradient(90deg, #1B75BB, #27A9E1, #49C0B5);
+  --colors-gradients-iaeste_gradient_2: linear-gradient(90deg, #38B449, #8CC63E, #D6DF23);
+  --colors-gradients-iaeste_gradient_3: linear-gradient(90deg, #EF4036, #F05A28, #F7931D);
+  --colors-gradients-iaeste_gradient_4: linear-gradient(90deg, #652C90, #91268F, #D91B5B);
+  --colors-gradients-iaeste_gradient_5: linear-gradient(90deg, #F6F18F, #F7DC3C, #FCB31E);
+  --shadows-default: 43px 89px 28px 0px rgba(163, 163, 163, 0), 28px 57px 25px 0px rgba(163, 163, 163, 0.01), 7px 14px 16px 0px rgba(163, 163, 163, 0.09), 16px 32px 21px 0px rgba(163, 163, 163, 0.05), 2px 4px 9px 0px rgba(163, 163, 163, 0.1);
+```
 
 ## Design pattern
 

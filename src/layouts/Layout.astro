@@ -31,16 +31,25 @@ const lang = getLangFromUrl(Astro.url);
 		Object.entries(theme).reduce((acc, [key, value]) => {
 			// @ts-ignore
 			if (typeof value === 'string') acc[`${key}`] = value;
-			else
-				Object.entries(value).forEach(([k, v]) => {
-					// @ts-ignore
-					if (typeof v === 'string') acc[`${key}-${k}`] = v;
-					else
-						Object.entries(v).forEach(
+			else {
+				if (key === 'shadows') {
+					Object.entries(value).forEach(([k, v]) => {
+						// @ts-ignore
+						acc[`${key}-${k}`] = v.join(', ');
+					});
+				} else {
+					Object.entries(value).forEach(([k, v]) => {
+						// @ts-ignore
+						if (typeof v === 'string') acc[`${key}-${k}`] = v;
+						else
 							// @ts-ignore
-							([kk, vv]) => (acc[`${key}-${k}-${kk}`] = vv)
-						);
-				});
+							Object.entries(v).forEach(
+								// @ts-ignore
+								([kk, vv]) => (acc[`${key}-${k}-${kk}`] = vv)
+							);
+					});
+				}
+			}
 			return acc;
 		}, {})}
 	>
