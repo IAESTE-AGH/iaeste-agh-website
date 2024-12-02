@@ -40,6 +40,7 @@ color: var(--name-of-the-variable);
   --colors-gradients-iaeste_gradient_3: linear-gradient(90deg, #EF4036, #F05A28, #F7931D);
   --colors-gradients-iaeste_gradient_4: linear-gradient(90deg, #652C90, #91268F, #D91B5B);
   --colors-gradients-iaeste_gradient_5: linear-gradient(90deg, #F6F18F, #F7DC3C, #FCB31E);
+  --shadows-default: 43px 89px 28px 0px rgba(163, 163, 163, 0), 28px 57px 25px 0px rgba(163, 163, 163, 0.01), 7px 14px 16px 0px rgba(163, 163, 163, 0.09), 16px 32px 21px 0px rgba(163, 163, 163, 0.05), 2px 4px 9px 0px rgba(163, 163, 163, 0.1);
 ```
 
 ## Design pattern

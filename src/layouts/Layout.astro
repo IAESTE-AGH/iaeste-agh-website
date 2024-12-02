@@ -1,6 +1,6 @@
 ---
-import { theme } from "@/currentTheme";
-import { getLangFromUrl } from "@/i18n/utils";
+import { theme } from '@/currentTheme';
+import { getLangFromUrl } from '@/i18n/utils';
 
 interface Props {
 	title: string;
@@ -30,17 +30,26 @@ const lang = getLangFromUrl(Astro.url);
 		// check the browser's dev tools to see all available variables
 		Object.entries(theme).reduce((acc, [key, value]) => {
 			// @ts-ignore
-			if (typeof value === "string") acc[`${key}`] = value;
-			else
-				Object.entries(value).forEach(([k, v]) => {
-					// @ts-ignore
-					if (typeof v === "string") acc[`${key}-${k}`] = v;
-					else
-						Object.entries(v).forEach(
+			if (typeof value === 'string') acc[`${key}`] = value;
+			else {
+				if (key === 'shadows') {
+					Object.entries(value).forEach(([k, v]) => {
+						// @ts-ignore
+						acc[`${key}-${k}`] = v.join(', ');
+					});
+				} else {
+					Object.entries(value).forEach(([k, v]) => {
+						// @ts-ignore
+						if (typeof v === 'string') acc[`${key}-${k}`] = v;
+						else
 							// @ts-ignore
-							([kk, vv]) => (acc[`${key}-${k}-${kk}`] = vv)
-						);
-				});
+							Object.entries(v).forEach(
+								// @ts-ignore
+								([kk, vv]) => (acc[`${key}-${k}-${kk}`] = vv)
+							);
+					});
+				}
+			}
 			return acc;
 		}, {})}
 	>
@@ -67,16 +76,16 @@ const lang = getLangFromUrl(Astro.url);
 		}
 
 		@font-face {
-			font-family: "League Spartan";
-			src: url("/fonts/LeagueSpartan-VariableFont_wght.ttf")
-				format("truetype-variations");
+			font-family: 'League Spartan';
+			src: url('/fonts/LeagueSpartan-VariableFont_wght.ttf')
+				format('truetype-variations');
 			font-style: normal;
 			font-display: swap;
 		}
 
 		@font-face {
-			font-family: "Libre Baskerville";
-			src: url("/fonts/LibreBaskerville-Italic.ttf") format("truetype");
+			font-family: 'Libre Baskerville';
+			src: url('/fonts/LibreBaskerville-Italic.ttf') format('truetype');
 			font-weight: 400;
 			font-style: italic;
 			font-display: swap;
@@ -150,7 +159,7 @@ const lang = getLangFromUrl(Astro.url);
 		}
 
 		.link:hover::before {
-			content: "";
+			content: '';
 			display: block;
 			position: absolute;
 			top: 50%;
