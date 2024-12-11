@@ -1,3 +1,4 @@
+import type { TranslationKey } from './ui'; // Użyj `type` dla importów typów
 import { ui, defaultLang, showDefaultLang } from './ui';
 
 export function getLangFromUrl(url: URL) {
@@ -7,7 +8,7 @@ export function getLangFromUrl(url: URL) {
 }
 
 export function useTranslations(lang: keyof typeof ui) {
-    return function t(key: keyof (typeof ui)[typeof defaultLang]) {
+    return function t(key: TranslationKey): string {
         return ui[lang][key] || ui[defaultLang][key];
     };
 }
