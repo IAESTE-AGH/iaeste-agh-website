@@ -1,0 +1,11 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
+---
+
+<div class="footer-copyright-section">
+    <p>{t('footer.copyright')}</p>
+</div>

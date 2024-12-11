@@ -1,0 +1,77 @@
+---
+import { Icon } from 'astro-icon/components';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
+---
+
+<div class="footer-section">
+    <h4>{t('footer.documents.title')}</h4>
+    <ul class="footer-list">
+        <li>
+            <a href={t('footer.documents.statute.link')}
+                >{t('footer.documents.statute.title')}</a
+            >
+            <Icon name={'solar:download-minimalistic-outline'} />
+        </li>
+        <li>
+            <a href={t('footer.documents.application.link')}
+                >{t('footer.documents.application.title')}</a
+            >
+            <Icon name={'solar:download-minimalistic-outline'} />
+        </li>
+        <li>
+            <a href={t('footer.documents.nextStatue.link')}
+                >{t('footer.documents.nextStatue.title')}</a
+            >
+            <Icon name={'solar:download-minimalistic-outline'} />
+        </li>
+    </ul>
+    <h4>{t('footer.links.title')}</h4>
+    <ul class="footer-list">
+        <li>
+            <a href={t('footer.links.internship.link')}
+                >{t('footer.links.internship.title')}</a
+            >
+            <Icon name={'solar:arrow-right-up-linear'} />
+        </li>
+        <li>
+            <a href={t('footer.links.form.link')}
+                >{t('footer.links.form.title')}</a
+            >
+            <Icon name={'solar:arrow-right-up-linear'} />
+        </li>
+        <li>
+            <a href={t('footer.links.recrutationForm.link')}
+                >{t('footer.links.recrutationForm.title')}</a
+            >
+            <Icon name={'solar:arrow-right-up-linear'} />
+        </li>
+        <li>
+            <a href={t('footer.links.statue.link')}
+                >{t('footer.links.statue.title')}</a
+            >
+            <Icon name={'solar:arrow-right-up-linear'} />
+        </li>
+    </ul>
+</div>
+
+<style>
+    a {
+        color: var(--colors-text-linkContrast);
+    }
+    .footer-list {
+        list-style-type: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .footer-list li {
+        margin-bottom: 10px;
+    }
+    .footer-section ul {
+        list-style: none;
+    }
+</style>

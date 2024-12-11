@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import IaesteLogo from '@images/iaeste_agh_vertical_logo_1.svg';
+import BoardMemberSection from './BoardMemberSection.astro';
+import InvoiceSection from './InvoiceSection.astro';
+import LocationSection from './LocationSection.astro';
+import InformationLinks from './InformationLinks.astro';
+---
+
+<div class="footer-top">
+    <Image src={IaesteLogo} alt="IAESTE AGH Logo" class="iaeste-logo" />
+    <LocationSection />
+    <InvoiceSection />
+    <InformationLinks />
+    <BoardMemberSection />
+</div>
+
+<style>
+    .footer-top {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+        gap: 20px;
+        text-align: left;
+    }
+</style>

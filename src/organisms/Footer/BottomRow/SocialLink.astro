@@ -1,0 +1,27 @@
+---
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+    link: string;
+    accountName: string;
+    iconName: string;
+}
+const { link, accountName, iconName } = Astro.props;
+---
+
+<div class="social-item">
+    <Icon name={iconName} />
+    <a href={link} target="_blank"> {accountName} </a>
+</div>
+
+<style>
+    a {
+        color: var(--colors-text-linkContrast);
+    }
+    .social-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+</style>

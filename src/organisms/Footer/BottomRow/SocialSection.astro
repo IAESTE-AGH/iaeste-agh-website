@@ -1,0 +1,29 @@
+---
+import SocialLink from './SocialLink.astro';
+---
+
+<div class="footer-social-section">
+    <SocialLink
+        iconName="mdi:facebook"
+        link="https://facebook.com/iaeste.agh"
+        accountName="/iaeste.agh"
+    />
+    <SocialLink
+        iconName="mdi:instagram"
+        link="https://instagram.com/iaeste_agh"
+        accountName="@iaeste_agh"
+    />
+    <SocialLink
+        iconName="mdi:linkedin"
+        link="https://linkedin.com/iaeste-agh"
+        accountName="@iaeste-agh"
+    />
+</div>
+
+<style>
+    .footer-social-section {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+</style>

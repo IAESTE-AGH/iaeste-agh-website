@@ -1,0 +1,19 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
+---
+
+<div class="footer-invoice-section">
+    <h4>{t('footer.invoice.title')}</h4>
+    <p>
+        Stowarzyszenie IAESTE Polska<br />
+        ul. Waryńskiego 6/41<br />
+        00-631 Warszawa<br />
+        KRS: 0000253557<br />
+        NIP: 701-00-27-381<br />
+        REGON: 140496053
+    </p>
+</div>

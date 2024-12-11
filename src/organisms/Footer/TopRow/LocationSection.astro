@@ -1,0 +1,29 @@
+---
+import EmailLink from './EmailLink.astro';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
+---
+
+<div class="footer-location-section">
+    <h4>{t('footer.address.fullname')}</h4>
+    <p>
+        {t('footer.address.correspondence.title')}:<br />
+        {t('footer.address.correspondence.street')},<br />
+        {t('footer.address.correspondence.zipAndCity')}<br />
+        {t('footer.address.headquarters.title')}:<br />
+        {t('footer.address.headquarters.place')},<br />
+        {t('footer.address.headquarters.street')},<br />
+        {t('footer.address.headquarters.zipAndCity')}<br />
+        <EmailLink email="iaeste@agh.edu.pl" />
+        +48 12 617 41 06
+    </p>
+</div>
+
+<style>
+    a {
+        color: var(--colors-text-linkContrast);
+    }
+</style>

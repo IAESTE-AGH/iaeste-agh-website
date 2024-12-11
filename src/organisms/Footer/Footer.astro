@@ -1,0 +1,24 @@
+---
+import { BottomRow } from './BottomRow';
+import { TopRow } from './TopRow';
+---
+
+<footer class="footer">
+    <TopRow />
+    <BottomRow />
+</footer>
+
+<style>
+    footer {
+        border: var(--border);
+        box-shadow: var(--shadows-default);
+        border-radius: var(--borderRadius-default);
+        margin-top: auto;
+        color: var(--colors-text-contrast);
+        padding: 20px;
+        display: grid;
+        grid-template-rows: auto auto;
+        row-gap: 1em;
+        background: var(--colors-accent-primary);
+    }
+</style>

@@ -1,0 +1,24 @@
+---
+import EmailLink from './EmailLink.astro';
+
+export interface Props {
+    title: string;
+    name: string;
+    email: string;
+}
+const { title, name, email } = Astro.props;
+---
+
+<div class="board-member">
+    <div>{title} {name}</div>
+    <EmailLink email={email} />
+</div>
+
+<style>
+    .board-member {
+        margin-bottom: 1em;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+</style>

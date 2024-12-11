@@ -1,0 +1,27 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import BoardMemberLink from './BoardMemberLink.astro';
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
+---
+
+<div class="footer-board-member-section">
+    <h4>{t('footer.boardMemberContact')}</h4>
+    <BoardMemberLink
+        title={t('footer.board.president.title')}
+        name={t('footer.board.president.name')}
+        email={t('footer.board.president.email')}
+    />
+    <BoardMemberLink
+        title={t('footer.board.vicepresident.title')}
+        name={t('footer.board.vicepresident.name')}
+        email={t('footer.board.vicepresident.email')}
+    />
+    <BoardMemberLink
+        title={t('footer.board.treasurer.title')}
+        name={t('footer.board.treasurer.name')}
+        email={t('footer.board.treasurer.email')}
+    />
+</div>
