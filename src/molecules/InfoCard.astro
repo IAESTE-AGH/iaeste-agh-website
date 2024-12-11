@@ -1,0 +1,31 @@
+---
+import { ThemedText } from '@/atoms';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+	imgPath?: string;
+	title?: string;
+	desc?: string;
+}
+
+const { imgPath, title, desc } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+	'/src/assets/*.svg'
+);
+---
+
+<div>
+	{
+		imgPath != undefined && !!images[imgPath] ? (
+			<Image src={images[imgPath]()} alt={'decorative image'} />
+		) : (
+			''
+		)
+	}
+
+	<div>
+		<ThemedText variant="h1" isBold>{title}</ThemedText>
+		<ThemedText variant="h4">{desc}</ThemedText>
+	</div>
+</div>
