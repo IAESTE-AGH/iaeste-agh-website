@@ -6,20 +6,29 @@ export interface Props {
 	title: string;
 	name: string;
 	email: string;
+	phoneNumber: string;
 }
-const { title, name, email } = Astro.props;
+const { title, name, email, phoneNumber } = Astro.props;
 ---
 
 <div class="board-member">
 	<ThemedText>{title}&nbsp;{name}</ThemedText>
-	<ThemedLink href=`mailto:${email}` color="var(--colors-text-contrast)">
-		<Icon name="solar:letter-linear" slot="beforeIcon" />
-		{email}
-	</ThemedLink>
+	<div style="display: flex; flex-direction: column; gap: 8px;">
+		<ThemedLink href=`mailto:${email}` color="var(--colors-text-contrast)">
+			<Icon name="solar:letter-linear" slot="beforeIcon" />
+			{email}
+		</ThemedLink>
+		<ThemedLink
+			href=`tel:${phoneNumber}`
+			color="var(--colors-text-contrast)"
+		>
+			<Icon name="solar:phone-rounded-linear" slot="beforeIcon" />
+			{phoneNumber}
+		</ThemedLink>
+	</div>
 </div>
 <style>
 	.board-member {
-		margin-bottom: 1em;
 		display: flex;
 		flex-direction: column;
 		gap: 4px;
