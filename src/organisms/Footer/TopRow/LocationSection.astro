@@ -9,7 +9,9 @@ const t = useTranslations(lang);
 ---
 
 <div class="footer-location-section">
-	<ThemedText variant="h6">{t('footer.address.fullname')}</ThemedText>
+	<ThemedText variant="h6" color="var(--colors-text-contrast)"
+		>{t('footer.address.fullname')}</ThemedText
+	>
 	<div>
 		<ThemedText>{t('footer.address.correspondence.title')}:</ThemedText>
 		<ThemedText>{t('footer.address.correspondence.street')},</ThemedText>
@@ -24,13 +26,13 @@ const t = useTranslations(lang);
 	<div style="display: flex; gap: 8px; flex-direction: column;">
 		<ThemedLink
 			href="mailto:iaeste@agh.edu.pl"
-			color="var(--colors-text-linkContrast)"
+			color="var(--colors-text-contrastLight)"
 		>
 			<Icon name="solar:letter-linear" slot="beforeIcon" /> iaeste@agh.edu.pl
 		</ThemedLink>
 		<ThemedLink
 			href="tel:+48126174106"
-			color="var(--colors-text-linkContrast)"
+			color="var(--colors-text-contrastLight)"
 		>
 			<Icon name="solar:phone-rounded-linear" slot="beforeIcon" />
 			+48 12 617 41 06
@@ -40,6 +42,7 @@ const t = useTranslations(lang);
 
 <style>
 	.footer-location-section {
+		color: var(--colors-text-contrastLight);
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
