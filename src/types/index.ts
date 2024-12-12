@@ -1,6 +1,7 @@
 import type { Theme } from './theme';
+import type { DocsInfo, LinksInfo } from './footer';
 
-export type { Theme };
+export type { Theme, DocsInfo, LinksInfo };
 
 export interface FontSettings {
     fontFamily: string;
