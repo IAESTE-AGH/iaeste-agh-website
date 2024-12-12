@@ -7,15 +7,24 @@ interface Props {
 	imgPath?: imgPath;
 	title?: string;
 	desc?: string;
+	isBgBlue?: boolean;
+	children?: any;
 }
 type imgPath = keyof typeof images;
-const { imgPath, title, desc } = Astro.props;
+const { imgPath, title, desc, isBgBlue = false } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
 	'/src/assets/*.svg'
 );
 ---
 
-<div class="infoCard">
+<div
+	class="infoCard"
+	style={{
+		backgroundColor: isBgBlue
+			? 'var(--colors-background-accent)'
+			: 'var(--colors-background-primary)',
+	}}
+>
 	{
 		imgPath != undefined ? (
 			<Image src={images[imgPath]()} alt={'decorative image'} />
@@ -24,11 +33,17 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 		)
 	}
 
-	<div style="display: flex; flex-direction: column; gap: 4px;">
-		<div style="width: max-content;">
-			<ThemedText variant="h1" isBold>{title}</ThemedText>
+	<div style="display: flex; flex-direction: column; gap: 8px;">
+		<div style="width: fit-content; max-width: 100%; margin: auto;">
+			<ThemedText variant={isBgBlue ? 'h4' : 'h1'} isBold
+				>{title}</ThemedText
+			>
 		</div>
-		<ThemedText variant="h4">{desc}</ThemedText>
+		<div style="width: fit-content; margin: auto;">
+			<ThemedText variant={isBgBlue ? 'h6' : 'h4'}>{desc}</ThemedText>
+		</div>
+
+		<slot />
 	</div>
 </div>
 
@@ -41,13 +56,17 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 	.infoCard {
 		display: flex;
 		text-align: center;
-		gap: 48px;
+		align-items: center;
+		justify-content: center;
+		gap: 64px;
 		flex-direction: column;
-		width: min-content;
 		padding-block: var(--padding);
+		padding-bottom: var(--spacing-lg);
 		padding-inline: var(--spacing-lg);
 		border: var(--border);
 		box-shadow: var(--shadows-default);
 		border-radius: var(--borderRadius-default);
+		height: 100%;
+		width: 100%;
 	}
 </style>
