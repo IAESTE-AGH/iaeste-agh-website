@@ -1,23 +1,15 @@
 ---
 import type { Color, TextVariant } from '@/types';
-import type { HTMLAttributes, HTMLTag } from 'astro/types';
+import type { HTMLTag } from 'astro/types';
 
 type Props = {
 	color?: Color;
-	beforeIcon?: HTMLElement;
-	afterIcon?: HTMLElement;
-	children: string;
+	children: string | string[] | HTMLElement | HTMLElement[];
 	isBold?: boolean;
 	variant?: TextVariant;
 };
 
-const {
-	color,
-	variant = 'body',
-	beforeIcon,
-	afterIcon,
-	isBold = false,
-} = Astro.props;
+const { color, variant = 'body', isBold = false } = Astro.props;
 
 var Element: HTMLTag = 'p';
 switch (variant) {
@@ -41,6 +33,7 @@ switch (variant) {
 		Element = 'h6';
 		break;
 	case 'body':
+		Element = 'p';
 		break;
 	case 'link':
 		Element = 'span';
@@ -51,8 +44,20 @@ switch (variant) {
 }
 ---
 
-<Element class:list={[variant, { bold: isBold }]} style={{ color: color }}>
-	{beforeIcon}
+<Element
+	class:list={[variant, { bold: isBold }, 'oneLine']}
+	style={{ color: color }}
+>
+	<slot name="beforeIcon" />
 	<slot />
-	{afterIcon}
+	<slot name="afterIcon" />
 </Element>
+
+<style>
+	.oneLine {
+		display: flex;
+		flex-direction: row;
+		gap: 4px;
+		align-items: top;
+	}
+</style>

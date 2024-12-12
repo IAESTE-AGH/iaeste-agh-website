@@ -1,8 +1,8 @@
 ---
 import {
-	getLangFromUrl,
-	useTranslations,
-	useTranslatedPath,
+    getLangFromUrl,
+    useTranslations,
+    useTranslatedPath,
 } from '../i18n/utils';
 
 import { ThemedLink } from '@/atoms';
@@ -13,43 +13,39 @@ const translatePath = useTranslatedPath(lang);
 ---
 
 <style>
-	#logo {
-		width: 160px;
-	}
-	#navbar {
-		border: var(--border);
-		box-shadow: var(--shadows-default);
-		border-radius: var(--borderRadius-default);
-		color: var(--colors-accent-primary);
-		padding: 24px 64px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		background-color: var(--colors-background-primary);
-	}
-	#links {
-		display: flex;
-		gap: 24px;
-		align-items: center;
-		white-space: nowrap;
-	}
-
-	#links li {
-		list-style-type: none;
-	}
+    #logo {
+        width: 160px;
+    }
+    #navbar {
+        border: var(--border);
+        box-shadow: var(--shadows-default);
+        border-radius: var(--borderRadius-default);
+        color: var(--colors-accent-primary);
+        padding: 24px 64px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--colors-background-primary);
+    }
+    #links {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        white-space: nowrap;
+    }
 </style>
 
 <nav id="navbar">
-	<img id="logo" src="/images/IAESTE_AGH_Horizontal.png" />
-	<div id="links">
-		<ThemedLink href={translatePath('#wymiana')}>
-			{t('nav.exchange')}
-		</ThemedLink>
-		<ThemedLink href={translatePath('/dla-firm')}>
-			{t('nav.forCompanies')}
-		</ThemedLink>
-		<ThemedLink href={translatePath('/kontakt')}>
-			{t('nav.contact')}
-		</ThemedLink>
-	</div>
+    <img id="logo" src="/images/IAESTE_AGH_Horizontal.png" />
+    <div id="links">
+        <ThemedLink href={translatePath('#wymiana')}>
+            {t('nav.exchange')}
+        </ThemedLink>
+        <ThemedLink href={translatePath('/dla-firm')}>
+            {t('nav.forCompanies')}
+        </ThemedLink>
+        <ThemedLink href={translatePath('/kontakt')}>
+            {t('nav.contact')}
+        </ThemedLink>
+    </div>
 </nav>

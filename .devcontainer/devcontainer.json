@@ -12,5 +12,6 @@
                 "esbenp.prettier-vscode"
             ]
         }
-    }
+    },
+    "runArgs": ["--name", "iaeste-agh-website"]
 }

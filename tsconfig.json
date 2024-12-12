@@ -15,6 +15,7 @@
             "@data/*": ["src/data/*"],
             "@types/*": ["src/types/*"],
             "@utils/*": ["src/utils/*"],
+            "@images/*": ["src/images/*"],
             "@i18n": ["src/i18n/*"]
         }
     }

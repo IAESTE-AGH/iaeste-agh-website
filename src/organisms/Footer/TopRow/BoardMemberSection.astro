@@ -1,0 +1,40 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import BoardMemberLink from './BoardMemberLink.astro';
+import { ThemedText } from '@/atoms';
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
+---
+
+<div class="footer-board-member-section">
+	<ThemedText isBold color="var(--colors-text-contrast)"
+		>{t('footer.boardMemberContact')}</ThemedText
+	>
+	<BoardMemberLink
+		title={t('footer.board.president.title')}
+		name={t('footer.board.president.name')}
+		email={t('footer.board.president.email')}
+		phoneNumber="+48 12 617 41 06"
+	/>
+	<BoardMemberLink
+		title={t('footer.board.vicepresident.title')}
+		name={t('footer.board.vicepresident.name')}
+		email={t('footer.board.vicepresident.email')}
+		phoneNumber="+48 12 617 41 06"
+	/>
+	<BoardMemberLink
+		title={t('footer.board.treasurer.title')}
+		name={t('footer.board.treasurer.name')}
+		email={t('footer.board.treasurer.email')}
+		phoneNumber="+48 12 617 41 06"
+	/>
+</div>
+<style>
+	.footer-board-member-section {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+</style>
