@@ -3,7 +3,7 @@ export const supportedLanguages = {
     pl: 'Polski',
 };
 
-export const defaultLang: keyof typeof supportedLanguages = 'en';
+export const defaultLang: keyof typeof supportedLanguages = 'pl';
 
 export const ui = {
     pl: {
