@@ -26,15 +26,16 @@ color: var(--name-of-the-variable);
   --spacing-md: 32px;
   --spacing-lg: 48px;
   --spacing-xl: 96px;
-  --colors-background-primary: #fff;
-  --colors-background-secondary: #fff;
+  --colors-background-primary: #ffffff;
+  --colors-background-secondary: #ffffff;
   --colors-background-accent: rgba(220, 232, 241, 0.5);
   --colors-accent-primary: #0B3D59;
   --colors-accent-secondary: #1B75BB;
-  --colors-text-default: #000;
-  --colors-text-contrast: #fff;
+  --colors-text-default: #000000;
+  --colors-text-contrast: #FFFFFF;
+  --colors-text-contrastLight: #DCE8F1;
   --colors-text-link: #0B3D59;
-  --colors-text-linkContrast: #fff;
+  --colors-text-linkContrast: #ffffff;
   --colors-gradients-iaeste_gradient_1: linear-gradient(90deg, #1B75BB, #27A9E1, #49C0B5);
   --colors-gradients-iaeste_gradient_2: linear-gradient(90deg, #38B449, #8CC63E, #D6DF23);
   --colors-gradients-iaeste_gradient_3: linear-gradient(90deg, #EF4036, #F05A28, #F7931D);
@@ -55,9 +56,9 @@ This project can be easily set up using **Docker** and **Dev Containers** in **V
 
 Make sure you have the following installed on your system:
 
--   [Docker](https://www.docker.com/products/docker-desktop) (version 27.3.1 or later)
--   [Visual Studio Code](https://code.visualstudio.com/) (version 1.95 or later)
--   [Dev Containers extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+- [Docker](https://www.docker.com/products/docker-desktop) (version 27.3.1 or later)
+- [Visual Studio Code](https://code.visualstudio.com/) (version 1.95 or later)
+- [Dev Containers extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ## Using Dev Containers in VS Code
 
@@ -86,13 +87,13 @@ You can now run the application as you would locally. For example, if this is a 
 
 ## Additional Configuration
 
--   **Port Forwarding**: Ensure the correct ports are specified in `devcontainer.json` for port forwarding.
--   **Environment Variables**: You can add environment variables in `.devcontainer/devcontainer.json` under the `"containerEnv"` property
+- **Port Forwarding**: Ensure the correct ports are specified in `devcontainer.json` for port forwarding.
+- **Environment Variables**: You can add environment variables in `.devcontainer/devcontainer.json` under the `"containerEnv"` property
 
 ## Troubleshooting
 
 If you encounter issues with Dev Containers or Docker setup:
 
--   Make sure Docker is running and you have access to Docker CLI.
--   Restart Visual Studio Code and try **Reopen in Container** again.
--   Check the logs in the **Dev Containers** output for more detailed error messages.
+- Make sure Docker is running and you have access to Docker CLI.
+- Restart Visual Studio Code and try **Reopen in Container** again.
+- Check the logs in the **Dev Containers** output for more detailed error messages.
