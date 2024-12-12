@@ -14,8 +14,17 @@ type Props = {
 const { href, asButton = false, isBold, variant, color } = Astro.props;
 ---
 
-<a href={href} class:list={[{ button: asButton }, { link: !asButton }]}>
-	<ThemedText variant={variant} isBold={isBold} color={color}>
+<a
+	href={href}
+	target={href.startsWith('http') ? '_blank' : '_self'}
+	class:list={[{ button: asButton }, { link: !asButton }]}
+>
+	<ThemedText
+		variant={variant}
+		isBold={isBold}
+		color={color}
+		isCentered={asButton}
+	>
 		<slot name="beforeIcon" slot="beforeIcon" />
 		<slot />
 		<slot name="afterIcon" slot="afterIcon" />
