@@ -1,9 +1,8 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
-import DownloadLink from './DownloadLink.astro';
 import type { DocsInfo, LinksInfo } from '@/types';
-import { ThemedLink, ThemedText } from '@/atoms';
+import { ThemedLink, ThemedText, DownloadLink } from '@/atoms';
 
 const url = new URL(Astro.request.url);
 const lang = getLangFromUrl(url);
