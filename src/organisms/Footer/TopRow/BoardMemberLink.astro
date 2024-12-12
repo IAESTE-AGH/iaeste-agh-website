@@ -1,24 +1,27 @@
 ---
-import EmailLink from './EmailLink.astro';
+import { ThemedLink, ThemedText } from '@/atoms';
+import { Icon } from 'astro-icon/components';
 
 export interface Props {
-    title: string;
-    name: string;
-    email: string;
+	title: string;
+	name: string;
+	email: string;
 }
 const { title, name, email } = Astro.props;
 ---
 
 <div class="board-member">
-    <div>{title} {name}</div>
-    <EmailLink email={email} />
+	<ThemedText>{title}&nbsp;{name}</ThemedText>
+	<ThemedLink href=`mailto:${email}` color="var(--colors-text-contrast)">
+		<Icon name="solar:letter-linear" slot="beforeIcon" />
+		{email}
+	</ThemedLink>
 </div>
-
 <style>
-    .board-member {
-        margin-bottom: 1em;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
+	.board-member {
+		margin-bottom: 1em;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
 </style>
