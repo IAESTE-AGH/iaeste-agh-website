@@ -1,4 +1,5 @@
 ---
+import { ThemedText } from '@/atoms';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 const url = new URL(Astro.request.url);
@@ -7,13 +8,14 @@ const t = useTranslations(lang);
 ---
 
 <div class="footer-invoice-section">
-    <h4>{t('footer.invoice.title')}</h4>
-    <p>
-        Stowarzyszenie IAESTE Polska<br />
-        ul. Waryńskiego 6/41<br />
-        00-631 Warszawa<br />
-        KRS: 0000253557<br />
-        NIP: 701-00-27-381<br />
-        REGON: 140496053
-    </p>
+	<ThemedText isBold color="var(--colors-text-contrast)">
+		{t('footer.invoice.title')}
+	</ThemedText>
+
+	<ThemedText>Stowarzyszenie IAESTE Polska</ThemedText>
+	<ThemedText>ul. Waryńskiego 6/41</ThemedText>
+	<ThemedText>00-631 Warszawa</ThemedText>
+	<ThemedText>KRS: 0000253557</ThemedText>
+	<ThemedText>NIP: 701-00-27-381</ThemedText>
+	<ThemedText>REGON: 140496053</ThemedText>
 </div>
