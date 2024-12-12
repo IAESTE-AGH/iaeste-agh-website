@@ -113,7 +113,7 @@ export function createDefaultTheme(): Theme {
             text: {
                 default: black,
                 contrast: white,
-                contrastLight: light_blue_50,
+                contrastLight: '#dce8f1',
                 link: IAESTE_Blue,
                 linkContrast: white,
             },
