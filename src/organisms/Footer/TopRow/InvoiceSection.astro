@@ -11,11 +11,20 @@ const t = useTranslations(lang);
 	<ThemedText isBold color="var(--colors-text-contrast)">
 		{t('footer.invoice.title')}
 	</ThemedText>
-
-	<ThemedText>Stowarzyszenie IAESTE Polska</ThemedText>
-	<ThemedText>ul. Waryńskiego 6/41</ThemedText>
-	<ThemedText>00-631 Warszawa</ThemedText>
-	<ThemedText>KRS: 0000253557</ThemedText>
-	<ThemedText>NIP: 701-00-27-381</ThemedText>
-	<ThemedText>REGON: 140496053</ThemedText>
+	<div>
+		<ThemedText>Stowarzyszenie IAESTE Polska</ThemedText>
+		<ThemedText>ul. Waryńskiego 6/41</ThemedText>
+		<ThemedText>00-631 Warszawa</ThemedText>
+		<ThemedText>KRS: 0000253557</ThemedText>
+		<ThemedText>NIP: 701-00-27-381</ThemedText>
+		<ThemedText>REGON: 140496053</ThemedText>
+	</div>
 </div>
+
+<style>
+	.footer-invoice-section {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+</style>
