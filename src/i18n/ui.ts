@@ -10,12 +10,25 @@ export const ui = {
         'nav.exchange': 'Wymiana',
         'nav.forCompanies': 'Dla firm',
         'nav.contact': 'Kontakt',
+
+        'section.ourValues': 'Nasze wartości',
+        'section.visitNewPlaces': 'Odwiedź z nami nowe miejsca!',
+
         'values.trust': 'Zaufanie',
         'values.growth': 'Rozwój',
         'values.commitment': 'Aktywność',
         'values.friendship': 'Przyjaźń',
         'values.diversity': 'Różnorodność',
-        'section.ourValues': 'Nasze wartości',
+
+        'newPlaces.happyStudents': 'Zadowolonych studentów',
+        'newPlaces.sentStudents': 'Przyjętych i wysłanych studentów rocznie',
+        'newPlaces.countries': 'Krajów partnerskich',
+        'newPlaces.internships': 'Płatnych praktyk dostępnych co roku',
+        'newPlaces.info.title': 'Chcesz dowiedzieć się więcej o wymianie?',
+        'newPlaces.info.text':
+            'Zapraszamy cię na stronę główną IAESTE Polska, tam dowiesz się wszystkiego o praktykach.',
+        'newPlaces.info.button': 'Odwiedź stronę IAESTE Polska',
+
         'footer.copyright':
             '© 2024 Komitet Lokalny IAESTE AGH | Stworzone przez IAESTE AGH',
         'footer.boardMemberContact': 'Kontakt do zarządu KL IAESTE AGH',
@@ -58,12 +71,25 @@ export const ui = {
         'nav.exchange': 'Exchange',
         'nav.forCompanies': 'For companies',
         'nav.contact': 'Contact',
+
+        'section.ourValues': 'Our Values',
+        'section.visitNewPlaces': 'Visit new places with us!',
+
         'values.trust': 'Trust',
         'values.growth': 'Growth',
         'values.commitment': 'Commitment',
         'values.friendship': 'Friendship',
         'values.diversity': 'Diversity',
-        'section.ourValues': 'Our Values',
+
+        'newPlaces.happyStudents': 'Happy students',
+        'newPlaces.sentStudents': 'Students sent and received annually',
+        'newPlaces.countries': 'Partner countries',
+        'newPlaces.internships': 'Paid internships available annually',
+        'newPlaces.info.title': "Want to learn more about students' exchange?",
+        'newPlaces.info.text':
+            'Visit IAESTE Poland to find out more about internships.',
+        'newPlaces.info.button': 'Visit IAESTE Poland',
+
         'footer.copyright':
             '© 2024 Local committee IAESTE AGH | By IAESTE AGH',
         'footer.boardMemberContact': 'KL IAESTE AGH Board',
