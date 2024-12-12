@@ -1,4 +1,5 @@
 ---
+import { ThemedText } from '@/atoms';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 const url = new URL(Astro.request.url);
@@ -7,5 +8,5 @@ const t = useTranslations(lang);
 ---
 
 <div class="footer-copyright-section">
-    <p>{t('footer.copyright')}</p>
+	<ThemedText>{t('footer.copyright')}</ThemedText>
 </div>
