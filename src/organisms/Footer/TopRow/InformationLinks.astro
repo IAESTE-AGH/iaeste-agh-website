@@ -1,0 +1,100 @@
+---
+import { Icon } from 'astro-icon/components';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import type { DocsInfo, LinksInfo } from '@/types';
+import { ThemedLink, ThemedText, DownloadLink } from '@/atoms';
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
+
+const DOCUMENTS: DocsInfo[] = [
+	{
+		text: t('footer.documents.statute.title'),
+		href: t('footer.documents.statute.link'),
+	},
+	{
+		text: t('footer.documents.application.title'),
+		href: t('footer.documents.application.link'),
+	},
+	{
+		text: t('footer.documents.nextStatue.title'),
+		href: t('footer.documents.nextStatue.link'),
+	},
+];
+const DOWNLOADS: LinksInfo[] = [
+	{
+		text: t('footer.links.internship.title'),
+		href: t('footer.links.internship.link'),
+	},
+	{
+		text: t('footer.links.form.title'),
+		href: t('footer.links.form.link'),
+	},
+	{
+		text: t('footer.links.recrutationForm.title'),
+		href: t('footer.links.recrutationForm.link'),
+	},
+	{
+		text: t('footer.links.statue.title'),
+		href: t('footer.links.statue.link'),
+	},
+];
+---
+
+<div class="footer-section">
+	<ThemedText isBold color="var(--colors-text-contrast)">
+		{t('footer.documents.title')}
+	</ThemedText>
+	<ul class="footer-list">
+		{
+			DOWNLOADS.map(link => (
+				<li>
+					<DownloadLink
+						href={link.href}
+						color="var(--colors-text-linkContrast)"
+					>
+						{link.text}
+					</DownloadLink>
+				</li>
+			))
+		}
+	</ul>
+	<div></div>
+	<ThemedText isBold color="var(--colors-text-contrast)">
+		{t('footer.links.title')}
+	</ThemedText>
+	<ul class="footer-list">
+		{
+			DOCUMENTS.map(doc => (
+				<li>
+					<ThemedLink
+						href={doc.href}
+						color="var(--colors-text-linkContrast)"
+					>
+						{doc.text}
+						<Icon
+							name={'solar:arrow-right-up-linear'}
+							slot="afterIcon"
+						/>
+					</ThemedLink>
+				</li>
+			))
+		}
+	</ul>
+</div>
+
+<style>
+	.footer-section {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.footer-section ul {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+</style>

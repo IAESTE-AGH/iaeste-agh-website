@@ -8,6 +8,7 @@ export default defineConfig({
         icon({
             include: {
                 solar: ['*'],
+                mdi: ['*'],
             },
         }),
     ],

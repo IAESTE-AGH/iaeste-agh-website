@@ -42,17 +42,8 @@ export const ui = {
         'values.commitment': 'Commitment',
         'values.friendship': 'Friendship',
         'values.diversity': 'Diversity',
-
-        'newPlaces.happyStudents': 'Happy students',
-        'newPlaces.sentStudents': 'Students sent and accepted annually',
-        'newPlaces.countries': 'Partner countries',
-        'newPlaces.internships': 'Paid internships available annually',
-        'newPlaces.info.title': 'Want to learn more about exchange?',
-        'newPlaces.info.text':
-            'Visit IAETSE Poland to learn everything about internships.',
-        'newPlaces.info.button': 'Visit IAESTE Poland',
     },
 } as const;
 
-export type TranslationKey = keyof (typeof ui)[typeof defaultLang]; // Typowanie wszystkich kluczy tłumaczeń
+export type TranslationKey = keyof (typeof ui)[typeof defaultLang];
 export const showDefaultLang = false;

@@ -38,6 +38,7 @@ export interface Theme {
         text: {
             default: Color;
             contrast: Color;
+            contrastLight: Color;
             link: Color;
             linkContrast: Color;
         };

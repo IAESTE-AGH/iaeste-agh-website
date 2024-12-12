@@ -1,55 +1,38 @@
 ---
-import { ThemedText } from '@/atoms';
+import { ThemedSection, ThemedText } from '@/atoms';
 import ValueCard from '../molecules/ValueCard.astro';
-import { useTranslations, getLangFromUrl } from '../i18n/utils.ts';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 const url = new URL(Astro.request.url);
 const lang = getLangFromUrl(url);
 const t = useTranslations(lang);
 
 const values = [
-	{ title: t('values.trust'), imageSrc: '/krowa.jpg' },
-	{ title: t('values.growth'), imageSrc: '/krowa.jpg' },
-	{ title: t('values.commitment'), imageSrc: '/krowa.jpg' },
-	{ title: t('values.friendship'), imageSrc: '/krowa.jpg' },
-	{ title: t('values.diversity'), imageSrc: '/krowa.jpg' },
+    { title: t('values.trust'), imageSrc: '/krowa.jpg' },
+    { title: t('values.growth'), imageSrc: '/krowa.jpg' },
+    { title: t('values.commitment'), imageSrc: '/krowa.jpg' },
+    { title: t('values.friendship'), imageSrc: '/krowa.jpg' },
+    { title: t('values.diversity'), imageSrc: '/krowa.jpg' },
 ];
 ---
 
-<section class="our-values">
-	<div class="section-title">
-		<ThemedText variant="h1" isBold>{t('section.ourValues')}</ThemedText>
-	</div>
-	<div class="values-grid">
-		{
-			values.map(value => (
-				<ValueCard title={value.title} imageSrc={value.imageSrc} />
-			))
-		}
-	</div>
-</section>
+<ThemedSection title={t('section.ourValues')}>
+    <div class="values-grid">
+        {
+            values.map(value => (
+                <ValueCard title={value.title} imageSrc={value.imageSrc} />
+            ))
+        }
+    </div>
+</ThemedSection>
 
 <style>
-	.our-values {
-		padding-block: var(--spacing-xl);
-		padding-inline: var(--spacing-lg);
-		background-color: var(--colors-background-primary);
-		border-radius: var(--borderRadius-default);
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-	}
-
-	.section-title {
-		display: flex; /* Pozwala na precyzyjne wyrównanie */
-		text-align: left;
-		margin-bottom: 2rem;
-	}
-
-	.values-grid {
-		display: grid;
-		grid-template-columns: repeat(
-			auto-fit,
-			minmax(250px, 1fr)
-		); /* Większe karty */
-		gap: var(--spacing-md); /* Stałe odstępy między kartami */
-	}
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(250px, 1fr)
+        ); /* Większe karty */
+        gap: var(--spacing-md); /* Stałe odstępy między kartami */
+    }
 </style>
