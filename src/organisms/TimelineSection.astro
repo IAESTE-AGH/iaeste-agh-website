@@ -1,0 +1,12 @@
+---
+import { ThemedSection } from '@/atoms';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
+---
+
+<ThemedSection title={t('section.timeline')}>
+    <div></div>
+</ThemedSection>
