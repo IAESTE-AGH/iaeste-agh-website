@@ -13,12 +13,18 @@ export const ui = {
 
         'section.ourValues': 'Nasze wartości',
         'section.visitNewPlaces': 'Odwiedź z nami nowe miejsca!',
+        'section.timeline': 'Zanurz się w ciekawe projekty!',
 
         'values.trust': 'Zaufanie',
         'values.growth': 'Rozwój',
         'values.commitment': 'Aktywność',
         'values.friendship': 'Przyjaźń',
         'values.diversity': 'Różnorodność',
+
+        'timeline.spring': 'Wiosna',
+        'timeline.summer': 'Lato',
+        'timeline.autumn': 'Jesień',
+        'timeline.winter': 'Zima',
 
         'newPlaces.happyStudents': 'Zadowolonych studentów',
         'newPlaces.sentStudents': 'Przyjętych i wysłanych studentów rocznie',
@@ -74,12 +80,18 @@ export const ui = {
 
         'section.ourValues': 'Our Values',
         'section.visitNewPlaces': 'Visit new places with us!',
+        'section.timeline': 'Immerse yourself in interesting projects!',
 
         'values.trust': 'Trust',
         'values.growth': 'Growth',
         'values.commitment': 'Commitment',
         'values.friendship': 'Friendship',
         'values.diversity': 'Diversity',
+
+        'timeline.spring': 'Spring',
+        'timeline.summer': 'Summer',
+        'timeline.autumn': 'Autumn',
+        'timeline.winter': 'Winter',
 
         'newPlaces.happyStudents': 'Happy students',
         'newPlaces.sentStudents': 'Students sent and received annually',
