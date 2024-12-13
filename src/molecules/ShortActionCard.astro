@@ -1,16 +1,78 @@
 ---
-import { ThemedText } from '@/atoms';
+import { ThemedLink, ThemedText } from '@/atoms';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 
 interface Props {
     imgPath: string;
     title: string;
     text: string;
-    informative: boolean;
+    informative?: boolean;
 }
+
+const { imgPath, title, text, informative = false } = Astro.props;
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    '/src/assets/*.{jpg, png}'
+);
 ---
 
-<div>
-    <Image />
-    <ThemedText />
+<div
+    class="short-action-card-wrapper"
+    style={{
+        backgroundColor: informative
+            ? 'var(--colors-background-accent)'
+            : 'var(--colors-background-primary)',
+    }}
+>
+    <Image src={images[imgPath]()} alt={'Decorative'} class="image" />
+    <div class="wrapper">
+        <ThemedText variant="h6" bold>{title}</ThemedText>
+        <ThemedText>{text}</ThemedText>
+        <div style="display: flex; justify-content: end; margin-top: auto;">
+            <ThemedLink href="#" button={informative}>
+                {
+                    t(
+                        informative
+                            ? 'timeline.learnMoreLink'
+                            : 'timeline.learnMore'
+                    )
+                }
+                <Icon name={'solar:arrow-right-up-linear'} slot="afterIcon" />
+            </ThemedLink>
+        </div>
+    </div>
 </div>
+
+<style>
+    .image {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+    }
+
+    .short-action-card-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        border: var(--border);
+        border-radius: var(--borderRadius-md);
+        overflow: hidden;
+        max-width: 35ch;
+        width: 30ch;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding-inline: var(--spacing-xs);
+        padding-bottom: var(--spacing-xs);
+        height: 100%;
+    }
+</style>

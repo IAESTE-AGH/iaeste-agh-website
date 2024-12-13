@@ -1,6 +1,7 @@
 ---
 import { ThemedSection } from '@/atoms';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { ShortActionCard } from '@/molecules';
 
 const url = new URL(Astro.request.url);
 const lang = getLangFromUrl(url);
@@ -8,5 +9,32 @@ const t = useTranslations(lang);
 ---
 
 <ThemedSection title={t('section.timeline')}>
-    <div></div>
+    <div class="timeline-wrapper">
+        <div class="timeline-track">
+            <ShortActionCard
+                imgPath="/src/assets/krowa.jpg"
+                title="IAESTE CaseWeek"
+                text="Lorem*30"
+            />
+            <ShortActionCard
+                imgPath="/src/assets/krowa.jpg"
+                title="IAESTE CaseWeek"
+                text="Lorem*30"
+                informative
+            />
+        </div>
+    </div>
 </ThemedSection>
+
+<style>
+    .timeline-wrapper {
+        width: 100%;
+        overflow-x: scroll;
+    }
+
+    .timeline-track {
+        display: flex;
+        gap: var(--spacing-sm);
+        padding-bottom: 20px;
+    }
+</style>
