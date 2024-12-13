@@ -25,6 +25,8 @@ export const ui = {
         'timeline.summer': 'Lato',
         'timeline.autumn': 'Jesień',
         'timeline.winter': 'Zima',
+        'timeline.learnMore': 'Więcej o projekcie',
+        'timeline.learnMoreLink': 'Dołącz do nas',
 
         'newPlaces.happyStudents': 'Zadowolonych studentów',
         'newPlaces.sentStudents': 'Przyjętych i wysłanych studentów rocznie',
