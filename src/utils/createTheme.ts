@@ -80,7 +80,7 @@ export function createDefaultTheme(): Theme {
     const fontFamily = 'League Spartan, sans-serif';
     const fontWeights = {
         regular: 400,
-        bold: 700,
+        bold: 600,
     };
 
     return {
