@@ -1,0 +1,19 @@
+---
+import ContactCard from '@/molecules/ContactCard.astro';
+import { ThemedText } from '@/atoms';
+
+const contacts = [
+    {
+        name: 'Imię i Nazwisko',
+        phone: '+48 123 456 789',
+        email: 'imie.nazwisko@iaeste.pl',
+    },
+];
+---
+
+<section>
+    <ThemedText>Kontakt </ThemedText>
+    <div style="display: flex; gap: 1rem;">
+        {contacts.map(contact => <ContactCard {...contact} />)}
+    </div>
+</section>
