@@ -44,7 +44,9 @@ const translatePath = useTranslatedPath(lang);
 </style>
 
 <nav id="navbar">
-	<img id="logo" src="/images/IAESTE_AGH_Horizontal.png" />
+	<a href={translatePath('/')}>
+		<img id="logo" src="/images/IAESTE_AGH_Horizontal.png" />
+	</a>
 	<div id="links">
 		<ThemedLink href={translatePath('#wymiana')}>
 			{t('nav.exchange')}
