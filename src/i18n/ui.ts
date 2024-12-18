@@ -13,6 +13,7 @@ export const ui = {
 
         'section.ourValues': 'Nasze wartości',
         'section.visitNewPlaces': 'Odwiedź z nami nowe miejsca!',
+        'section.partners': 'Oni nam zaufali, teraz kolej na Ciebie!',
 
         'values.trust': 'Zaufanie',
         'values.growth': 'Rozwój',
@@ -74,6 +75,7 @@ export const ui = {
 
         'section.ourValues': 'Our Values',
         'section.visitNewPlaces': 'Visit new places with us!',
+        'section.partners': 'They trusted us, now it is your turn!',
 
         'values.trust': 'Trust',
         'values.growth': 'Growth',

@@ -1,13 +1,16 @@
 ---
 import Navigation from '@/molecules/Navigation.astro';
 import Layout from '@/layouts/Layout.astro';
-import { InfoCard } from '@/molecules';
-import NewPlacesSection from '@/organisms/NewPlacesSection.astro';
-import { OurValuesSection } from '@/organisms';
+import {
+	OurValuesSection,
+	PartnersSection,
+	NewPlacesSection,
+} from '@/organisms';
 ---
 
 <Layout title="Strona Główna">
-    <Navigation />
-    <OurValuesSection />
-    <NewPlacesSection />
+	<Navigation />
+	<OurValuesSection />
+	<NewPlacesSection />
+	<PartnersSection />
 </Layout>
