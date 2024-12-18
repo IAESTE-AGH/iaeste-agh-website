@@ -64,6 +64,13 @@ const lang = getLangFromUrl(Astro.url);
 			font-weight: 400;
 		}
 
+		body {
+			display: flex;
+			flex-direction: column;
+			padding: var(--spacing-md);
+			gap: var(--spacing-md);
+		}
+
 		html {
 			font-family: system-ui, sans-serif;
 			background: var(--colors-background-primary);
