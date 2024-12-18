@@ -1,36 +1,20 @@
 ---
 import { ThemedLink, ThemedText } from '@/atoms';
+import { ContactCard } from '@/molecules';
 import { Icon } from 'astro-icon/components';
 
 export interface Props {
 	title: string;
 	name: string;
 	email: string;
-	phoneNumber: string;
+	phoneNumber?: string;
 }
 const { title, name, email, phoneNumber } = Astro.props;
 ---
 
-<div class="board-member">
-	<ThemedText>{title}&nbsp;{name}</ThemedText>
-	<div style="display: flex; flex-direction: column; gap: 8px;">
-		<ThemedLink href=`mailto:${email}` color="var(--colors-text-contrast)">
-			<Icon name="solar:letter-linear" slot="beforeIcon" />
-			{email}
-		</ThemedLink>
-		<ThemedLink
-			href=`tel:${phoneNumber}`
-			color="var(--colors-text-contrast)"
-		>
-			<Icon name="solar:phone-rounded-linear" slot="beforeIcon" />
-			{phoneNumber}
-		</ThemedLink>
-	</div>
-</div>
-<style>
-	.board-member {
-		display: flex;
-		flex-direction: column;
-		gap: 4px;
-	}
-</style>
+<ContactCard
+	name=`${title} ${name}`
+	email={email}
+	phone={phoneNumber}
+	linkColor="var(--colors-text-contrast)"
+/>
