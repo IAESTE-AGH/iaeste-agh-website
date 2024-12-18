@@ -1,6 +1,7 @@
 ---
 import { theme } from '@/currentTheme';
 import { getLangFromUrl } from '@/i18n/utils';
+import { Navigation } from '@/molecules';
 import { Footer } from '@/organisms';
 
 interface Props {
@@ -22,6 +23,7 @@ const lang = getLangFromUrl(Astro.url);
 		<title>{title}</title>
 	</head>
 	<body>
+		<Navigation />
 		<slot />
 		<Footer />
 	</body>
