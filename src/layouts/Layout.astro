@@ -150,16 +150,17 @@ const lang = getLangFromUrl(Astro.url);
 			font-family: var(--typography-link-fontFamily);
 			font-size: var(--typography-link-fontSize);
 			line-height: var(--typography-link-lineHeight);
-			text-decoration: var(--typography-link-textDecoration);
 			display: block;
 			width: fit-content;
 			position: relative;
 			color: var(--colors-text-link);
 			z-index: 0;
+			text-decoration: none;
 		}
 
 		.link:hover {
 			color: var(--colors-text-link);
+			text-decoration: var(--typography-link-textDecoration);
 		}
 
 		.link:hover::before {

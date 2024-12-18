@@ -25,9 +25,13 @@ const { href, asButton = false, isBold, variant, color } = Astro.props;
 		color={color}
 		isCentered={asButton}
 	>
-		<slot name="beforeIcon" slot="beforeIcon" />
+		<span style="padding-top: 2px;">
+			<slot name="beforeIcon" slot="beforeIcon" />
+		</span>
 		<slot />
-		<slot name="afterIcon" slot="afterIcon" />
+		<span style="padding-top: 2px;">
+			<slot name="afterIcon" slot="afterIcon" />
+		</span>
 	</ThemedText>
 </a>
 
