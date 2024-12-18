@@ -1,27 +1,29 @@
 ---
 import { ThemedText, ThemedLink } from '@/atoms';
+import type { Color } from '@/types';
 import { Icon } from 'astro-icon/components';
 
 export interface Props {
 	name: string;
 	phone?: string;
 	email: string;
+	linkColor?: Color;
 }
 
-const { name, phone, email } = Astro.props;
+const { name, phone, email, linkColor } = Astro.props;
 ---
 
 <div style="display: flex; flex-direction: column; gap: 8px;">
 	<ThemedText>{name}</ThemedText>
 	{
 		phone && (
-			<ThemedLink href={`tel:${phone}`} color="#0B3D59">
+			<ThemedLink href={`tel:${phone}`} color={linkColor || '#0B3D59'}>
 				<Icon name="solar:phone-rounded-linear" slot="beforeIcon" />
 				{phone}
 			</ThemedLink>
 		)
 	}
-	<ThemedLink href={`mailto:${email}`} color="#0B3D59">
+	<ThemedLink href={`mailto:${email}`} color={linkColor || '#0B3D59'}>
 		<Icon name="solar:letter-linear" slot="beforeIcon" />{email}
 	</ThemedLink>
 </div>
