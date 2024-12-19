@@ -11,6 +11,8 @@ export const ui = {
         'nav.forCompanies': 'Dla firm',
         'nav.contact': 'Kontakt',
 
+        'landing.slogan': 'Work. Experience. Discover.',
+
         'section.ourValues': 'Nasze wartości',
         'section.visitNewPlaces': 'Odwiedź z nami nowe miejsca!',
         'section.partners': 'Oni nam zaufali, teraz kolej na Ciebie!',
