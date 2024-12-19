@@ -3,6 +3,10 @@
     border: var(--border);
     border-radius: var(--borderRadius-default);
     padding: var(--spacing-xs);
+    transition: box-shadow 0.2s ease;
+}
+
+.keen-slider__slide:hover {
     box-shadow: var(--shadows-default);
 }
 

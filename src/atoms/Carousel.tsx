@@ -14,7 +14,9 @@ function Carousel({ direction = 'ltr', images }: CarouselProps) {
         loop: true,
         renderMode: 'performance',
         rtl: direction === 'rtl',
-        drag: false,
+        drag: true,
+        mode: 'free',
+        dragSpeed: 0.8,
         defaultAnimation: animation,
         slides: {
             perView: () => (window.innerWidth - 160) / 480,
