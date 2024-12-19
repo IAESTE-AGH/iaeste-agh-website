@@ -1,0 +1,16 @@
+---
+import { ThemedLink } from '@/atoms';
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+	link: string;
+	accountName: string;
+	iconName: string;
+}
+const { link, accountName, iconName } = Astro.props;
+---
+
+<ThemedLink href={link} color="var(--colors-text-linkContrast)">
+	<Icon name={iconName} slot="beforeIcon" />
+	{accountName}
+</ThemedLink>

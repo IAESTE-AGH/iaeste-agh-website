@@ -1,0 +1,18 @@
+---
+import { ThemedLink } from '@/atoms';
+import type { Color } from '@/types';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+	href: string;
+	children: string | string[] | HTMLElement | HTMLElement[];
+	color: Color;
+}
+
+const { href, color } = Astro.props;
+---
+
+<ThemedLink href={href} color=`${color ?? "var(--colors-text-contrast)"}`>
+	<slot />
+	<Icon name={'solar:download-minimalistic-outline'} slot="afterIcon" />
+</ThemedLink>

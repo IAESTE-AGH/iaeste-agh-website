@@ -1,6 +1,7 @@
 import type { Theme } from './theme';
+import type { DocsInfo, LinksInfo } from './footer';
 
-export type { Theme };
+export type { Theme, DocsInfo, LinksInfo };
 
 export interface FontSettings {
     fontFamily: string;
@@ -25,8 +26,9 @@ export type Border = `${number}px solid ${Color}` | 'none';
 type RGB = `rgb(${number}, ${number}, ${number})`;
 type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
 type HEX = `#${string}`;
+type Varibale = `var(--${string})`;
 
-export type Color = RGB | RGBA | HEX;
+export type Color = RGB | RGBA | HEX | Varibale;
 
 export type LinearGradient =
     | `linear-gradient(${number}deg, ${Color}, ${Color})`

@@ -1,0 +1,20 @@
+---
+import { ThemedLink, ThemedText } from '@/atoms';
+import { ContactCard } from '@/molecules';
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+	title: string;
+	name: string;
+	email: string;
+	phoneNumber?: string;
+}
+const { title, name, email, phoneNumber } = Astro.props;
+---
+
+<ContactCard
+	name=`${title} ${name}`
+	email={email}
+	phone={phoneNumber}
+	linkColor="var(--colors-text-contrast)"
+/>

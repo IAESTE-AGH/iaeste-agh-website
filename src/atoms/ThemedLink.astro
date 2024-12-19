@@ -1,21 +1,38 @@
 ---
-import type { TextVariant } from '@/types';
+import type { Color, TextVariant } from '@/types';
 import ThemedText from './ThemedText.astro';
 
 type Props = {
 	href: string;
-	children: string;
+	children: string | HTMLElement | HTMLElement[];
 	asButton?: boolean;
 	isBold?: boolean;
 	variant?: TextVariant;
-	afterIcon?: HTMLElement;
+	color?: Color;
 };
 
-const { href, asButton = false, isBold, variant, afterIcon } = Astro.props;
+const { href, asButton = false, isBold, variant, color } = Astro.props;
 ---
 
-<a href={href} class:list={[{ button: asButton }, { link: !asButton }]}>
-	<ThemedText variant={variant} isBold={isBold} afterIcon={afterIcon}>
+<a
+	href={href}
+	target={href.startsWith('http') ? '_blank' : '_self'}
+	class:list={[{ button: asButton }, { link: !asButton }]}
+>
+	<ThemedText
+		variant={variant}
+		isBold={isBold}
+		color={color}
+		isCentered={asButton}
+	>
+		<span style="padding-top: 2px;">
+			<slot name="beforeIcon" slot="beforeIcon" />
+		</span>
 		<slot />
+		<span style="padding-top: 2px;">
+			<slot name="afterIcon" slot="afterIcon" />
+		</span>
 	</ThemedText>
 </a>
+
+<style define:vars={{ 'colors-text-link': color }}></style>

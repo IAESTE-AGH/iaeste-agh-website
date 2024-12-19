@@ -1,0 +1,46 @@
+---
+import { ThemedLink, ThemedText } from '@/atoms';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { Icon } from 'astro-icon/components';
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
+---
+
+<div class="footer-location-section">
+	<ThemedText isBold color="var(--colors-text-contrast)">
+		{t('footer.address.fullname')}
+	</ThemedText>
+	<div>
+		<ThemedText>{t('footer.address.correspondence.title')}:</ThemedText>
+		<ThemedText>{t('footer.address.correspondence.street')},</ThemedText>
+		<ThemedText>{t('footer.address.correspondence.zipAndCity')}</ThemedText>
+	</div>
+	<div>
+		<ThemedText>{t('footer.address.headquarters.title')}:</ThemedText>
+		<ThemedText>{t('footer.address.headquarters.place')},</ThemedText>
+		<ThemedText>{t('footer.address.headquarters.street')},</ThemedText>
+		<ThemedText>{t('footer.address.headquarters.zipAndCity')}</ThemedText>
+	</div>
+	<div style="display: flex; gap: 8px; flex-direction: column;">
+		<ThemedLink
+			href="mailto:iaeste@agh.edu.pl"
+			color="var(--colors-text-contrast)"
+		>
+			<Icon name="solar:letter-linear" slot="beforeIcon" /> iaeste@agh.edu.pl
+		</ThemedLink>
+		<ThemedLink href="tel:+48126174106" color="var(--colors-text-contrast)">
+			<Icon name="solar:phone-rounded-linear" slot="beforeIcon" />
+			+48 12 617 41 06
+		</ThemedLink>
+	</div>
+</div>
+
+<style>
+	.footer-location-section {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+</style>

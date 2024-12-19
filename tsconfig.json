@@ -1,21 +1,52 @@
 {
-    "extends": "astro/tsconfigs/strict",
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@/*": ["src/*"],
-            "@atoms/*": ["src/atoms/*"],
-            "@molecules/*": ["src/molecules/*"],
-            "@organisms/*": ["src/organisms/*"],
-            "@templates/*": ["src/templates/*"],
-            "@layouts/*": ["src/layouts/*"],
-            "@pages/*": ["src/pages/*"],
-            "@icons/*": ["src/icons/*"],
-            "@content/*": ["src/content/*"],
-            "@data/*": ["src/data/*"],
-            "@types/*": ["src/types/*"],
-            "@utils/*": ["src/utils/*"],
-            "@i18n": ["src/i18n/*"]
-        }
-    }
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@atoms/*": [
+        "src/atoms/*"
+      ],
+      "@molecules/*": [
+        "src/molecules/*"
+      ],
+      "@organisms/*": [
+        "src/organisms/*"
+      ],
+      "@templates/*": [
+        "src/templates/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@icons/*": [
+        "src/icons/*"
+      ],
+      "@content/*": [
+        "src/content/*"
+      ],
+      "@data/*": [
+        "src/data/*"
+      ],
+      "@types/*": [
+        "src/types/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@images/*": [
+        "src/images/*"
+      ],
+      "@i18n": [
+        "src/i18n/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
 }
