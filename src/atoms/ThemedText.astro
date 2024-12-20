@@ -56,9 +56,13 @@ switch (variant) {
     class:list={[variant, { bold: isBold }, 'oneLine', className]}
     style={{ color: color, justifyContent: isCentered ? 'center' : 'left' }}
 >
-    <slot name="beforeIcon" />
+    <span style="padding-top: 3px;">
+        <slot name="beforeIcon" />
+    </span>
     <slot />
-    <slot name="afterIcon" />
+    <span style="padding-top: 3px;">
+        <slot name="afterIcon" />
+    </span>
 </Element>
 
 <style>
