@@ -1,6 +1,7 @@
 ---
 import { theme } from '@/currentTheme';
 import { getLangFromUrl } from '@/i18n/utils';
+import { Navigation } from '@/molecules';
 import { Footer } from '@/organisms';
 
 interface Props {
@@ -22,6 +23,7 @@ const lang = getLangFromUrl(Astro.url);
         <title>{title}</title>
     </head>
     <body>
+        <Navigation />
         <slot />
         <Footer />
     </body>
@@ -60,6 +62,13 @@ const lang = getLangFromUrl(Astro.url);
             padding: 0;
             margin: 0;
             font-weight: 400;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            padding: var(--spacing-md);
+            gap: var(--spacing-md);
         }
 
         html {
@@ -150,16 +159,17 @@ const lang = getLangFromUrl(Astro.url);
             font-family: var(--typography-link-fontFamily);
             font-size: var(--typography-link-fontSize);
             line-height: var(--typography-link-lineHeight);
-            text-decoration: var(--typography-link-textDecoration);
             display: block;
             width: fit-content;
             position: relative;
             color: var(--colors-text-link);
             z-index: 0;
+            text-decoration: none;
         }
 
         .link:hover {
             color: var(--colors-text-link);
+            text-decoration: var(--typography-link-textDecoration);
         }
 
         .link:hover::before {
@@ -194,6 +204,13 @@ const lang = getLangFromUrl(Astro.url);
         .button a {
             color: var(--colors-text-contrast);
             text-decoration: none;
+        }
+
+        .gradient-text {
+            background: var(--colors-gradients-iaeste_gradient_1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            width: fit-content;
         }
     </style>
 </html>
