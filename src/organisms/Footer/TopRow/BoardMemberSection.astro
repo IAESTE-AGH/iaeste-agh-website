@@ -9,29 +9,29 @@ const t = useTranslations(lang);
 ---
 
 <div class="footer-board-member-section">
-	<ThemedText isBold color="var(--colors-text-contrast)"
-		>{t('footer.boardMemberContact')}</ThemedText
-	>
-	<BoardMemberLink
-		title={t('footer.board.president.title')}
-		name={t('footer.board.president.name')}
-		email={t('footer.board.president.email')}
-	/>
-	<BoardMemberLink
-		title={t('footer.board.vicepresident.title')}
-		name={t('footer.board.vicepresident.name')}
-		email={t('footer.board.vicepresident.email')}
-	/>
-	<BoardMemberLink
-		title={t('footer.board.treasurer.title')}
-		name={t('footer.board.treasurer.name')}
-		email={t('footer.board.treasurer.email')}
-	/>
+    <ThemedText bold color="var(--colors-text-contrast)"
+        >{t('footer.boardMemberContact')}</ThemedText
+    >
+    <BoardMemberLink
+        title={t('footer.board.president.title')}
+        name={t('footer.board.president.name')}
+        email={t('footer.board.president.email')}
+    />
+    <BoardMemberLink
+        title={t('footer.board.vicepresident.title')}
+        name={t('footer.board.vicepresident.name')}
+        email={t('footer.board.vicepresident.email')}
+    />
+    <BoardMemberLink
+        title={t('footer.board.treasurer.title')}
+        name={t('footer.board.treasurer.name')}
+        email={t('footer.board.treasurer.email')}
+    />
 </div>
 <style>
-	.footer-board-member-section {
-		display: flex;
-		flex-direction: column;
-		gap: 8px;
-	}
+    .footer-board-member-section {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
 </style>

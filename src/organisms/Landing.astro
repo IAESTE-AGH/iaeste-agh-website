@@ -8,66 +8,65 @@ const t = useTranslations(lang);
 ---
 
 <section id="landing">
-	<div class="text-section">
-		{
-			t('landing.slogan')
-				.split(' ')
-				.map(word => (
-					<ThemedText variant="h1" isBold class="gradient-text">
-						{word}
-					</ThemedText>
-				))
-		}
-		<ThemedLink asButton href="#" variant="h5" isBold>
-			Dołącz do nas!
-		</ThemedLink>
-	</div>
-	<div class="double-photo">
-		<img src="/krowa.jpg" alt="#" />
-		<img src="/krowa.jpg" alt="#" />
-	</div>
-	<div class="single-photo">
-		<img src="/krowa.jpg" alt="#" />
-	</div>
+    <div class="text-section">
+        {
+            t('landing.slogan')
+                .split(' ')
+                .map(word => (
+                    <ThemedText variant="h1" bold class="gradient-text">
+                        {word}
+                    </ThemedText>
+                ))
+        }
+        <ThemedLink button href="#" variant="h5" bold>
+            Dołącz do nas!
+        </ThemedLink>
+    </div>
+    <div class="double-photo">
+        <img src="/krowa.jpg" alt="#" />
+        <img src="/krowa.jpg" alt="#" />
+    </div>
+    <div class="single-photo">
+        <img src="/krowa.jpg" alt="#" />
+    </div>
 </section>
 
 <style>
-	#landing {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		grid-template-rows: 100%;
-		gap: var(--spacing-md);
-		height: calc(100svh - 32px - 32px - 32px - 106px);
-	}
+    #landing {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 100%;
+        gap: var(--spacing-md);
+        height: calc(100svh - 32px - 32px - 32px - 106px);
+    }
 
-	.text-section {
-		padding: var(--spacing-lg);
-		border: var(--border);
-		border-radius: var(--borderRadius-default);
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		gap: var(--spacing-xl);
-	}
+    .text-section {
+        padding: var(--spacing-lg);
+        border: var(--border);
+        border-radius: var(--borderRadius-default);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
 
-	.double-photo {
-		display: grid;
-		grid-template-rows: 1fr 1fr;
-		gap: var(--spacing-md);
-		height: 100%;
-	}
+    .double-photo {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        gap: var(--spacing-md);
+        height: 100%;
+    }
 
-	.single-photo {
-		height: 100%;
-	}
+    .single-photo {
+        height: 100%;
+    }
 
-	img {
-		border: var(--border);
-		height: 100%;
-		width: 100%;
-		border-radius: var(--borderRadius-default);
-		object-fit: cover;
-		box-shadow: var(--shadows-default);
-	}
+    img {
+        border: var(--border);
+        height: 100%;
+        width: 100%;
+        border-radius: var(--borderRadius-default);
+        object-fit: cover;
+        box-shadow: var(--shadows-default);
+    }
 </style>

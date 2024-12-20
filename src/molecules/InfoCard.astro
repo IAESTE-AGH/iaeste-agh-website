@@ -4,69 +4,69 @@ import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 
 interface Props {
-	imgPath?: imgPath;
-	title?: string;
-	desc?: string;
-	isBgBlue?: boolean;
-	children?: any;
+    imgPath?: imgPath;
+    title?: string;
+    desc?: string;
+    isBgBlue?: boolean;
+    children?: any;
 }
 type imgPath = keyof typeof images;
 const { imgPath, title, desc, isBgBlue = false } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
-	'/src/assets/*.svg'
+    '/src/assets/*.svg'
 );
 ---
 
 <div
-	class="infoCard"
-	style={{
-		backgroundColor: isBgBlue
-			? 'var(--colors-background-accent)'
-			: 'var(--colors-background-primary)',
-	}}
+    class="infoCard"
+    style={{
+        backgroundColor: isBgBlue
+            ? 'var(--colors-background-accent)'
+            : 'var(--colors-background-primary)',
+    }}
 >
-	{
-		imgPath != undefined ? (
-			<Image src={images[imgPath]()} alt={'decorative image'} />
-		) : (
-			''
-		)
-	}
+    {
+        imgPath != undefined ? (
+            <Image src={images[imgPath]()} alt={'decorative image'} />
+        ) : (
+            ''
+        )
+    }
 
-	<div style="display: flex; flex-direction: column; gap: 8px;">
-		<div style="width: fit-content; max-width: 100%; margin: auto;">
-			<ThemedText variant={isBgBlue ? 'h4' : 'h1'} isBold
-				>{title}</ThemedText
-			>
-		</div>
-		<div style="width: fit-content; margin: auto;">
-			<ThemedText variant={isBgBlue ? 'h6' : 'h4'}>{desc}</ThemedText>
-		</div>
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="width: fit-content; max-width: 100%; margin: auto;">
+            <ThemedText variant={isBgBlue ? 'h4' : 'h1'} bold
+                >{title}</ThemedText
+            >
+        </div>
+        <div style="width: fit-content; margin: auto;">
+            <ThemedText variant={isBgBlue ? 'h6' : 'h4'}>{desc}</ThemedText>
+        </div>
 
-		<slot />
-	</div>
+        <slot />
+    </div>
 </div>
 
 <style
-	define:vars={{
-		padding:
-			imgPath == undefined ? 'var(--spacing-md)' : 'var(--spacing-lg)',
-	}}
+    define:vars={{
+        padding:
+            imgPath == undefined ? 'var(--spacing-md)' : 'var(--spacing-lg)',
+    }}
 >
-	.infoCard {
-		display: flex;
-		text-align: center;
-		align-items: center;
-		justify-content: center;
-		gap: 64px;
-		flex-direction: column;
-		padding-block: var(--padding);
-		padding-bottom: var(--spacing-lg);
-		padding-inline: var(--spacing-lg);
-		border: var(--border);
-		box-shadow: var(--shadows-default);
-		border-radius: var(--borderRadius-default);
-		height: 100%;
-		width: 100%;
-	}
+    .infoCard {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        gap: 64px;
+        flex-direction: column;
+        padding-block: var(--padding);
+        padding-bottom: var(--spacing-lg);
+        padding-inline: var(--spacing-lg);
+        border: var(--border);
+        box-shadow: var(--shadows-default);
+        border-radius: var(--borderRadius-default);
+        height: 100%;
+        width: 100%;
+    }
 </style>

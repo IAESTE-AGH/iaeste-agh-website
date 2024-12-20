@@ -4,6 +4,7 @@ import ContactSection from './ContactSection.astro';
 import PartnersSection from './PartnersSection.astro';
 import NewPlacesSection from './NewPlacesSection.astro';
 import LandingSection from './Landing.astro';
+import TimelineSection from './TimelineSection.astro';
 
 export {
     OurValuesSection,
@@ -12,4 +13,5 @@ export {
     PartnersSection,
     NewPlacesSection,
     LandingSection,
+    TimelineSection,
 };
