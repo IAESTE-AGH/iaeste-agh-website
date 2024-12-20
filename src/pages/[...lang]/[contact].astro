@@ -1,0 +1,35 @@
+---
+import {
+    supportedLanguages,
+    showDefaultLang,
+    defaultLang,
+    routes,
+    getLangFromUrl,
+    useTranslations,
+} from '@/i18n';
+import Layout from '@/layouts/Layout.astro';
+import { ContactCard } from '@/molecules';
+import { ContactSection } from '@/organisms';
+
+export function getStaticPaths() {
+    return supportedLanguages.map(language => {
+        return {
+            params: {
+                lang:
+                    !showDefaultLang && language.lang === defaultLang
+                        ? undefined
+                        : language.lang,
+                contact: routes[language.lang].contact,
+            },
+        };
+    });
+}
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
+---
+
+<Layout title={t('page.contact')}>
+    <ContactSection />
+</Layout>

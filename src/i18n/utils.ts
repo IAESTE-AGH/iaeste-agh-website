@@ -1,5 +1,5 @@
-import type { TranslationKey } from './ui'; // Użyj `type` dla importów typów
-import { ui, defaultLang, showDefaultLang } from './ui';
+import type { TranslationKey, TRoutes, TSupportedLanguages } from './ui';
+import { ui, defaultLang, showDefaultLang, routes } from './ui';
 
 export function getLangFromUrl(url: URL) {
     const [, lang] = url.pathname.split('/');
@@ -14,7 +14,14 @@ export function useTranslations(lang: keyof typeof ui) {
 }
 
 export function useTranslatedPath(lang: keyof typeof ui) {
-    return function translatePath(path: string, l: string = lang) {
-        return !showDefaultLang && l === defaultLang ? path : `/${l}${path}`;
+    return function translatePath(path: string, l: TSupportedLanguages = lang) {
+        const pathName = path.replaceAll('/', '') as TRoutes;
+        const hasTranslation =
+            routes[l] !== undefined && routes[l][pathName] !== undefined;
+        const translatedPath = hasTranslation ? routes[l][pathName] : path;
+
+        return !showDefaultLang && l === defaultLang
+            ? translatedPath
+            : `/${l}${translatedPath}`;
     };
 }
