@@ -1,7 +1,7 @@
 ---
 import { ThemedSection } from '@/atoms';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
-import { ShortActionCard } from '@/molecules';
+import { SeasonSectionCard, ShortActionCard } from '@/molecules';
 
 const url = new URL(Astro.request.url);
 const lang = getLangFromUrl(url);
@@ -11,17 +11,58 @@ const t = useTranslations(lang);
 <ThemedSection title={t('section.timeline')}>
     <div class="timeline-wrapper">
         <div class="timeline-track">
-            <ShortActionCard
-                imgPath="/src/assets/krowa.jpg"
-                title="IAESTE CaseWeek"
-                text="Lorem*30"
-            />
-            <ShortActionCard
-                imgPath="/src/assets/krowa.jpg"
-                title="IAESTE CaseWeek"
-                text="Lorem*30"
-                informative
-            />
+            <SeasonSectionCard season={t('timeline.spring')}>
+                <ShortActionCard
+                    imgPath="/src/assets/krowa.jpg"
+                    title="IAESTE CaseWeek"
+                    text="Lorem*30"
+                />
+                <ShortActionCard
+                    imgPath="/src/assets/krowa.jpg"
+                    title="IAESTE CaseWeek"
+                    text="Lorem*30"
+                    informative
+                />
+            </SeasonSectionCard>
+            <SeasonSectionCard season={t('timeline.summer')}>
+                <ShortActionCard
+                    imgPath="/src/assets/krowa.jpg"
+                    title="IAESTE CaseWeek"
+                    text="Lorem*30"
+                />
+                <ShortActionCard
+                    imgPath="/src/assets/krowa.jpg"
+                    title="IAESTE CaseWeek"
+                    text="Lorem*30"
+                    informative
+                />
+            </SeasonSectionCard>
+            <SeasonSectionCard season={t('timeline.autumn')}>
+                <ShortActionCard
+                    imgPath="/src/assets/krowa.jpg"
+                    title="IAESTE CaseWeek"
+                    text="Lorem*30"
+                />
+                <ShortActionCard
+                    imgPath="/src/assets/krowa.jpg"
+                    title="IAESTE CaseWeek"
+                    text="Lorem*30"
+                    informative
+                />
+            </SeasonSectionCard>
+            <SeasonSectionCard season={t('timeline.winter')}>
+                <ShortActionCard
+                    imgPath="/src/assets/krowa.jpg"
+                    title="IAESTE CaseWeek"
+                    text="Lorem*30"
+                />
+                <ShortActionCard
+                    imgPath="/src/assets/krowa.jpg"
+                    title="IAESTE CaseWeek"
+                    text="Lorem*30"
+                    informative
+                />
+            </SeasonSectionCard>
         </div>
     </div>
 </ThemedSection>
@@ -34,7 +75,6 @@ const t = useTranslations(lang);
 
     .timeline-track {
         display: flex;
-        gap: var(--spacing-sm);
         padding-bottom: 20px;
     }
 </style>

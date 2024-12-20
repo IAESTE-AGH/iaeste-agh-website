@@ -1,0 +1,57 @@
+---
+import { ThemedText } from '@/atoms';
+
+interface Props {
+    season: string;
+    children?: Node | Node[];
+}
+
+const { season } = Astro.props;
+---
+
+<div class="wrapper">
+    <ThemedText variant="h3" bold> {season} </ThemedText>
+
+    <hr />
+
+    <div class="cards">
+        <slot />
+    </div>
+</div>
+
+<style>
+    .cards {
+        display: flex;
+        gap: var(--spacing-sm);
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        padding-inline: var(--spacing-md);
+    }
+
+    hr {
+        border: var(--border);
+        border-color: var(--colors-text-contrastLight);
+        margin-bottom: var(--spacing-sm);
+        margin-left: calc(var(--spacing-md) * -1);
+        width: calc(100% + var(--spacing-md) * 2);
+        position: relative;
+        overflow: visible;
+    }
+
+    hr::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 4px;
+        top: 50%;
+        translate: 0 -50%;
+        height: var(--spacing-sm);
+        width: var(--spacing-sm);
+        border-radius: calc(var(--spacing-sm) / 2);
+        background-color: var(--colors-accent-primary);
+    }
+</style>
