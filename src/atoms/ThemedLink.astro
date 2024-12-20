@@ -17,7 +17,7 @@ const { href, button: asButton = false, bold, variant, color } = Astro.props;
 <a
     href={href}
     target={href.startsWith('http') ? '_blank' : '_self'}
-    class:list={[{ button: asButton }, { link: !asButton }]}
+    class:list={[{ button: asButton }, { link: !asButton }, variant || '']}
 >
     <ThemedText variant={variant} bold={bold} color={color} centered={asButton}>
         <slot name="beforeIcon" slot="beforeIcon" />
