@@ -88,6 +88,8 @@ export const ui = {
         'section.partners': 'They trusted us, now it is your turn!',
         'section.timeline': 'Immerse yourself in interesting projects!',
 
+        'landing.slogan': 'Work. Experience. Discover.',
+
         'values.trust': 'Trust',
         'values.growth': 'Growth',
         'values.commitment': 'Commitment',
@@ -98,6 +100,8 @@ export const ui = {
         'timeline.summer': 'Summer',
         'timeline.autumn': 'Autumn',
         'timeline.winter': 'Winter',
+        'timeline.learnMore': 'More about the project',
+        'timeline.learnMoreLink': 'Join us',
 
         'newPlaces.happyStudents': 'Happy students',
         'newPlaces.sentStudents': 'Students sent and received annually',
