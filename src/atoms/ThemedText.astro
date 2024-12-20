@@ -8,6 +8,7 @@ type Props = {
     bold?: boolean;
     variant?: TextVariant;
     centered?: boolean;
+    class?: string;
 };
 
 const {
@@ -15,6 +16,7 @@ const {
     variant = 'body',
     bold: isBold = false,
     centered: isCentered = false,
+    class: className = '',
 } = Astro.props;
 
 var Element: HTMLTag = 'p';
@@ -51,7 +53,7 @@ switch (variant) {
 ---
 
 <Element
-    class:list={[variant, { bold: isBold }, 'oneLine']}
+    class:list={[variant, { bold: isBold }, 'oneLine', className]}
     style={{ color: color, justifyContent: isCentered ? 'center' : 'left' }}
 >
     <slot name="beforeIcon" />

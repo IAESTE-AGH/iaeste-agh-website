@@ -11,8 +11,11 @@ export const ui = {
         'nav.forCompanies': 'Dla firm',
         'nav.contact': 'Kontakt',
 
+        'landing.slogan': 'Work. Experience. Discover.',
+
         'section.ourValues': 'Nasze wartości',
         'section.visitNewPlaces': 'Odwiedź z nami nowe miejsca!',
+        'section.partners': 'Oni nam zaufali, teraz kolej na Ciebie!',
         'section.timeline': 'Zanurz się w ciekawe projekty!',
 
         'values.trust': 'Zaufanie',
@@ -82,6 +85,7 @@ export const ui = {
 
         'section.ourValues': 'Our Values',
         'section.visitNewPlaces': 'Visit new places with us!',
+        'section.partners': 'They trusted us, now it is your turn!',
         'section.timeline': 'Immerse yourself in interesting projects!',
 
         'values.trust': 'Trust',

@@ -1,8 +1,8 @@
 ---
 import {
-    getLangFromUrl,
-    useTranslations,
-    useTranslatedPath,
+	getLangFromUrl,
+	useTranslations,
+	useTranslatedPath,
 } from '../i18n/utils';
 
 import { ThemedLink } from '@/atoms';
@@ -13,39 +13,61 @@ const translatePath = useTranslatedPath(lang);
 ---
 
 <style>
-    #logo {
-        width: 160px;
-    }
-    #navbar {
-        border: var(--border);
-        box-shadow: var(--shadows-default);
-        border-radius: var(--borderRadius-default);
-        color: var(--colors-accent-primary);
-        padding: 24px 64px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: var(--colors-background-primary);
-    }
-    #links {
-        display: flex;
-        gap: 24px;
-        align-items: center;
-        white-space: nowrap;
-    }
+	#logo {
+		--logo-size: 50px;
+		height: var(--logo-size);
+		transition: height 0.1s ease;
+	}
+
+	#navbar {
+		border: var(--border);
+		box-shadow: var(--shadows-default);
+		border-radius: var(--borderRadius-default);
+		color: var(--colors-accent-primary);
+		padding: 24px 64px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: var(--colors-background-primary);
+		position: sticky;
+		top: 4px;
+		background-color: var(--colors-background-primary);
+		z-index: 100;
+	}
+
+	#links {
+		display: flex;
+		gap: 24px;
+		align-items: center;
+		white-space: nowrap;
+	}
 </style>
 
 <nav id="navbar">
-    <img id="logo" src="/images/IAESTE_AGH_Horizontal.png" />
-    <div id="links">
-        <ThemedLink href={translatePath('#wymiana')}>
-            {t('nav.exchange')}
-        </ThemedLink>
-        <ThemedLink href={translatePath('/dla-firm')}>
-            {t('nav.forCompanies')}
-        </ThemedLink>
-        <ThemedLink href={translatePath('/kontakt')}>
-            {t('nav.contact')}
-        </ThemedLink>
-    </div>
+	<a href={translatePath('/')}>
+		<img id="logo" src="/images/IAESTE_AGH_Horizontal.png" />
+	</a>
+	<div id="links">
+		<ThemedLink href={translatePath('#wymiana')}>
+			{t('nav.exchange')}
+		</ThemedLink>
+		<ThemedLink href={translatePath('/dla-firm')}>
+			{t('nav.forCompanies')}
+		</ThemedLink>
+		<ThemedLink href={translatePath('/kontakt')}>
+			{t('nav.contact')}
+		</ThemedLink>
+	</div>
 </nav>
+
+<script>
+	document.onscroll = () => {
+		const logo = document.getElementById('logo');
+
+		if (window.scrollY > 0) {
+			logo!.style.setProperty('--logo-size', '30px');
+		} else {
+			logo!.style.setProperty('--logo-size', '50px');
+		}
+	};
+</script>
