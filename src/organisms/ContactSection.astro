@@ -1,9 +1,29 @@
 ---
 import ContactCard from '@/molecules/ContactCard.astro';
 import { ThemedText } from '@/atoms';
+import CoordinatorCard from '@molecules/CoordinatorCard.astro';
 
 const contacts = [
     {
+        title: 'IAESTE CaseWeek',
+        name: 'Imię i Nazwisko',
+        phone: '+48 123 456 789',
+        email: 'imie.nazwisko@iaeste.pl',
+    },
+    {
+        title: 'Level Up Your Skills',
+        name: 'Imię i Nazwisko',
+        phone: '+48 123 456 789',
+        email: 'imie.nazwisko@iaeste.pl',
+    },
+    {
+        title: 'Proces Pozyskiwania Praktyk',
+        name: 'Imię i Nazwisko',
+        phone: '+48 123 456 789',
+        email: 'imie.nazwisko@iaeste.pl',
+    },
+    {
+        title: 'Wiosenna Akcja Rekrutacyjna',
         name: 'Imię i Nazwisko',
         phone: '+48 123 456 789',
         email: 'imie.nazwisko@iaeste.pl',
@@ -13,7 +33,27 @@ const contacts = [
 
 <section>
     <ThemedText>Kontakt </ThemedText>
-    <div style="display: flex; gap: 1rem;">
-        {contacts.map(contact => <ContactCard {...contact} />)}
-    </div>
+    <section class="coordinators-section">
+        <ThemedText variant="h1" bold>Koordynatorzy akcji</ThemedText>
+        <div class="coordinators-grid">
+            {contacts.map(contact => <CoordinatorCard {...contact} />)}
+        </div>
+    </section>
 </section>
+
+<style>
+    .coordinators-section {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .coordinators-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacing-md);
+    }
+</style>

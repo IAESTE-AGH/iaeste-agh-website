@@ -1,0 +1,48 @@
+---
+import type { Color } from '@/types';
+import ContactCard from '@/molecules/ContactCard.astro';
+
+export interface Props {
+    title: string;
+    name: string;
+    phone: string;
+    email: string;
+    linkColor?: Color;
+}
+
+const { title, name, phone, email, linkColor } = Astro.props;
+---
+
+<div class="coordinator-card">
+    <h2 class="card-title">{title}</h2>
+    <ContactCard
+        name={name}
+        phone={phone}
+        email={email}
+        linkColor={linkColor || '#0B3D59'}
+    />
+</div>
+
+<style>
+    .coordinator-card {
+        display: inline-flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 32px;
+        border-radius: var(--borderRadius-default);
+        background-color: var(--colors-background-primary);
+        box-shadow: var(--shadows-default);
+        border: var(--border);
+        text-align: left;
+        width: auto;
+    }
+
+    .card-title {
+        font-size: 24px;
+        font-weight: bold;
+        white-space: nowrap;
+        text-align: center;
+        font-family: 'League Spartan', sans-serif;
+        margin-bottom: 12px;
+    }
+</style>
