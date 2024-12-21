@@ -8,6 +8,7 @@ import {
     routes,
 } from '@/i18n';
 import Layout from '@/layouts/Layout.astro';
+import { CompanyOpinionsCarousel } from '@/molecules';
 import OpinionCard from '@/molecules/OpinionCard.astro';
 import {
     OurValuesSection,
@@ -15,6 +16,7 @@ import {
     NewPlacesSection,
     LandingSection,
     TimelineSection,
+    CompanyOpinionsSection,
 } from '@/organisms';
 
 export function getStaticPaths() {
@@ -37,12 +39,5 @@ const t = useTranslations(lang);
 ---
 
 <Layout title={t('page.companies')}>
-    <!-- można usunąć jak będzie coś więcej -->
-    <LandingSection />
-    <OpinionCard
-        company="Valeo"
-        comment="I had a great time working with IAESTE AGH. They helped me find an internship in a great company and I learned a lot."
-        rating={3}
-        imgPath="/src/assets/company-logos/example_logo.png"
-    />
+    <CompanyOpinionsSection />
 </Layout>

@@ -1,0 +1,13 @@
+---
+import { ThemedSection } from '@/atoms';
+import { getLangFromUrl, useTranslations } from '@/i18n';
+import { CompanyOpinionsCarousel } from '@/molecules';
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
+---
+
+<ThemedSection title={t('section.companyOpinions')}>
+    <CompanyOpinionsCarousel />
+</ThemedSection>

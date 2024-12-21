@@ -5,6 +5,8 @@ import InfoCardImage from './InfoCardImage.astro';
 import ShortActionCard from './ShortActionCard.astro';
 import SeasonSectionCard from './SeasonSectionCard.astro';
 import ContactCard from './ContactCard.astro';
+import CompanyOpinionsCarousel from './CompanyOpinionsCarousel.astro';
+import PartnersCarousel from './PartnersCarousel.astro';
 
 export {
     InfoCard,
@@ -13,5 +15,7 @@ export {
     InfoCardImage,
     ShortActionCard,
     SeasonSectionCard,
+    CompanyOpinionsCarousel,
     ContactCard,
+    PartnersCarousel,
 };
