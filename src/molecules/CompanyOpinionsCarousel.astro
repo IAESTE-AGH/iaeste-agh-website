@@ -69,6 +69,8 @@ const OPINIONS: Opinion[] = [
 <script>
     import KeenSlider from 'keen-slider';
 
+    const switchTime = 3000;
+
     const slider = new KeenSlider(
         '#carousel',
         {
@@ -98,7 +100,7 @@ const OPINIONS: Opinion[] = [
                         } else {
                             slider.next();
                         }
-                    }, 3000);
+                    }, switchTime);
                 }
                 slider.on('created', () => {
                     slider.container.addEventListener('mouseover', () => {
