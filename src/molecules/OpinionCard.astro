@@ -1,0 +1,96 @@
+---
+import {
+    getLangFromUrl,
+    useTranslations,
+    useTranslatedPath,
+} from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const { company, comment, rating, image } = Astro.props;
+
+// Generate an array of star states (true for full, false for outline)
+const stars = Array(5)
+    .fill(false)
+    .map((_, i) => i < rating);
+---
+
+<style>
+    #opinion-card {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: baseline;
+        border: var(--border);
+        border-radius: var(--spacing-default);
+        width: 555px;
+    }
+
+    #upper-part {
+        background-color: var(--colors-background-secondary);
+        border-radius: var(--borderRadius-default);
+    }
+
+    #upper-part p {
+        font-size: var(--spacing-default);
+        line-break: auto;
+        text-align: center;
+        padding: var(--spacing-default);
+    }
+
+    #lower-part {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        padding: var(--spacing-default) var(--spacing-default);
+        background-color: var(--colors-background-accent);
+        margin: 0;
+        border-bottom-left-radius: var(--borderRadius-default);
+        border-bottom-right-radius: var(--borderRadius-default);
+    }
+
+    #rating-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #company-name {
+        text-align: center;
+        font-weight: bold;
+        font-size: 24px;
+    }
+
+    #stars {
+        display: flex;
+        flex-direction: row;
+        gap: 9px;
+    }
+</style>
+
+<div id="opinion-card">
+    <div id="upper-part">
+        <p>{comment}</p>
+    </div>
+    <div id="lower-part">
+        <img src={image} alt="Company logo" />
+        <div id="rating-section">
+            <h3 id="company-name">{company}</h3>
+            <div id="stars">
+                {
+                    stars.map(star => (
+                        <img
+                            src={
+                                star
+                                    ? '/public/images/opinion_card/star-full.svg'
+                                    : '/public/images/opinion_card/star-outline.svg'
+                            }
+                            alt={star ? 'Full star' : 'Outline star'}
+                        />
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</div>
