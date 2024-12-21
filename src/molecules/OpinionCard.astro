@@ -1,20 +1,58 @@
 ---
-import {
-    getLangFromUrl,
-    useTranslations,
-    useTranslatedPath,
-} from '../i18n/utils';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { ThemedText } from '@/atoms';
+import { Icon } from 'astro-icon/components';
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
-const { company, comment, rating, image } = Astro.props;
+interface Props {
+    company: string;
+    comment: string;
+    rating: 0 | 1 | 2 | 3 | 4 | 5;
+    imgPath: keyof typeof images;
+}
+
+const { company, comment, rating, imgPath } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    '/src/assets/company-logos/*.{jpg,png,svg}'
+);
 
 // Generate an array of star states (true for full, false for outline)
 const stars = Array(5)
     .fill(false)
     .map((_, i) => i < rating);
 ---
+
+<div id="opinion-card">
+    <div id="upper-part">
+        <p>{comment}</p>
+    </div>
+    <div id="lower-part">
+        <Image src={images[imgPath]()} alt="Company logo" />
+        <div id="rating-section">
+            <ThemedText variant="h5" bold toRight>{company}</ThemedText>
+            <div id="stars">
+                {
+                    stars.map(star =>
+                        star ? (
+                            <Icon
+                                name={'solar:star-bold'}
+                                height={24}
+                                width={24}
+                            />
+                        ) : (
+                            <Icon
+                                name={'solar:star-linear'}
+                                height={24}
+                                width={24}
+                            />
+                        )
+                    )
+                }
+            </div>
+        </div>
+    </div>
+</div>
 
 <style>
     #opinion-card {
@@ -25,18 +63,18 @@ const stars = Array(5)
         border: var(--border);
         border-radius: var(--spacing-default);
         width: 555px;
+        overflow: hidden;
     }
 
     #upper-part {
         background-color: var(--colors-background-secondary);
-        border-radius: var(--borderRadius-default);
+        padding: var(--spacing-default);
     }
 
     #upper-part p {
         font-size: var(--spacing-default);
         line-break: auto;
         text-align: center;
-        padding: var(--spacing-default);
     }
 
     #lower-part {
@@ -56,41 +94,10 @@ const stars = Array(5)
         flex-direction: column;
     }
 
-    #company-name {
-        text-align: center;
-        font-weight: bold;
-        font-size: 24px;
-    }
-
     #stars {
         display: flex;
         flex-direction: row;
         gap: 9px;
+        color: var(--colors-accent-secondary);
     }
 </style>
-
-<div id="opinion-card">
-    <div id="upper-part">
-        <p>{comment}</p>
-    </div>
-    <div id="lower-part">
-        <img src={image} alt="Company logo" />
-        <div id="rating-section">
-            <h3 id="company-name">{company}</h3>
-            <div id="stars">
-                {
-                    stars.map(star => (
-                        <img
-                            src={
-                                star
-                                    ? '/public/images/opinion_card/star-full.svg'
-                                    : '/public/images/opinion_card/star-outline.svg'
-                            }
-                            alt={star ? 'Full star' : 'Outline star'}
-                        />
-                    ))
-                }
-            </div>
-        </div>
-    </div>
-</div>

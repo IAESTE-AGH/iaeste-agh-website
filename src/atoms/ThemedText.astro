@@ -1,5 +1,6 @@
 ---
 import type { Color, TextVariant } from '@/types';
+import { SlotString } from 'astro/runtime/server/render/slot.js';
 import type { HTMLTag } from 'astro/types';
 
 type Props = {
@@ -8,6 +9,7 @@ type Props = {
     bold?: boolean;
     variant?: TextVariant;
     centered?: boolean;
+    toRight?: boolean;
     class?: string;
 };
 
@@ -16,6 +18,7 @@ const {
     variant = 'body',
     bold: isBold = false,
     centered: isCentered = false,
+    toRight: isToRight = false,
     class: className = '',
 } = Astro.props;
 
@@ -53,16 +56,31 @@ switch (variant) {
 ---
 
 <Element
-    class:list={[variant, { bold: isBold }, 'oneLine', className]}
-    style={{ color: color, justifyContent: isCentered ? 'center' : 'left' }}
+    class:list={[
+        variant,
+        { bold: isBold },
+        'oneLine',
+        className,
+        { centered: isCentered },
+        { toRight: isToRight },
+    ]}
+    style={{ color: color }}
 >
-    <span style="padding-top: 3px;">
-        <slot name="beforeIcon" />
-    </span>
+    {
+        Astro.slots.has('beforeIcon') && (
+            <span style="padding-top: 3px;">
+                <slot name="beforeIcon" />
+            </span>
+        )
+    }
     <slot />
-    <span style="padding-top: 3px;">
-        <slot name="afterIcon" />
-    </span>
+    {
+        Astro.slots.has('afterIcon') && (
+            <span style="padding-top: 3px;">
+                <slot name="afterIcon" />
+            </span>
+        )
+    }
 </Element>
 
 <style>
@@ -70,6 +88,13 @@ switch (variant) {
         display: flex;
         flex-direction: row;
         gap: 4px;
-        align-items: top;
+    }
+
+    .centered {
+        justify-content: center;
+    }
+
+    .toRight {
+        justify-content: flex-end;
     }
 </style>
