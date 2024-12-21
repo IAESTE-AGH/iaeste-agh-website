@@ -35,6 +35,7 @@ export const ui = {
         'section.visitNewPlaces': 'Odwiedź z nami nowe miejsca!',
         'section.partners': 'Oni nam zaufali, teraz kolej na Ciebie!',
         'section.timeline': 'Zanurz się w ciekawe projekty!',
+        'section.companyOpinions': 'Co myślą o nas firmy?',
 
         'values.trust': 'Zaufanie',
         'values.growth': 'Rozwój',
@@ -109,6 +110,7 @@ export const ui = {
         'section.visitNewPlaces': 'Visit new places with us!',
         'section.partners': 'These companies trusted us, now your turn!',
         'section.timeline': 'Immerse yourself in interesting projects!',
+        'section.companyOpinions': 'What do other companies think of us?',
 
         'landing.slogan': 'Work. Experience. Discover.',
 

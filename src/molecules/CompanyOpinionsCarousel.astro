@@ -1,0 +1,120 @@
+---
+import OpinionCard from '@/molecules/OpinionCard.astro';
+
+import 'keen-slider/keen-slider.min.css';
+
+interface Opinion {
+    company: string;
+    comment: string;
+    rating: 0 | 1 | 2 | 3 | 4 | 5;
+    imgPath: string;
+}
+
+const OPINIONS: Opinion[] = [
+    {
+        company: 'Google',
+        comment: "I'm feeling lucky",
+        rating: 5,
+        imgPath: '/src/assets/company-logos/example_logo.png',
+    },
+    {
+        company: 'Google',
+        comment: "I'm feeling lucky",
+        rating: 3,
+        imgPath: '/src/assets/company-logos/example_logo.png',
+    },
+    {
+        company: 'Google',
+        comment: "I'm feeling lucky",
+        rating: 1,
+        imgPath: '/src/assets/company-logos/example_logo.png',
+    },
+    {
+        company: 'Google',
+        comment: "I'm feeling lucky",
+        rating: 3,
+        imgPath: '/src/assets/company-logos/example_logo.png',
+    },
+    {
+        company: 'Google',
+        comment: "I'm feeling lucky",
+        rating: 1,
+        imgPath: '/src/assets/company-logos/example_logo.png',
+    },
+];
+---
+
+<div id="carousel" class="keen-slider">
+    {
+        OPINIONS.map(opinion => (
+            <div class="keen-slider__slide">
+                <OpinionCard {...opinion} />
+            </div>
+        ))
+    }
+</div>
+
+<style>
+    .keen-slider__slide {
+        height: auto;
+        min-width: 555px;
+        max-width: 555px;
+    }
+
+    .keen-slider {
+        overflow: visible !important;
+    }
+</style>
+
+<script>
+    import KeenSlider from 'keen-slider';
+
+    const slider = new KeenSlider(
+        '#carousel',
+        {
+            loop: false,
+            renderMode: 'performance',
+            slides: {
+                perView: 'auto',
+                spacing: 32,
+            },
+        },
+        [
+            slider => {
+                let timeout: any;
+                let mouseOver = false;
+                function clearNextTimeout() {
+                    clearTimeout(timeout);
+                }
+                function nextTimeout() {
+                    clearTimeout(timeout);
+                    if (mouseOver) return;
+                    timeout = setTimeout(() => {
+                        if (
+                            slider.track.details.position ===
+                            slider.track.details.max
+                        ) {
+                            slider.moveToIdx(0);
+                        } else {
+                            slider.next();
+                        }
+                    }, 3000);
+                }
+                slider.on('created', () => {
+                    slider.container.addEventListener('mouseover', () => {
+                        mouseOver = true;
+                        clearNextTimeout();
+                    });
+                    slider.container.addEventListener('mouseout', () => {
+                        mouseOver = false;
+                        nextTimeout();
+                    });
+                    nextTimeout();
+                });
+                slider.on('dragStarted', clearNextTimeout);
+                slider.on('animationEnded', nextTimeout);
+                slider.on('updated', nextTimeout);
+            },
+        ]
+    );
+</script>
