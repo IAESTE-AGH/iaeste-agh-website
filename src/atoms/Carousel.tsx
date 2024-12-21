@@ -1,45 +1,21 @@
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import './Carousel.css';
+import type { KeenSliderOptions } from 'keen-slider';
+import { Children } from 'react';
 
 interface CarouselProps {
-    direction?: 'ltr' | 'rtl';
-    images: string[];
+    options?: KeenSliderOptions;
+    children?: any[];
 }
 
-const animation = { duration: 50000, easing: (t: number) => t };
-
-function Carousel({ direction = 'ltr', images }: CarouselProps) {
-    const [sliderRef] = useKeenSlider<HTMLDivElement>({
-        loop: true,
-        renderMode: 'performance',
-        rtl: direction === 'rtl',
-        drag: true,
-        mode: 'free',
-        dragSpeed: 0.8,
-        defaultAnimation: animation,
-        slides: {
-            perView: () => (window.innerWidth - 160) / 480,
-            spacing: 32,
-        },
-        created(s) {
-            s.moveToIdx(5, true);
-        },
-        updated(s) {
-            s.moveToIdx(s.track.details.abs + 5, true);
-        },
-        animationEnded(s) {
-            s.moveToIdx(s.track.details.abs + 5, true);
-        },
-    });
-
+function Carousel({ options, children }: CarouselProps) {
+    const [sliderRef] = useKeenSlider<HTMLDivElement>(options);
     return (
         <div ref={sliderRef} className="keen-slider">
-            {images.map((image, index) => (
-                <div key={index} className="keen-slider__slide">
-                    <img src={image} alt="logo" />
-                </div>
-            ))}
+            {Children.map(children, (child, index) => {
+                return <div className='keen-slider__slide' key={index}>{child}</div>;
+            })}
         </div>
     );
 }
