@@ -9,6 +9,7 @@ type Props = {
     variant?: TextVariant;
     centered?: boolean;
     class?: string;
+    nowrap?: boolean;
 };
 
 const {
@@ -17,6 +18,7 @@ const {
     bold: isBold = false,
     centered: isCentered = false,
     class: className = '',
+    nowrap = false,
 } = Astro.props;
 
 var Element: HTMLTag = 'p';
@@ -54,7 +56,11 @@ switch (variant) {
 
 <Element
     class:list={[variant, { bold: isBold }, 'oneLine', className]}
-    style={{ color: color, justifyContent: isCentered ? 'center' : 'left' }}
+    style={{
+        color: color,
+        justifyContent: isCentered ? 'center' : 'left',
+        whiteSpace: nowrap ? 'nowrap' : 'normal',
+    }}
 >
     <span style="padding-top: 3px;">
         <slot name="beforeIcon" />

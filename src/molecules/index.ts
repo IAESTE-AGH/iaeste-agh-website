@@ -5,6 +5,7 @@ import InfoCardImage from './InfoCardImage.astro';
 import ShortActionCard from './ShortActionCard.astro';
 import SeasonSectionCard from './SeasonSectionCard.astro';
 import ContactCard from './ContactCard.astro';
+import CoordinatorCard from './CoordinatorCard.astro';
 
 export {
     InfoCard,
@@ -14,4 +15,5 @@ export {
     ShortActionCard,
     SeasonSectionCard,
     ContactCard,
+    CoordinatorCard,
 };

@@ -1,6 +1,7 @@
 ---
 import type { Color } from '@/types';
 import ContactCard from '@/molecules/ContactCard.astro';
+import { ThemedText } from '@/atoms';
 
 export interface Props {
     title: string;
@@ -14,7 +15,7 @@ const { title, name, phone, email, linkColor } = Astro.props;
 ---
 
 <div class="coordinator-card">
-    <h2 class="card-title">{title}</h2>
+    <ThemedText variant="h5" bold nowrap>{title}</ThemedText>
     <ContactCard
         name={name}
         phone={phone}
@@ -35,14 +36,5 @@ const { title, name, phone, email, linkColor } = Astro.props;
         border: var(--border);
         text-align: left;
         width: auto;
-    }
-
-    .card-title {
-        font-size: 24px;
-        font-weight: bold;
-        white-space: nowrap;
-        text-align: center;
-        font-family: 'League Spartan', sans-serif;
-        margin-bottom: 12px;
     }
 </style>

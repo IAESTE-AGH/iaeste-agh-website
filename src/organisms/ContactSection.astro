@@ -1,7 +1,7 @@
 ---
-import ContactCard from '@/molecules/ContactCard.astro';
-import { ThemedText } from '@/atoms';
-import CoordinatorCard from '@molecules/CoordinatorCard.astro';
+import { ThemedSection, ThemedText } from '@/atoms';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { CoordinatorCard } from '@/molecules';
 
 const contacts = [
     {
@@ -29,17 +29,22 @@ const contacts = [
         email: 'imie.nazwisko@iaeste.pl',
     },
 ];
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
 ---
 
-<section>
-    <ThemedText>Kontakt </ThemedText>
-    <section class="coordinators-section">
-        <ThemedText variant="h1" bold>Koordynatorzy akcji</ThemedText>
+<ThemedSection title={t('section.companyContact')}>
+    <div class="coordinators-section">
+        <ThemedText variant="h1" bold
+            >{t('companyContact.coordinators')}</ThemedText
+        >
         <div class="coordinators-grid">
             {contacts.map(contact => <CoordinatorCard {...contact} />)}
         </div>
-    </section>
-</section>
+    </div>
+</ThemedSection>
 
 <style>
     .coordinators-section {
