@@ -1,8 +1,7 @@
 ---
 import { ThemedSection } from '@/atoms';
-import Carousel from '@/atoms/Carousel';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
-import PartnersCarousel from '@/molecules/PartnersCarousel';
+import { PartnersCarousel } from '@/molecules';
 
 const url = new URL(Astro.request.url);
 const lang = getLangFromUrl(url);
@@ -11,7 +10,8 @@ const t = useTranslations(lang);
 
 <ThemedSection title={t('section.partners')}>
     <div class="wrapper">
-        <PartnersCarousel client:load />
+        <PartnersCarousel />
+        <PartnersCarousel rtl />
     </div>
 </ThemedSection>
 
