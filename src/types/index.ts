@@ -48,4 +48,5 @@ export type TextVariant =
     | 'h6'
     | 'label'
     | 'body'
-    | 'link';
+    | 'link'
+    | 'quote';

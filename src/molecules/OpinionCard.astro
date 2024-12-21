@@ -25,7 +25,7 @@ const stars = Array(5)
 
 <div id="opinion-card">
     <div id="upper-part">
-        <p>{comment}</p>
+        <ThemedText variant="quote">&#x201C;{comment}&#x201D;</ThemedText>
     </div>
     <div id="lower-part">
         <Image src={images[imgPath]()} alt="Company logo" />
@@ -56,15 +56,16 @@ const stars = Array(5)
 
 <style>
     #opinion-card {
-        display: inline-flex;
+        display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: baseline;
+        /* align-items: center; */
+        /* justify-content: baseline; */
         border: var(--border);
-        border-radius: var(--spacing-default);
+        border-radius: var(--borderRadius-default);
         width: 555px;
         overflow: hidden;
         transition: box-shadow 0.2s ease;
+        height: 100%;
     }
 
     #opinion-card:hover {
@@ -74,6 +75,11 @@ const stars = Array(5)
     #upper-part {
         background-color: var(--colors-background-secondary);
         padding: var(--spacing-default);
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     #upper-part p {
