@@ -17,6 +17,7 @@ import {
     LandingSection,
     TimelineSection,
     CompanyOpinionsSection,
+    ContactSection,
 } from '@/organisms';
 
 export function getStaticPaths() {
@@ -40,4 +41,5 @@ const t = useTranslations(lang);
 
 <Layout title={t('page.companies')}>
     <CompanyOpinionsSection />
+    <ContactSection />
 </Layout>

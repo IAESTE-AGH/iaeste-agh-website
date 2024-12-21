@@ -69,35 +69,36 @@ switch (variant) {
         { toRight: isToRight },
     ]}
     style={{ color: color, whiteSpace: nowrap ? 'nowrap' : 'normal' }}
-/>
-{
-    Astro.slots.has('beforeIcon') && (
-        <span style="padding-top: 3px;">
-            <slot name="beforeIcon" />
-        </span>
-    )
-}
-<slot />
-{
-    Astro.slots.has('afterIcon') && (
-        <span style="padding-top: 3px;">
-            <slot name="afterIcon" />
-        </span>
-    )
-}
-
-<style>
-    .oneLine {
-        display: flex;
-        flex-direction: row;
-        gap: 4px;
+>
+    {
+        Astro.slots.has('beforeIcon') && (
+            <span style="padding-top: 3px;">
+                <slot name="beforeIcon" />
+            </span>
+        )
+    }
+    <slot />
+    {
+        Astro.slots.has('afterIcon') && (
+            <span style="padding-top: 3px;">
+                <slot name="afterIcon" />
+            </span>
+        )
     }
 
-    .centered {
-        justify-content: center;
-    }
+    <style>
+        .oneLine {
+            display: flex;
+            flex-direction: row;
+            gap: 4px;
+        }
 
-    .toRight {
-        justify-content: flex-end;
-    }
-</style>
+        .centered {
+            justify-content: center;
+        }
+
+        .toRight {
+            justify-content: flex-end;
+        }
+    </style>
+</Element>
