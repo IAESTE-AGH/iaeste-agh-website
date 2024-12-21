@@ -1,0 +1,43 @@
+---
+import {
+    supportedLanguages,
+    showDefaultLang,
+    defaultLang,
+    getLangFromUrl,
+    useTranslations,
+    routes,
+} from '@/i18n';
+import Layout from '@/layouts/Layout.astro';
+import { CompanyOpinionsCarousel } from '@/molecules';
+import OpinionCard from '@/molecules/OpinionCard.astro';
+import {
+    OurValuesSection,
+    PartnersSection,
+    NewPlacesSection,
+    LandingSection,
+    TimelineSection,
+    CompanyOpinionsSection,
+} from '@/organisms';
+
+export function getStaticPaths() {
+    return supportedLanguages.map(language => {
+        return {
+            params: {
+                lang:
+                    !showDefaultLang && language.lang === defaultLang
+                        ? undefined
+                        : language.lang,
+                companies: routes[language.lang].companies,
+            },
+        };
+    });
+}
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
+---
+
+<Layout title={t('page.companies')}>
+    <CompanyOpinionsSection />
+</Layout>

@@ -78,6 +78,7 @@ export function createDefaultTheme(): Theme {
     const black: Color = '#000';
     const light_blue_50: Color = 'rgba(220, 232, 241, 0.5)';
     const fontFamily = 'League Spartan, sans-serif';
+    const fontFamily_quote = 'Libre Baskerville, serif';
     const fontWeights = {
         regular: 400,
         bold: 600,
@@ -186,6 +187,11 @@ export function createDefaultTheme(): Theme {
                 fontSize: '1rem',
                 lineHeight: '1.5rem',
                 textDecoration: 'underline',
+            },
+            quote: {
+                fontFamily: fontFamily_quote,
+                fontSize: '1.5rem',
+                lineHeight: '2rem',
             },
         },
     };

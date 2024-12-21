@@ -1,12 +1,30 @@
-export const supportedLanguages = {
-    en: 'English',
-    pl: 'Polski',
+export const supportedLanguages = [
+    { lang: 'en', name: 'English' },
+    { lang: 'pl', name: 'Polski' },
+] as const;
+
+export const routes = {
+    en: {
+        contact: '/contact',
+        companies: '/for-companies',
+    },
+    pl: {
+        contact: '/kontakt',
+        companies: '/dla-firm',
+    },
 };
 
-export const defaultLang: keyof typeof supportedLanguages = 'pl';
+export type TRoutes = keyof (typeof routes)[TSupportedLanguages];
+export type TSupportedLanguages = (typeof supportedLanguages)[number]['lang'];
+
+export const defaultLang: TSupportedLanguages = 'pl';
 
 export const ui = {
     pl: {
+        'page.main': 'Strona główna',
+        'page.companies': 'Dla firm',
+        'page.contact': 'Kontakt',
+
         'nav.exchange': 'Wymiana',
         'nav.forCompanies': 'Dla firm',
         'nav.contact': 'Kontakt',
@@ -17,6 +35,7 @@ export const ui = {
         'section.visitNewPlaces': 'Odwiedź z nami nowe miejsca!',
         'section.partners': 'Oni nam zaufali, teraz kolej na Ciebie!',
         'section.timeline': 'Zanurz się w ciekawe projekty!',
+        'section.companyOpinions': 'Co myślą o nas firmy?',
 
         'section.companyContact': 'Kontakt',
 
@@ -84,14 +103,19 @@ export const ui = {
         'footer.address.headquarters.zipAndCity': '30-059 Kraków',
     },
     en: {
+        'page.main': 'Main page',
+        'page.companies': 'For companies',
+        'page.contact': 'Contact',
+
         'nav.exchange': 'Exchange',
         'nav.forCompanies': 'For companies',
         'nav.contact': 'Contact',
 
         'section.ourValues': 'Our Values',
         'section.visitNewPlaces': 'Visit new places with us!',
-        'section.partners': 'They trusted us, now it is your turn!',
+        'section.partners': 'These companies trusted us, now your turn!',
         'section.timeline': 'Immerse yourself in interesting projects!',
+        'section.companyOpinions': 'What do other companies think of us?',
 
         'section.companyContact': 'Contact',
 
@@ -152,8 +176,8 @@ export const ui = {
         'footer.links.statue.link': '#regulation-link',
         'footer.links.statue.title': 'Regulation of something',
         'footer.address.fullname': 'Local Committee IAESTE AGH Kraków',
-        'footer.address.correspondence.title': 'al. Mickiewicz 30',
-        'footer.address.correspondence.street': 'Correspondence address',
+        'footer.address.correspondence.street': 'al. Mickiewicz 30',
+        'footer.address.correspondence.title': 'Correspondence address',
         'footer.address.correspondence.zipAndCity': '30-059 Kraków',
         'footer.address.headquarters.title': 'Building U-6',
         'footer.address.headquarters.place': 'Headquarters address',
@@ -162,5 +186,5 @@ export const ui = {
     },
 } as const;
 
-export type TranslationKey = keyof (typeof ui)[typeof defaultLang];
+export type TranslationKey = keyof (typeof ui)[TSupportedLanguages];
 export const showDefaultLang = false;

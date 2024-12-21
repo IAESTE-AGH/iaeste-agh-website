@@ -60,5 +60,6 @@ export interface Theme {
         label: FontSettings;
         body: FontSettings;
         link: FontSettings;
+        quote: FontSettings;
     };
 }

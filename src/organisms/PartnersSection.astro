@@ -1,18 +1,7 @@
 ---
 import { ThemedSection } from '@/atoms';
-import Carousel from '@/atoms/Carousel';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
-
-const PARTNERS = [
-	'https://freelogopng.com/images/all_img/1657952217google-logo-png.png',
-	'https://freelogopng.com/images/all_img/1657952217google-logo-png.png',
-	'https://freelogopng.com/images/all_img/1657952217google-logo-png.png',
-	'https://freelogopng.com/images/all_img/1657952217google-logo-png.png',
-	'https://freelogopng.com/images/all_img/1657952217google-logo-png.png',
-	'https://freelogopng.com/images/all_img/1657952217google-logo-png.png',
-	'https://freelogopng.com/images/all_img/1657952217google-logo-png.png',
-	'https://freelogopng.com/images/all_img/1657952217google-logo-png.png',
-];
+import { PartnersCarousel } from '@/molecules';
 
 const url = new URL(Astro.request.url);
 const lang = getLangFromUrl(url);
@@ -20,16 +9,16 @@ const t = useTranslations(lang);
 ---
 
 <ThemedSection title={t('section.partners')}>
-	<div class="wrapper">
-		<Carousel client:load direction="ltr" images={PARTNERS} />
-		<Carousel client:load direction="rtl" images={PARTNERS} />
-	</div>
+    <div class="wrapper">
+        <PartnersCarousel />
+        <PartnersCarousel rtl />
+    </div>
 </ThemedSection>
 
 <style>
-	.wrapper {
-		display: flex;
-		flex-direction: column;
-		gap: 32px;
-	}
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
 </style>

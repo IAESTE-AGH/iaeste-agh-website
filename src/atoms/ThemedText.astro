@@ -8,6 +8,7 @@ type Props = {
     bold?: boolean;
     variant?: TextVariant;
     centered?: boolean;
+    toRight?: boolean;
     class?: string;
     nowrap?: boolean;
 };
@@ -17,6 +18,7 @@ const {
     variant = 'body',
     bold: isBold = false,
     centered: isCentered = false,
+    toRight: isToRight = false,
     class: className = '',
     nowrap = false,
 } = Astro.props;
@@ -48,6 +50,9 @@ switch (variant) {
     case 'link':
         Element = 'span';
         break;
+    case 'quote':
+        Element = 'p';
+        break;
     default:
         Element = 'p';
         break;
@@ -55,27 +60,44 @@ switch (variant) {
 ---
 
 <Element
-    class:list={[variant, { bold: isBold }, 'oneLine', className]}
-    style={{
-        color: color,
-        justifyContent: isCentered ? 'center' : 'left',
-        whiteSpace: nowrap ? 'nowrap' : 'normal',
-    }}
->
-    <span style="padding-top: 3px;">
-        <slot name="beforeIcon" />
-    </span>
-    <slot />
-    <span style="padding-top: 3px;">
-        <slot name="afterIcon" />
-    </span>
-</Element>
+    class:list={[
+        variant,
+        { bold: isBold },
+        'oneLine',
+        className,
+        { centered: isCentered },
+        { toRight: isToRight },
+    ]}
+    style={{ color: color, whiteSpace: nowrap ? 'nowrap' : 'normal' }}
+/>
+{
+    Astro.slots.has('beforeIcon') && (
+        <span style="padding-top: 3px;">
+            <slot name="beforeIcon" />
+        </span>
+    )
+}
+<slot />
+{
+    Astro.slots.has('afterIcon') && (
+        <span style="padding-top: 3px;">
+            <slot name="afterIcon" />
+        </span>
+    )
+}
 
 <style>
     .oneLine {
         display: flex;
         flex-direction: row;
         gap: 4px;
-        align-items: top;
+    }
+
+    .centered {
+        justify-content: center;
+    }
+
+    .toRight {
+        justify-content: flex-end;
     }
 </style>
