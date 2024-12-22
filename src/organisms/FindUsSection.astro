@@ -1,0 +1,82 @@
+---
+import { ThemedLink, ThemedSection, ThemedText } from '@/atoms';
+import { getLangFromUrl, useTranslations } from '@/i18n';
+import { ContactCard, FindUsCard } from '@/molecules';
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import Krowa from '@/assets/krowa.jpg';
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
+---
+
+<ThemedSection title={t('section.findUs')}>
+    <div class="wrapper">
+        <div class="details">
+            <FindUsCard imgPath="/src/assets/icons/Mail.svg">
+                <ThemedText variant="h5" bold>
+                    Adres korespondencyjny
+                </ThemedText>
+                <ThemedText>
+                    al. Mickiewicza 30,<br />30-059 Kraków
+                </ThemedText>
+            </FindUsCard>
+            <FindUsCard imgPath="/src/assets/icons/Pin.svg">
+                <ThemedText variant="h5" bold> Adres biura </ThemedText>
+                <ThemedText>
+                    Budynek U-6,<br />
+                    ul. Władysława Reymonta 21A,<br />
+                    30-059 Kraków
+                </ThemedText>
+            </FindUsCard>
+            <FindUsCard imgPath="/src/assets/icons/Phone.svg">
+                <ThemedText variant="h5" bold> Dane kontaktowe </ThemedText>
+                <div>
+                    <ThemedLink href="mailto:iaeste@agh.edu.pl">
+                        <Icon name="solar:letter-linear" slot={'beforeIcon'} />
+                        iaeste@agh.edu.pl
+                    </ThemedLink>
+                    <ThemedLink href="tel:+48123456789">
+                        <Icon
+                            name="solar:phone-rounded-linear"
+                            slot={'beforeIcon'}
+                        />
+                        +48 123 456 789
+                    </ThemedLink>
+                </div>
+            </FindUsCard>
+        </div>
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1858.625002042271!2d19.909784036846286!3d50.06662000549219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165ba401cb4387%3A0xa0ef8134e459c0f6!2sIAESTE%20AGH!5e0!3m2!1sen!2spl!4v1734908043896!5m2!1sen!2spl"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</ThemedSection>
+
+<style>
+    .wrapper {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .map {
+        border: var(--border);
+        border-radius: var(--borderRadius-default);
+        box-shadow: var(--shadows-default);
+        overflow: hidden;
+    }
+</style>
