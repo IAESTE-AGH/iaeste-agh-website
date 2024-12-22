@@ -40,11 +40,36 @@ const t = useTranslations(lang);
         <ThemedText variant="h1" bold
             >{t('companyContact.coordinators')}</ThemedText
         >
-        <div class="coordinators-grid">
-            {contacts.map(contact => <CoordinatorCard {...contact} />)}
+        <div id="coordinators-slider" class="keen-slider">
+            {
+                contacts.map(contact => (
+                    <div class="keen-slider__slide keen-slider__slide-clickable">
+                        <CoordinatorCard {...contact} />
+                    </div>
+                ))
+            }
         </div>
     </div>
 </ThemedSection>
+
+<script>
+    import KeenSlider from 'keen-slider';
+    import { WheelControls } from '@/utils/wheelControls';
+
+    const slider = new KeenSlider(
+        '#coordinators-slider',
+        {
+            mode: 'free-snap',
+            dragSpeed: 0.8,
+            renderMode: 'performance',
+            slides: {
+                perView: 'auto',
+                spacing: 32,
+            },
+        },
+        [WheelControls]
+    );
+</script>
 
 <style>
     .coordinators-section {
@@ -56,9 +81,13 @@ const t = useTranslations(lang);
         gap: 24px;
     }
 
-    .coordinators-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--spacing-md);
+    .keen-slider__slide {
+        min-width: fit-content;
+        max-width: fit-content;
+        overflow: visible !important;
+    }
+
+    .keen-slider {
+        overflow: visible !important;
     }
 </style>
