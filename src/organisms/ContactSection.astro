@@ -3,7 +3,7 @@ import { ThemedSection, ThemedText } from '@/atoms';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import { CoordinatorCard } from '@/molecules';
 
-const contacts = [
+const COORDINATORS = [
     {
         title: 'IAESTE CaseWeek',
         name: 'Imię i Nazwisko',
@@ -30,19 +30,62 @@ const contacts = [
     },
 ];
 
+const MANAGEMENT = [
+    {
+        title: 'Prezes',
+        name: 'Imię i Nazwisko',
+        phone: '+48 123 456 789',
+        email: 'imie.nazwisko@iaeste.pl',
+    },
+    {
+        title: 'Wiceprezes',
+        name: 'Imię i Nazwisko',
+        phone: '+48 123 456 789',
+        email: 'imie.nazwisko@iaeste.pl',
+    },
+    {
+        title: 'Skarbnik',
+        name: 'Imię i Nazwisko',
+        phone: '+48 123 456 789',
+        email: 'imie.nazwisko@iaeste.pl',
+    },
+    {
+        title: 'I Członek Zarządu',
+        name: 'Imię i Nazwisko',
+        phone: '+48 123 456 789',
+        email: 'imie.nazwisko@iaeste.pl',
+    },
+    {
+        title: 'II Członek Zarządu',
+        name: 'Imię i Nazwisko',
+        phone: '+48 123 456 789',
+        email: 'imie.nazwisko@iaeste.pl',
+    },
+];
+
 const url = new URL(Astro.request.url);
 const lang = getLangFromUrl(url);
 const t = useTranslations(lang);
 ---
 
 <ThemedSection title={t('section.companyContact')}>
-    <div class="coordinators-section">
-        <ThemedText variant="h1" bold
-            >{t('companyContact.coordinators')}</ThemedText
-        >
+    <div class="slider-section">
+        <ThemedText variant="h3">{t('companyContact.management')}</ThemedText>
+        <div id="management-slider" class="keen-slider">
+            {
+                MANAGEMENT.map(contact => (
+                    <div class="keen-slider__slide keen-slider__slide-clickable">
+                        <CoordinatorCard {...contact} />
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+    <div class="slider-section">
+        <ThemedText variant="h3">{t('companyContact.coordinators')}</ThemedText>
         <div id="coordinators-slider" class="keen-slider">
             {
-                contacts.map(contact => (
+                COORDINATORS.map(contact => (
                     <div class="keen-slider__slide keen-slider__slide-clickable">
                         <CoordinatorCard {...contact} />
                     </div>
@@ -69,10 +112,24 @@ const t = useTranslations(lang);
         },
         [WheelControls]
     );
+
+    const slider2 = new KeenSlider(
+        '#management-slider',
+        {
+            mode: 'free-snap',
+            dragSpeed: 0.8,
+            renderMode: 'performance',
+            slides: {
+                perView: 'auto',
+                spacing: 32,
+            },
+        },
+        [WheelControls]
+    );
 </script>
 
 <style>
-    .coordinators-section {
+    .slider-section {
         max-width: 100%;
         margin: 0 auto;
         padding: 32px;

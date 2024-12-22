@@ -30,6 +30,7 @@ const { rtl = false } = Astro.props;
 </div>
 
 <script>
+    import { WheelControls } from '@/utils/wheelControls';
     import type { KeenSliderOptions } from 'keen-slider';
     import KeenSlider from 'keen-slider';
 
@@ -41,7 +42,6 @@ const { rtl = false } = Astro.props;
         rtl: false,
         drag: true,
         mode: 'free',
-        dragSpeed: 0.8,
         defaultAnimation: animation,
         slides: {
             perView: () => (window.innerWidth - 160) / 480,
@@ -68,10 +68,14 @@ const { rtl = false } = Astro.props;
         document.querySelectorAll<HTMLElement>('#partners_carousel');
     sliders.forEach(
         slider =>
-            new KeenSlider(slider, {
-                ...options,
-                rtl: slider.dataset.rtl === 'true',
-            })
+            new KeenSlider(
+                slider,
+                {
+                    ...options,
+                    rtl: slider.dataset.rtl === 'true',
+                },
+                [WheelControls]
+            )
     );
 </script>
 

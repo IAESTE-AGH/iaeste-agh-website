@@ -69,6 +69,7 @@ const OPINIONS: Opinion[] = [
 </style>
 
 <script>
+    import { WheelControls } from '@/utils/wheelControls';
     import KeenSlider from 'keen-slider';
 
     const switchTime = 3000;
@@ -119,6 +120,7 @@ const OPINIONS: Opinion[] = [
                 slider.on('animationEnded', nextTimeout);
                 slider.on('updated', nextTimeout);
             },
+            WheelControls,
         ]
     );
 </script>

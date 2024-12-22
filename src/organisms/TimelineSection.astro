@@ -9,8 +9,8 @@ const t = useTranslations(lang);
 ---
 
 <ThemedSection title={t('section.timeline')}>
-    <div class="timeline-wrapper">
-        <div class="timeline-track">
+    <div id="timeline-carousel" class="keen-slider">
+        <div class="keen-slider__slide">
             <SeasonSectionCard season={t('timeline.spring')}>
                 <ShortActionCard
                     imgPath="/src/assets/krowa.jpg"
@@ -24,6 +24,8 @@ const t = useTranslations(lang);
                     informative
                 />
             </SeasonSectionCard>
+        </div>
+        <div class="keen-slider__slide">
             <SeasonSectionCard season={t('timeline.summer')}>
                 <ShortActionCard
                     imgPath="/src/assets/krowa.jpg"
@@ -37,6 +39,8 @@ const t = useTranslations(lang);
                     informative
                 />
             </SeasonSectionCard>
+        </div>
+        <div class="keen-slider__slide">
             <SeasonSectionCard season={t('timeline.autumn')}>
                 <ShortActionCard
                     imgPath="/src/assets/krowa.jpg"
@@ -50,6 +54,8 @@ const t = useTranslations(lang);
                     informative
                 />
             </SeasonSectionCard>
+        </div>
+        <div class="keen-slider__slide">
             <SeasonSectionCard season={t('timeline.winter')}>
                 <ShortActionCard
                     imgPath="/src/assets/krowa.jpg"
@@ -67,14 +73,33 @@ const t = useTranslations(lang);
     </div>
 </ThemedSection>
 
+<script>
+    import KeenSlider from 'keen-slider';
+    import { WheelControls } from '@/utils/wheelControls';
+
+    const slider = new KeenSlider(
+        '#timeline-carousel',
+        {
+            renderMode: 'performance',
+            rtl: false,
+            drag: true,
+            mode: 'free-snap',
+            slides: {
+                perView: 'auto',
+            },
+        },
+        [WheelControls]
+    );
+</script>
+
 <style>
-    .timeline-wrapper {
-        width: 100%;
-        overflow-x: scroll;
+    .keen-slider__slide {
+        min-width: fit-content;
+        max-width: fit-content;
+        overflow: visible !important;
     }
 
-    .timeline-track {
-        display: flex;
-        padding-bottom: 20px;
+    .keen-slider {
+        overflow: visible !important;
     }
 </style>
