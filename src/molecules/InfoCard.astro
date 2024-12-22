@@ -13,7 +13,7 @@ interface Props {
 type imgPath = keyof typeof images;
 const { imgPath, title, desc, isBgBlue = false } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
-    '/src/assets/*.svg'
+    '/src/assets/icons/*.svg'
 );
 ---
 
