@@ -37,6 +37,11 @@ export const ui = {
         'section.timeline': 'Zanurz się w ciekawe projekty!',
         'section.companyOpinions': 'Co myślą o nas firmy?',
 
+        'section.companyContact': 'Kontakt',
+
+        'companyContact.management': 'Zarząd IAESTE AGH',
+        'companyContact.coordinators': 'Koordynatorzy akcji',
+
         'values.trust': 'Zaufanie',
         'values.growth': 'Rozwój',
         'values.commitment': 'Aktywność',
@@ -112,7 +117,12 @@ export const ui = {
         'section.timeline': 'Immerse yourself in interesting projects!',
         'section.companyOpinions': 'What do other companies think of us?',
 
+        'section.companyContact': 'Contact',
+
         'landing.slogan': 'Work. Experience. Discover.',
+
+        'companyContact.management': 'IAESTE AGH Management',
+        'companyContact.coordinators': 'Actions coordinators',
 
         'values.trust': 'Trust',
         'values.growth': 'Growth',

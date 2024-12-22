@@ -10,6 +10,7 @@ type Props = {
     centered?: boolean;
     toRight?: boolean;
     class?: string;
+    nowrap?: boolean;
 };
 
 const {
@@ -19,6 +20,7 @@ const {
     centered: isCentered = false,
     toRight: isToRight = false,
     class: className = '',
+    nowrap = false,
 } = Astro.props;
 
 var Element: HTMLTag = 'p';
@@ -66,7 +68,7 @@ switch (variant) {
         { centered: isCentered },
         { toRight: isToRight },
     ]}
-    style={{ color: color }}
+    style={{ color: color, whiteSpace: nowrap ? 'nowrap' : 'normal' }}
 >
     {
         Astro.slots.has('beforeIcon') && (
@@ -83,20 +85,20 @@ switch (variant) {
             </span>
         )
     }
+
+    <style>
+        .oneLine {
+            display: flex;
+            flex-direction: row;
+            gap: 4px;
+        }
+
+        .centered {
+            justify-content: center;
+        }
+
+        .toRight {
+            justify-content: flex-end;
+        }
+    </style>
 </Element>
-
-<style>
-    .oneLine {
-        display: flex;
-        flex-direction: row;
-        gap: 4px;
-    }
-
-    .centered {
-        justify-content: center;
-    }
-
-    .toRight {
-        justify-content: flex-end;
-    }
-</style>
