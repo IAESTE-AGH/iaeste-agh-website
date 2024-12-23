@@ -1,10 +1,8 @@
 ---
 import { ThemedLink, ThemedSection, ThemedText } from '@/atoms';
 import { getLangFromUrl, useTranslations } from '@/i18n';
-import { ContactCard, FindUsCard } from '@/molecules';
+import { FindUsCard } from '@/molecules';
 import { Icon } from 'astro-icon/components';
-import { Image } from 'astro:assets';
-import Krowa from '@/assets/krowa.jpg';
 
 const url = new URL(Astro.request.url);
 const lang = getLangFromUrl(url);
