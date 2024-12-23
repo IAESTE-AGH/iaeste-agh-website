@@ -36,7 +36,7 @@ export const ui = {
         'section.partners': 'Oni nam zaufali, teraz kolej na Ciebie!',
         'section.timeline': 'Zanurz się w ciekawe projekty!',
         'section.companyOpinions': 'Co myślą o nas firmy?',
-
+        'section.findUs': 'Gdzie można nas znaleźć?',
         'section.companyContact': 'Kontakt',
 
         'companyContact.management': 'Zarząd IAESTE AGH',
@@ -116,7 +116,7 @@ export const ui = {
         'section.partners': 'These companies trusted us, now your turn!',
         'section.timeline': 'Immerse yourself in interesting projects!',
         'section.companyOpinions': 'What do other companies think of us?',
-
+        'section.findUs': "We're here!",
         'section.companyContact': 'Contact',
 
         'landing.slogan': 'Work. Experience. Discover.',

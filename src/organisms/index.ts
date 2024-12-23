@@ -6,6 +6,7 @@ import NewPlacesSection from './NewPlacesSection.astro';
 import LandingSection from './Landing.astro';
 import TimelineSection from './TimelineSection.astro';
 import CompanyOpinionsSection from './CompanyOpinionsSection.astro';
+import FindUsSection from './FindUsSection.astro';
 
 export {
     OurValuesSection,
@@ -16,4 +17,5 @@ export {
     LandingSection,
     TimelineSection,
     CompanyOpinionsSection,
+    FindUsSection,
 };

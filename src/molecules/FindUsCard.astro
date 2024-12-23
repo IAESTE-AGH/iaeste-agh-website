@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+interface Props {
+    imgPath: keyof typeof images;
+}
+
+const { imgPath } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    '/src/assets/icons/*.svg'
+);
+---
+
+<div class="card">
+    <div class="card__image">
+        <Image src={images[imgPath]()} alt={'decorative image'} />
+    </div>
+    <div class="card__content">
+        <slot />
+    </div>
+</div>
+
+<style>
+    .card {
+        display: flex;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+        box-shadow: var(--shadows-default);
+        border-radius: var(--borderRadius-default);
+        border: var(--border);
+        background-color: var(--colors-background-secondary);
+        align-items: center;
+    }
+
+    .card__content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+</style>
