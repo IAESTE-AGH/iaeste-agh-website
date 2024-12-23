@@ -38,6 +38,7 @@ export const ui = {
         'section.companyOpinions': 'Co myślą o nas firmy?',
         'section.findUs': 'Gdzie można nas znaleźć?',
         'section.companyContact': 'Kontakt',
+        'section.socialMedia': 'Znajdź nas na mediach!',
 
         'companyContact.management': 'Zarząd IAESTE AGH',
         'companyContact.coordinators': 'Koordynatorzy akcji',
@@ -118,6 +119,7 @@ export const ui = {
         'section.companyOpinions': 'What do other companies think of us?',
         'section.findUs': "We're here!",
         'section.companyContact': 'Contact',
+        'section.socialMedia': 'Find us on social media',
 
         'landing.slogan': 'Work. Experience. Discover.',
 

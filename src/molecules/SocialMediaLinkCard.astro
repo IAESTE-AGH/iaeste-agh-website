@@ -1,0 +1,31 @@
+---
+import { ThemedLink } from '@/atoms';
+import { Icon } from 'astro-icon/components';
+interface Props {
+    href: string;
+    beforeIcon?: string;
+    afterIcon?: string;
+    accountName: string;
+}
+
+const { href, beforeIcon, afterIcon, accountName } = Astro.props;
+---
+
+<div class="card">
+    <ThemedLink href={href} variant="h4">
+        {beforeIcon && <Icon name={beforeIcon} slot="beforeIcon" />}
+        {accountName}
+        {afterIcon && <Icon name={afterIcon} slot="afterIcon" />}
+    </ThemedLink>
+</div>
+
+<style>
+    .card {
+        border: var(--border);
+        border-radius: var(--borderRadius-default);
+        padding: var(--spacing-sm) var(--spacing-md) var(--spacing-xs);
+        box-shadow: var(--shadows-default);
+        display: flex;
+        height: fit-content;
+    }
+</style>

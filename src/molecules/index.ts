@@ -9,6 +9,7 @@ import CompanyOpinionsCarousel from './CompanyOpinionsCarousel.astro';
 import CoordinatorCard from './CoordinatorCard.astro';
 import PartnersCarousel from './PartnersCarousel.astro';
 import FindUsCard from './FindUsCard.astro';
+import SocialMediaLinkCard from './SocialMediaLinkCard.astro';
 
 export {
     InfoCard,
@@ -22,4 +23,5 @@ export {
     CoordinatorCard,
     PartnersCarousel,
     FindUsCard,
+    SocialMediaLinkCard,
 };

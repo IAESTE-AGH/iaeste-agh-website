@@ -1,0 +1,59 @@
+---
+import { ThemedSection } from '@/atoms';
+import { getLangFromUrl, useTranslations } from '@/i18n';
+import { SocialMediaLinkCard } from '@/molecules';
+import krowa from '@/assets/krowa.jpg';
+import { Image } from 'astro:assets';
+
+const url = new URL(Astro.request.url);
+const lang = getLangFromUrl(url);
+const t = useTranslations(lang);
+---
+
+<ThemedSection title={t('section.socialMedia')}>
+    <div class="wrapper">
+        <div class="details">
+            <SocialMediaLinkCard
+                href="https://facebook.com/iaeste.agh"
+                accountName="/iaeste.agh"
+                beforeIcon="mdi:facebook"
+            />
+            <SocialMediaLinkCard
+                href="https://facebook.com/iaeste.agh"
+                accountName="@iaeste_agh"
+                beforeIcon="mdi:instagram"
+            />
+            <SocialMediaLinkCard
+                href="https://facebook.com/iaeste.agh"
+                accountName="/iaeste-agh"
+                beforeIcon="mdi:linkedin"
+            />
+        </div>
+        <Image src={krowa} alt="krowa" class="img" />
+    </div>
+</ThemedSection>
+
+<style>
+    .wrapper {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: min-content;
+        gap: var(--spacing-md);
+    }
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+        height: fit-content;
+    }
+
+    .img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: var(--borderRadius-default);
+        box-shadow: var(--shadows-default);
+        border: var(--border);
+    }
+</style>

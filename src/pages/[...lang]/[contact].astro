@@ -8,7 +8,7 @@ import {
     useTranslations,
 } from '@/i18n';
 import Layout from '@/layouts/Layout.astro';
-import { ContactSection, FindUsSection } from '@/organisms';
+import { ContactSection, FindUsSection, SocialMediaSection } from '@/organisms';
 
 export function getStaticPaths() {
     return supportedLanguages.map(language => {
@@ -30,6 +30,7 @@ const t = useTranslations(lang);
 ---
 
 <Layout title={t('page.contact')}>
+    <SocialMediaSection />
     <FindUsSection />
     <ContactSection />
 </Layout>
