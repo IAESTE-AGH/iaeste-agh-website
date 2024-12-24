@@ -4,8 +4,9 @@ import {
     useTranslations,
     useTranslatedPath,
 } from '../i18n/utils';
-
+import logo from '@/assets/IAESTE_AGH_Horizontal.png';
 import { ThemedLink } from '@/atoms';
+import { Image } from 'astro:assets';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -14,10 +15,10 @@ const translatePath = useTranslatedPath(lang);
 
 <nav id="navbar">
     <a href={translatePath('/')}>
-        <img id="logo" src="/images/IAESTE_AGH_Horizontal.png" />
+        <Image id="logo" src={logo} alt={'iaeste logo'} />
     </a>
     <div id="links">
-        <ThemedLink href={translatePath('#wymiana')}>
+        <ThemedLink href={translatePath('/exchange')}>
             {t('nav.exchange')}
         </ThemedLink>
         <ThemedLink href={translatePath('/companies')}>
@@ -33,6 +34,7 @@ const translatePath = useTranslatedPath(lang);
     #logo {
         --logo-size: 50px;
         height: var(--logo-size);
+        width: auto;
         transition: height 0.1s ease;
     }
 

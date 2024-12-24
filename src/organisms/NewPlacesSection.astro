@@ -2,16 +2,18 @@
 import { ThemedLink, ThemedSection } from '@/atoms';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import { InfoCard, InfoCardImage } from '@/molecules';
-import krowa from '@/assets/krowa.jpg';
-import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
+import { routes } from '@/i18n';
 
 const url = new URL(Astro.request.url);
 const lang = getLangFromUrl(url);
 const t = useTranslations(lang);
 ---
 
-<ThemedSection title={t('section.visitNewPlaces')}>
+<ThemedSection
+    title={t('section.visitNewPlaces')}
+    id={routes[lang].exchange.split('#')[1]}
+>
     <div class="wrapper">
         <div>
             <InfoCardImage imgPath="/src/assets/krowa.jpg" />

@@ -5,10 +5,12 @@ export const supportedLanguages = [
 
 export const routes = {
     en: {
+        exchange: '/#exchange',
         contact: '/contact',
         companies: '/for-companies',
     },
     pl: {
+        exchange: '/#wymiana',
         contact: '/kontakt',
         companies: '/dla-firm',
     },
