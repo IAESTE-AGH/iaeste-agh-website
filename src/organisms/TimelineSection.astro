@@ -77,19 +77,21 @@ const t = useTranslations(lang);
     import KeenSlider from 'keen-slider';
     import { WheelControls } from '@/utils/wheelControls';
 
-    const slider = new KeenSlider(
-        '#timeline-carousel',
-        {
-            renderMode: 'performance',
-            rtl: false,
-            drag: true,
-            mode: 'free-snap',
-            slides: {
-                perView: 'auto',
+    if (document.getElementById('timeline-carousel') !== null) {
+        const slider = new KeenSlider(
+            '#timeline-carousel',
+            {
+                renderMode: 'performance',
+                rtl: false,
+                drag: true,
+                mode: 'free-snap',
+                slides: {
+                    perView: 'auto',
+                },
             },
-        },
-        [WheelControls]
-    );
+            [WheelControls]
+        );
+    }
 </script>
 
 <style>

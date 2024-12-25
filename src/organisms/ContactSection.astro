@@ -99,33 +99,37 @@ const t = useTranslations(lang);
     import KeenSlider from 'keen-slider';
     import { WheelControls } from '@/utils/wheelControls';
 
-    const slider = new KeenSlider(
-        '#coordinators-slider',
-        {
-            mode: 'free-snap',
-            dragSpeed: 0.8,
-            renderMode: 'performance',
-            slides: {
-                perView: 'auto',
-                spacing: 32,
+    if (document.getElementById('coordinators-slider') !== null) {
+        const slider = new KeenSlider(
+            '#coordinators-slider',
+            {
+                mode: 'free-snap',
+                dragSpeed: 0.8,
+                renderMode: 'performance',
+                slides: {
+                    perView: 'auto',
+                    spacing: 32,
+                },
             },
-        },
-        [WheelControls]
-    );
+            [WheelControls]
+        );
+    }
 
-    const slider2 = new KeenSlider(
-        '#management-slider',
-        {
-            mode: 'free-snap',
-            dragSpeed: 0.8,
-            renderMode: 'performance',
-            slides: {
-                perView: 'auto',
-                spacing: 32,
+    if (document.getElementById('management-slider') !== null) {
+        const slider2 = new KeenSlider(
+            '#management-slider',
+            {
+                mode: 'free-snap',
+                dragSpeed: 0.8,
+                renderMode: 'performance',
+                slides: {
+                    perView: 'auto',
+                    spacing: 32,
+                },
             },
-        },
-        [WheelControls]
-    );
+            [WheelControls]
+        );
+    }
 </script>
 
 <style>

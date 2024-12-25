@@ -74,53 +74,55 @@ const OPINIONS: Opinion[] = [
 
     const switchTime = 3000;
 
-    const slider = new KeenSlider(
-        '#carousel',
-        {
-            loop: false,
-            renderMode: 'performance',
-            slides: {
-                perView: 'auto',
-                spacing: 32,
+    if (document.getElementById('carousel') !== null) {
+        const slider = new KeenSlider(
+            '#carousel',
+            {
+                loop: false,
+                renderMode: 'performance',
+                slides: {
+                    perView: 'auto',
+                    spacing: 32,
+                },
             },
-        },
-        [
-            slider => {
-                let timeout: any;
-                let mouseOver = false;
-                function clearNextTimeout() {
-                    clearTimeout(timeout);
-                }
-                function nextTimeout() {
-                    clearTimeout(timeout);
-                    if (mouseOver) return;
-                    timeout = setTimeout(() => {
-                        if (
-                            slider.track.details.position ===
-                            slider.track.details.max
-                        ) {
-                            slider.moveToIdx(0);
-                        } else {
-                            slider.next();
-                        }
-                    }, switchTime);
-                }
-                slider.on('created', () => {
-                    slider.container.addEventListener('mouseover', () => {
-                        mouseOver = true;
-                        clearNextTimeout();
-                    });
-                    slider.container.addEventListener('mouseout', () => {
-                        mouseOver = false;
+            [
+                slider => {
+                    let timeout: any;
+                    let mouseOver = false;
+                    function clearNextTimeout() {
+                        clearTimeout(timeout);
+                    }
+                    function nextTimeout() {
+                        clearTimeout(timeout);
+                        if (mouseOver) return;
+                        timeout = setTimeout(() => {
+                            if (
+                                slider.track.details.position ===
+                                slider.track.details.max
+                            ) {
+                                slider.moveToIdx(0);
+                            } else {
+                                slider.next();
+                            }
+                        }, switchTime);
+                    }
+                    slider.on('created', () => {
+                        slider.container.addEventListener('mouseover', () => {
+                            mouseOver = true;
+                            clearNextTimeout();
+                        });
+                        slider.container.addEventListener('mouseout', () => {
+                            mouseOver = false;
+                            nextTimeout();
+                        });
                         nextTimeout();
                     });
-                    nextTimeout();
-                });
-                slider.on('dragStarted', clearNextTimeout);
-                slider.on('animationEnded', nextTimeout);
-                slider.on('updated', nextTimeout);
-            },
-            WheelControls,
-        ]
-    );
+                    slider.on('dragStarted', clearNextTimeout);
+                    slider.on('animationEnded', nextTimeout);
+                    slider.on('updated', nextTimeout);
+                },
+                WheelControls,
+            ]
+        );
+    }
 </script>
