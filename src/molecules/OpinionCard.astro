@@ -9,9 +9,10 @@ interface Props {
     comment: string;
     rating: number;
     imgPath: keyof typeof images;
+    imgAlt: string;
 }
 
-const { company, comment, rating, imgPath } = Astro.props;
+const { company, comment, rating, imgPath, imgAlt: alt } = Astro.props;
 if (rating < 0 || rating > 5) {
     throw new Error('Rating must be between 0 and 5');
 }
@@ -31,7 +32,7 @@ const stars = Array(5)
         <ThemedText variant="quote">&#x201C;{comment}&#x201D;</ThemedText>
     </div>
     <div id="lower-part">
-        <Image src={images[imgPath]()} alt="Company logo" />
+        <Image src={images[imgPath]()} alt={alt} />
         <div id="rating-section">
             <ThemedText variant="h5" bold toRight>{company}</ThemedText>
             <div id="stars">

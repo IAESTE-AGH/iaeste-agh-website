@@ -1,60 +1,30 @@
 ---
+import { getLangFromUrl } from '@/i18n';
 import OpinionCard from '@/molecules/OpinionCard.astro';
+import { getCollection } from 'astro:content';
 
 import 'keen-slider/keen-slider.min.css';
-
-interface Opinion {
-    company: string;
-    comment: string;
-    rating: 0 | 1 | 2 | 3 | 4 | 5;
-    imgPath: string;
-}
-
-const OPINIONS: Opinion[] = [
-    {
-        company: 'Google',
-        comment:
-            "I'm feeling lucky, the company is sooooo great, I just can't describe it",
-        rating: 5,
-        imgPath: '/src/assets/company-logos/example_logo.png',
-    },
-    {
-        company: 'Google',
-        comment: "I'm feeling lucky",
-        rating: 3,
-        imgPath: '/src/assets/company-logos/example_logo.png',
-    },
-    {
-        company: 'Google',
-        comment: "I'm feeling lucky",
-        rating: 1,
-        imgPath: '/src/assets/company-logos/example_logo.png',
-    },
-    {
-        company: 'Google',
-        comment: "I'm feeling lucky",
-        rating: 3,
-        imgPath: '/src/assets/company-logos/example_logo.png',
-    },
-    {
-        company: 'Google',
-        comment: "I'm feeling lucky",
-        rating: 1,
-        imgPath: '/src/assets/company-logos/example_logo.png',
-    },
-];
+const lang = getLangFromUrl(Astro.url);
+const opinions = await getCollection('opinions', ({ id }) =>
+    id.startsWith(lang)
+);
 ---
 
 <div id="carousel" class="keen-slider">
     {
-        OPINIONS.map(opinion => (
+        opinions.map(opinion => (
             <div class="keen-slider__slide">
-                <OpinionCard {...opinion} />
+                <OpinionCard
+                    company={opinion.data.companyName}
+                    imgPath={opinion.data.companyLogo.src}
+                    imgAlt={opinion.data.companyLogo.alt}
+                    comment={opinion.body}
+                    rating={opinion.data.rating}
+                />
             </div>
         ))
     }
 </div>
-
 <style>
     .keen-slider__slide {
         height: auto;
