@@ -35,7 +35,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
     <div style="display: flex; flex-direction: column; gap: 8px;">
         <div style="width: fit-content; max-width: 100%; margin: auto;">
-            <ThemedText variant={isBgBlue ? 'h4' : 'h1'} bold
+            <ThemedText variant={isBgBlue ? 'h5' : 'h1'} bold
                 >{title}</ThemedText
             >
         </div>
@@ -50,7 +50,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 <style
     define:vars={{
         padding:
-            imgPath == undefined ? 'var(--spacing-md)' : 'var(--spacing-lg)',
+            imgPath == undefined ? 'var(--spacing-sm)' : 'var(--spacing-md)',
     }}
 >
     .infoCard {
@@ -61,8 +61,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         gap: 64px;
         flex-direction: column;
         padding-block: var(--padding);
-        padding-bottom: var(--spacing-lg);
-        padding-inline: var(--spacing-lg);
+        padding-bottom: var(--spacing-md);
+        padding-inline: var(--spacing-md);
         border: var(--border);
         box-shadow: var(--shadows-default);
         border-radius: var(--borderRadius-default);
