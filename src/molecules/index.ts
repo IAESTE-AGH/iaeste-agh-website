@@ -11,6 +11,7 @@ import PartnersCarousel from './PartnersCarousel.astro';
 import FindUsCard from './FindUsCard.astro';
 import SocialMediaLinkCard from './SocialMediaLinkCard.astro';
 import EventCard from './EventCard.astro';
+import ManagementCard from './ManagementCard.astro';
 
 export {
     InfoCard,
@@ -26,4 +27,5 @@ export {
     FindUsCard,
     SocialMediaLinkCard,
     EventCard,
+    ManagementCard,
 };

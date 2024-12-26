@@ -1,7 +1,7 @@
 ---
 import { ThemedSection, ThemedText } from '@/atoms';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
-import { CoordinatorCard } from '@/molecules';
+import { CoordinatorCard, ManagementCard } from '@/molecules';
 
 const COORDINATORS = [
     {
@@ -36,30 +36,35 @@ const MANAGEMENT = [
         name: 'Imię i Nazwisko',
         phone: '+48 123 456 789',
         email: 'imie.nazwisko@iaeste.pl',
+        imgPath: '/src/assets/contact-images/krowa.jpg',
     },
     {
         title: 'Wiceprezes',
         name: 'Imię i Nazwisko',
         phone: '+48 123 456 789',
         email: 'imie.nazwisko@iaeste.pl',
+        imgPath: '/src/assets/contact-images/krowa.jpg',
     },
     {
         title: 'Skarbnik',
         name: 'Imię i Nazwisko',
         phone: '+48 123 456 789',
         email: 'imie.nazwisko@iaeste.pl',
+        imgPath: '/src/assets/contact-images/krowa.jpg',
     },
     {
         title: 'I Członek Zarządu',
         name: 'Imię i Nazwisko',
         phone: '+48 123 456 789',
         email: 'imie.nazwisko@iaeste.pl',
+        imgPath: '/src/assets/contact-images/krowa.jpg',
     },
     {
         title: 'II Członek Zarządu',
         name: 'Imię i Nazwisko',
         phone: '+48 123 456 789',
         email: 'imie.nazwisko@iaeste.pl',
+        imgPath: '/src/assets/contact-images/krowa.jpg',
     },
 ];
 
@@ -75,7 +80,7 @@ const t = useTranslations(lang);
             {
                 MANAGEMENT.map(contact => (
                     <div class="keen-slider__slide keen-slider__slide-clickable">
-                        <CoordinatorCard {...contact} />
+                        <ManagementCard {...contact} />
                     </div>
                 ))
             }
