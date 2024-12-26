@@ -40,7 +40,9 @@ const opinions = await getCollection('opinions', ({ id }) =>
 
 <script>
     import { WheelControls } from '@/utils/wheelControls';
+    import { AutoAdvance } from '@/utils/autoAdvance';
     import KeenSlider from 'keen-slider';
+    import { SliderDots } from '@/utils/sliderDots';
 
     const switchTime = 3000;
 
@@ -55,44 +57,7 @@ const opinions = await getCollection('opinions', ({ id }) =>
                     spacing: 32,
                 },
             },
-            [
-                slider => {
-                    let timeout: any;
-                    let mouseOver = false;
-                    function clearNextTimeout() {
-                        clearTimeout(timeout);
-                    }
-                    function nextTimeout() {
-                        clearTimeout(timeout);
-                        if (mouseOver) return;
-                        timeout = setTimeout(() => {
-                            if (
-                                slider.track.details.position ===
-                                slider.track.details.max
-                            ) {
-                                slider.moveToIdx(0);
-                            } else {
-                                slider.next();
-                            }
-                        }, switchTime);
-                    }
-                    slider.on('created', () => {
-                        slider.container.addEventListener('mouseover', () => {
-                            mouseOver = true;
-                            clearNextTimeout();
-                        });
-                        slider.container.addEventListener('mouseout', () => {
-                            mouseOver = false;
-                            nextTimeout();
-                        });
-                        nextTimeout();
-                    });
-                    slider.on('dragStarted', clearNextTimeout);
-                    slider.on('animationEnded', nextTimeout);
-                    slider.on('updated', nextTimeout);
-                },
-                WheelControls,
-            ]
+            [WheelControls, AutoAdvance(switchTime), SliderDots]
         );
     }
 </script>
