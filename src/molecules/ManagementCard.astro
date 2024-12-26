@@ -1,0 +1,59 @@
+---
+import type { Color } from '@/types';
+import ContactCard from '@/molecules/ContactCard.astro';
+import { ThemedText } from '@/atoms';
+import { Image } from 'astro:assets';
+
+export interface Props {
+    imgPath: string;
+    title: string;
+    name: string;
+    phone: string;
+    email: string;
+    linkColor?: Color;
+}
+
+const { title, name, phone, email, linkColor, imgPath } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    '/src/assets/contact-images/*.{jpg,png}'
+);
+---
+
+<div class="management-card">
+    <Image src={images[imgPath]()} alt={name} class="img" />
+    <div class="content">
+        <ThemedText variant="h5" bold nowrap>{title}</ThemedText>
+        <ContactCard
+            name={name}
+            phone={phone}
+            email={email}
+            linkColor={linkColor || '#0B3D59'}
+        />
+    </div>
+</div>
+
+<style>
+    .management-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        border-radius: var(--borderRadius-default);
+        background-color: var(--colors-background-primary);
+        box-shadow: var(--shadows-default);
+        border: var(--border);
+        overflow: hidden;
+    }
+
+    .img {
+        width: 115px;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: var(--spacing-md);
+    }
+</style>
