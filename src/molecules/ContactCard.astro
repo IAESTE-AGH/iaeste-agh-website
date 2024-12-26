@@ -4,16 +4,24 @@ import type { Color } from '@/types';
 import { Icon } from 'astro-icon/components';
 
 export interface Props {
+    title?: string;
     name: string;
     phone?: string;
     email: string;
     linkColor?: Color;
 }
 
-const { name, phone, email, linkColor } = Astro.props;
+const { name, phone, email, linkColor, title } = Astro.props;
 ---
 
 <div style="display: flex; flex-direction: column; gap: 8px;">
+    {
+        title && (
+            <ThemedText variant="h6" bold>
+                {title}
+            </ThemedText>
+        )
+    }
     <ThemedText>{name}</ThemedText>
     {
         phone && (
