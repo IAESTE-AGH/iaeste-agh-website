@@ -9,17 +9,36 @@ type Props = {
     bold?: boolean;
     variant?: TextVariant;
     color?: Color;
+    class?: string;
 };
 
-const { href, button: asButton = false, bold, variant, color } = Astro.props;
+const {
+    href,
+    button: asButton = false,
+    bold,
+    variant,
+    color,
+    class: classList,
+} = Astro.props;
 ---
 
 <a
     href={href}
     target={href.startsWith('http') ? '_blank' : '_self'}
-    class:list={[{ button: asButton }, { link: !asButton }, variant || '']}
+    class:list={[
+        { button: asButton },
+        { link: !asButton },
+        variant || '',
+        classList,
+    ]}
 >
-    <ThemedText variant={variant} bold={bold} color={color} centered={asButton}>
+    <ThemedText
+        variant={variant}
+        bold={bold}
+        color={color}
+        centered={asButton}
+        class={classList}
+    >
         <slot name="beforeIcon" slot="beforeIcon" />
         <slot />
         <slot name="afterIcon" slot="afterIcon" />
