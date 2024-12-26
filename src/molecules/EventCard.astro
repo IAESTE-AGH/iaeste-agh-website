@@ -1,0 +1,93 @@
+---
+import { ThemedLink, ThemedText } from '@/atoms';
+import { Image } from 'astro:assets';
+import { ContactCard } from '.';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+    title: string;
+    linkUrl: string;
+    imageUrl: string;
+    contactInfo: ContactInfo | ContactInfo[];
+}
+
+type ContactInfo = {
+    title: string;
+    name: string;
+    phone?: string;
+    email: string;
+};
+
+const { title, linkUrl, imageUrl, contactInfo } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    '/src/assets/event-logos/*.{jpg,png}'
+);
+---
+
+<div class="event-card">
+    <ThemedText variant="h3" bold>{title}</ThemedText>
+    <div class="content">
+        <div class="col">
+            <slot />
+        </div>
+        <div class="col">
+            <Image src={images[imageUrl]()} alt={`logo ${title}`} class="img" />
+            {
+                Array.isArray(contactInfo) ? (
+                    contactInfo.map(info => <ContactCard {...info} />)
+                ) : (
+                    <ContactCard {...contactInfo} />
+                )
+            }
+            <div>
+                <ThemedText variant="h6" bold>Współpraca z nami</ThemedText>
+                <slot name="partnership" />
+            </div>
+        </div>
+        <ThemedLink href={linkUrl} class={'span'}>
+            Przejdź do strony akcji
+            <Icon name="solar:arrow-right-up-linear" slot="afterIcon" />
+        </ThemedLink>
+    </div>
+</div>
+
+<style>
+    .event-card {
+        border: var(--border);
+        border-radius: var(--borderRadius-default);
+        padding: var(--spacing-md);
+        display: flex;
+        flex-direction: column;
+        min-width: 786px;
+        transition: box-shadow 0.2s ease;
+    }
+
+    .event-card:hover {
+        box-shadow: var(--shadows-default);
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .img {
+        border: var(--border);
+        border-radius: var(--borderRadius-sm);
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    .col {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+
+    .span {
+        grid-column: span 2;
+        justify-self: end;
+    }
+</style>
