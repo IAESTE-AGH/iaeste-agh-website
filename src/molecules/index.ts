@@ -12,6 +12,9 @@ import FindUsCard from './FindUsCard.astro';
 import SocialMediaLinkCard from './SocialMediaLinkCard.astro';
 import EventCard from './EventCard.astro';
 import ManagementCard from './ManagementCard.astro';
+import EventBenefit from './EventBenefit.astro';
+import EventBenefitsCarousel from './EventBenefitsCarousel.astro';
+import EventBenefitContact from './EventBenefitContact.astro';
 
 export {
     InfoCard,
@@ -28,4 +31,7 @@ export {
     SocialMediaLinkCard,
     EventCard,
     ManagementCard,
+    EventBenefit,
+    EventBenefitsCarousel,
+    EventBenefitContact,
 };
