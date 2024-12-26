@@ -9,6 +9,7 @@ import CompanyOpinionsSection from './CompanyOpinionsSection.astro';
 import FindUsSection from './FindUsSection.astro';
 import SocialMediaSection from './SocialMediaSection.astro';
 import EventsSection from './EventsSection.astro';
+import EventBenefitsSection from './EventBenefitsSection.astro';
 
 export {
     OurValuesSection,
@@ -22,4 +23,5 @@ export {
     FindUsSection,
     SocialMediaSection,
     EventsSection,
+    EventBenefitsSection,
 };

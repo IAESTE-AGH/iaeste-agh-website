@@ -8,17 +8,11 @@ import {
     routes,
 } from '@/i18n';
 import Layout from '@/layouts/Layout.astro';
-import { CompanyOpinionsCarousel } from '@/molecules';
-import OpinionCard from '@/molecules/OpinionCard.astro';
 import {
-    OurValuesSection,
-    PartnersSection,
-    NewPlacesSection,
-    LandingSection,
-    TimelineSection,
     CompanyOpinionsSection,
     ContactSection,
     EventsSection,
+    EventBenefitsSection,
 } from '@/organisms';
 
 export function getStaticPaths() {
@@ -42,6 +36,7 @@ const t = useTranslations(lang);
 
 <Layout title={t('page.companies')}>
     <EventsSection />
+    <EventBenefitsSection />
     <CompanyOpinionsSection />
     <ContactSection />
 </Layout>
