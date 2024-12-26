@@ -1,0 +1,36 @@
+---
+import { ThemedLink, ThemedText } from '@/atoms';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+    text: string;
+    coordinatorEmail: string;
+    buttonMessage: string;
+}
+
+const { text, coordinatorEmail, buttonMessage } = Astro.props;
+---
+
+<div class="event-benefits-contact">
+    <ThemedText variant="h6">{text}</ThemedText>
+    <ThemedLink href={`mailto:${coordinatorEmail}`}>
+        <Icon name="solar:arrow-right-up-linear" slot="afterIcon" />
+        {buttonMessage}
+    </ThemedLink>
+</div>
+
+<style>
+    .event-benefits-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: var(--spacing-md);
+        align-items: end;
+        width: fit-content;
+        border-radius: var(--borderRadius-default);
+        background-color: var(--colors-background-accent);
+        border: var(--border);
+        box-shadow: var(--shadows-default);
+        max-width: 45ch;
+    }
+</style>
