@@ -1,0 +1,80 @@
+---
+import { ThemedSection } from '@/atoms';
+import { ContactCard, EventCard } from '@/molecules';
+---
+
+<ThemedSection title="Akcje organizowane przez IAESTE AGH">
+    <div class="content keen-slider" id="events_carousel">
+        <div class="keen-slider__slide">
+            <EventCard
+                title="Dni Kariery AGH"
+                linkUrl="https://dni-kariery.agh.edu.pl/"
+                imageUrl="/src/assets/event-logos/example_logo.png"
+                contactInfo={{
+                    title: 'Koordynator ds. akcji',
+                    name: 'Krzysztof Kowalski',
+                    email: 'krzysztof.kowalski@iaeste.pl',
+                    phone: '+48 123 456 789',
+                }}
+            />
+        </div>
+        <div class="keen-slider__slide">
+            <EventCard
+                title="Dni Kariery AGH"
+                linkUrl="https://dni-kariery.agh.edu.pl/"
+                imageUrl="/src/assets/event-logos/example_logo.png"
+                contactInfo={{
+                    title: 'Koordynator ds. akcji',
+                    name: 'Krzysztof Kowalski',
+                    email: 'krzysztof.kowalski@iaeste.pl',
+                    phone: '+48 123 456 789',
+                }}
+            />
+        </div>
+        <div class="keen-slider__slide">
+            <EventCard
+                title="Dni Kariery AGH"
+                linkUrl="https://dni-kariery.agh.edu.pl/"
+                imageUrl="/src/assets/event-logos/example_logo.png"
+                contactInfo={{
+                    title: 'Koordynator ds. akcji',
+                    name: 'Krzysztof Kowalski',
+                    email: 'krzysztof.kowalski@iaeste.pl',
+                    phone: '+48 123 456 789',
+                }}
+            />
+        </div>
+    </div>
+</ThemedSection>
+
+<script>
+    import KeenSlider from 'keen-slider';
+    import { WheelControls } from '@/utils/wheelControls';
+    import { SliderDots } from '@/utils/sliderDots';
+
+    if (document.getElementById('events_carousel') !== null) {
+        const slider = new KeenSlider(
+            '#events_carousel',
+            {
+                renderMode: 'performance',
+                mode: 'free-snap',
+                slides: {
+                    perView: 'auto',
+                    spacing: 32,
+                },
+            },
+            [WheelControls, SliderDots]
+        );
+    }
+</script>
+
+<style>
+    .keen-slider {
+        overflow: visible !important;
+    }
+
+    .keen-slider__slide {
+        overflow: visible !important;
+        min-width: 786px;
+    }
+</style>
