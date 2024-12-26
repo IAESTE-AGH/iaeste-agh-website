@@ -18,7 +18,8 @@ const {
     bold,
     variant,
     color,
-    class: classList,
+    class: className,
+    ...rest
 } = Astro.props;
 ---
 
@@ -29,16 +30,11 @@ const {
         { button: asButton },
         { link: !asButton },
         variant || '',
-        classList,
+        className,
     ]}
+    {...rest}
 >
-    <ThemedText
-        variant={variant}
-        bold={bold}
-        color={color}
-        centered={asButton}
-        class={classList}
-    >
+    <ThemedText variant={variant} bold={bold} color={color} centered={asButton}>
         <slot name="beforeIcon" slot="beforeIcon" />
         <slot />
         <slot name="afterIcon" slot="afterIcon" />
