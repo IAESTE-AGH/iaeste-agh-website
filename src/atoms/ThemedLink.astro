@@ -1,6 +1,7 @@
 ---
 import type { Color, TextVariant } from '@/types';
 import ThemedText from './ThemedText.astro';
+import type { CSSProperty } from 'astro/types';
 
 type Props = {
     href: string;
@@ -21,11 +22,17 @@ const {
     class: className,
     ...rest
 } = Astro.props;
+
+const target = href.startsWith('http')
+    ? href.startsWith(new URL(Astro.request.url).origin)
+        ? '_self'
+        : '_blank'
+    : '_self';
 ---
 
 <a
     href={href}
-    target={href.startsWith('http') ? '_blank' : '_self'}
+    target={target}
     class:list={[
         { button: asButton },
         { link: !asButton },
