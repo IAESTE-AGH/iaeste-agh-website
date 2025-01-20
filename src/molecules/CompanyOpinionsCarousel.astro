@@ -36,6 +36,17 @@ const opinions = await getCollection('opinions', ({ id }) =>
     .keen-slider {
         overflow: visible !important;
     }
+
+    @media (max-width: 768px) {
+        .keen-slider {
+            display: flex;
+        }
+        .keen-slider__slide {
+            min-width: 90%;
+            max-width: 90%;
+            text-align: center;
+        }
+    }
 </style>
 
 <script>

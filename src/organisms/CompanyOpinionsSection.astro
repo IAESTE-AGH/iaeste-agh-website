@@ -8,6 +8,16 @@ const lang = getLangFromUrl(url);
 const t = useTranslations(lang);
 ---
 
-<ThemedSection title={t('section.companyOpinions')}>
+<ThemedSection id="opinion-section" title={t('section.companyOpinions')}>
     <CompanyOpinionsCarousel />
 </ThemedSection>
+
+<style>
+    @media (max-width: 768px) {
+        #opinion-section {
+            align-items: center;
+            text-align: center;
+            gap: var(--spacing-sm);
+        }
+    }
+</style>
