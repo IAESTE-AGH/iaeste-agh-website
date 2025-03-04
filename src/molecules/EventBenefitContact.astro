@@ -33,4 +33,22 @@ const { text, coordinatorEmail, buttonMessage } = Astro.props;
         box-shadow: var(--shadows-default);
         max-width: 45ch;
     }
+
+    @media (max-width: 500px) {
+        .event-benefits-contact {
+            width: 110%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    @media (min-width: 500px) and (max-width: 700px) {
+        .event-benefits-contact {
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+    }
 </style>

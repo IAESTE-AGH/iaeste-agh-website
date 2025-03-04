@@ -14,7 +14,11 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 ---
 
 <div class="event-benefit">
-    <Image src={images[imgPath]()} alt={'decorative image'} />
+    <Image
+        class="benefit-image"
+        src={images[imgPath]()}
+        alt={'decorative image'}
+    />
     <ThemedText variant="h6">{text}</ThemedText>
 </div>
 
@@ -29,5 +33,35 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         background-color: var(--colors-background-secondary);
         border: var(--border);
         box-shadow: var(--shadows-default);
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    @media (max-width: 500px) {
+        .benefit-image {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .event-benefit {
+            width: 110%;
+            text-align: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+    }
+
+    @media (min-width: 500px) and (max-width: 700px) {
+        .benefit-image {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .event-benefit {
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+            flex-direction: column;
+        }
     }
 </style>

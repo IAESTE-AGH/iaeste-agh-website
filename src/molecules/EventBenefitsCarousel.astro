@@ -11,61 +11,67 @@ interface Props {
 const { eventName, benefits } = Astro.props;
 ---
 
-<div class="event-benefits-carousel">
+<div class="event-benefits-grid">
     <ThemedText variant="h2">{eventName}</ThemedText>
-    <div class="keen-slider" id="event-benefits-carousel">
+    <div class="benefits-grid">
         {
             benefits.map(benefit => (
-                <div class="keen-slider__slide">
+                <div class="benefit__slide">
                     <EventBenefit {...benefit} />
                 </div>
             ))
         }
-        <div class="keen-slider__slide">
-            <EventBenefitContact
-                text="W celu uzyskania pełnej oferty akcji, zapraszamy do kontaktu z koordynatorem."
-                coordinatorEmail="email@iaeste.pl"
-                buttonMessage="Skontaktuj się z koordynatorem akcji"
-            />
+        <div class="benefit__slide">
+            <div class="benefit__slide">
+                <EventBenefitContact
+                    text="W celu uzyskania pełnej oferty akcji"
+                    coordinatorEmail="email@iaeste.pl"
+                    buttonMessage="skontaktuj się z koordynatorem"
+                />
+            </div>
         </div>
     </div>
 </div>
-
-<script>
-    import KeenSlider from 'keen-slider';
-    import { WheelControls } from '@/utils/wheelControls';
-
-    if (document.getElementById('event-benefits-carousel') !== null) {
-        const slider = new KeenSlider(
-            '#event-benefits-carousel',
-            {
-                mode: 'free-snap',
-                dragSpeed: 0.8,
-                renderMode: 'performance',
-                slides: {
-                    perView: 'auto',
-                    spacing: 32,
-                },
-            },
-            [WheelControls]
-        );
-    }
-</script>
-
 <style>
-    .event-benefits-carousel {
+    .event-benefits-grid {
         display: flex;
         flex-direction: column;
         gap: var(--spacing-md);
+        width: 100%;
     }
 
-    .keen-slider {
-        overflow: visible !important;
+    .benefits-grid {
+        display: grid;
+        gap: var(--spacing-md);
+        grid-template-columns: repeat(4, minmax(250px, 300px));
+        align-items: stretch;
+        justify-content: center;
     }
 
-    .keen-slider__slide {
-        overflow: visible !important;
-        min-width: fit-content;
-        max-width: fit-content;
+    .benefit__slide {
+        width: 100%;
+        justify-content: center;
+    }
+
+    @media (max-width: 950px) {
+        .benefits-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            justify-content: center;
+            margin-left: 0 !important;
+            gap: var(--spacing-xs);
+        }
+    }
+    @media (min-width: 950px) and (max-width: 1200px) {
+        .benefits-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            justify-content: center;
+            margin-left: 0 !important;
+            gap: var(--spacing-xs);
+        }
+
+        .benefit__slide:last-child {
+            grid-column: span 3;
+        }
     }
 </style>
+---
