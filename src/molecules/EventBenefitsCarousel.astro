@@ -38,40 +38,19 @@ const { eventName, benefits } = Astro.props;
         flex-direction: column;
         gap: var(--spacing-md);
         width: 100%;
+        justify-content: center;
     }
 
     .benefits-grid {
         display: grid;
         gap: var(--spacing-md);
-        grid-template-columns: repeat(4, minmax(250px, 300px));
-        align-items: stretch;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         justify-content: center;
+        align-items: stretch;
     }
 
     .benefit__slide {
-        width: 100%;
         justify-content: center;
-    }
-
-    @media (max-width: 950px) {
-        .benefits-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            justify-content: center;
-            margin-left: 0 !important;
-            gap: var(--spacing-xs);
-        }
-    }
-    @media (min-width: 950px) and (max-width: 1200px) {
-        .benefits-grid {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            justify-content: center;
-            margin-left: 0 !important;
-            gap: var(--spacing-xs);
-        }
-
-        .benefit__slide:last-child {
-            grid-column: span 3;
-        }
+        display: flex;
     }
 </style>
----
