@@ -4,53 +4,42 @@ import EventBenefit from './EventBenefit.astro';
 import EventBenefitContact from './EventBenefitContact.astro';
 
 interface Props {
-    eventName: string;
-    benefits: Array<{ text: string; imgPath: string }>;
+	eventName: string;
+	benefits: Array<{ text: string; imgPath: string }>;
 }
 
 const { eventName, benefits } = Astro.props;
 ---
 
 <div class="event-benefits-grid">
-    <ThemedText variant="h2">{eventName}</ThemedText>
-    <div class="benefits-grid">
-        {
-            benefits.map(benefit => (
-                <div class="benefit__slide">
-                    <EventBenefit {...benefit} />
-                </div>
-            ))
-        }
-        <div class="benefit__slide">
-            <div class="benefit__slide">
-                <EventBenefitContact
-                    text="W celu uzyskania pełnej oferty akcji"
-                    coordinatorEmail="email@iaeste.pl"
-                    buttonMessage="skontaktuj się z koordynatorem"
-                />
-            </div>
-        </div>
-    </div>
+	<ThemedText variant="h2">{eventName}</ThemedText>
+	<div class="benefits-grid">
+		{benefits.map(benefit => <EventBenefit {...benefit} />)}
+		<EventBenefitContact
+			text="W celu uzyskania pełnej oferty akcji"
+			coordinatorEmail="email@iaeste.pl"
+			buttonMessage="Skontaktuj się z koordynatorem"
+		/>
+	</div>
 </div>
 <style>
-    .event-benefits-grid {
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-md);
-        width: 100%;
-        justify-content: center;
-    }
+	.event-benefits-grid {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-md);
+		width: 100%;
+		justify-content: center;
+	}
 
-    .benefits-grid {
-        display: grid;
-        gap: var(--spacing-md);
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        justify-content: center;
-        align-items: stretch;
-    }
-
-    .benefit__slide {
-        justify-content: center;
-        display: flex;
-    }
+	.benefits-grid {
+		display: grid;
+		gap: var(--spacing-md);
+		grid-template-columns: repeat(
+			auto-fit,
+			/* padding + icon width + gap + padding + length of an average possible word */
+				minmax(calc(32px + 96px + 24px + 32px + 10ch), 1fr)
+		);
+		justify-content: center;
+		align-items: stretch;
+	}
 </style>
