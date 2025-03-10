@@ -3,31 +3,36 @@ import { ThemedText } from '@/atoms';
 import { Image } from 'astro:assets';
 
 interface Props {
-    imgPath: string;
-    text: string;
+	imgPath: string;
+	text: string;
 }
 
 const { imgPath, text } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
-    '/src/assets/icons/*.svg'
+	'/src/assets/icons/*.svg'
 );
 ---
 
 <div class="event-benefit">
-    <Image src={images[imgPath]()} alt={'decorative image'} />
-    <ThemedText variant="h6">{text}</ThemedText>
+	<Image
+		class="benefit-image"
+		src={images[imgPath]()}
+		alt={'decorative image'}
+	/>
+	<ThemedText variant="h6">{text}</ThemedText>
 </div>
 
 <style>
-    .event-benefit {
-        display: flex;
-        gap: var(--spacing-sm);
-        padding: var(--spacing-md);
-        align-items: center;
-        width: fit-content;
-        border-radius: var(--borderRadius-default);
-        background-color: var(--colors-background-secondary);
-        border: var(--border);
-        box-shadow: var(--shadows-default);
-    }
+	.event-benefit {
+		display: flex;
+		gap: var(--spacing-sm);
+		padding: var(--spacing-md);
+		align-items: center;
+		width: 100%;
+		border-radius: var(--borderRadius-default);
+		background-color: var(--colors-background-secondary);
+		border: var(--border);
+		box-shadow: var(--shadows-default);
+		text-align: center;
+	}
 </style>
