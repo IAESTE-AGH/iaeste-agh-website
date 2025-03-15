@@ -60,6 +60,13 @@ const translatePath = useTranslatedPath(lang);
         align-items: center;
         white-space: nowrap;
     }
+
+    @media (max-width: 768px) {
+        #navbar {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
 </style>
 
 <script>
