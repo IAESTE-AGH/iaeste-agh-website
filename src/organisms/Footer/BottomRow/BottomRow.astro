@@ -4,13 +4,20 @@ import CopyrightSection from './CopyrightSection.astro';
 ---
 
 <div class="footer-bottom">
-    <CopyrightSection />
-    <SocialSection />
+	<CopyrightSection />
+	<SocialSection />
 </div>
 
 <style>
-    .footer-bottom {
-        display: flex;
-        justify-content: space-between;
-    }
+	.footer-bottom {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	@media (max-width: 768px) {
+		.footer-bottom {
+			flex-direction: column-reverse;
+			gap: var(--spacing-sm);
+		}
+	}
 </style>

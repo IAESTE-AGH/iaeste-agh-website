@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import IaesteLogo from '@/images/iaeste_agh_vertical_logo_1.svg';
+import IaesteLogoDesktop from '@/assets/IAESTE_AGH_Vertical_White_footer.png';
+import IaesteLogoMobile from '@/assets/IAESTE_AGH_Horizontal_White.png';
 import BoardMemberSection from './BoardMemberSection.astro';
 import InvoiceSection from './InvoiceSection.astro';
 import LocationSection from './LocationSection.astro';
@@ -8,18 +9,50 @@ import InformationLinks from './InformationLinks.astro';
 ---
 
 <div class="footer-top">
-    <Image src={IaesteLogo} alt="IAESTE AGH Logo" class="iaeste-logo" />
-    <LocationSection />
-    <InvoiceSection />
-    <InformationLinks />
-    <BoardMemberSection />
+	<Image
+		src={IaesteLogoDesktop}
+		alt="IAESTE AGH Logo"
+		class="iaeste-logo-desktop"
+	/>
+	<Image
+		src={IaesteLogoMobile}
+		alt="IAESTE AGH Logo"
+		class="iaeste-logo-mobile"
+	/>
+	<LocationSection />
+	<InvoiceSection />
+	<InformationLinks />
+	<BoardMemberSection />
 </div>
 
 <style>
-    .footer-top {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-        text-align: left;
-    }
+	.footer-top {
+		display: flex;
+		justify-content: space-between;
+		gap: 20px;
+		text-align: left;
+	}
+
+	.iaeste-logo-mobile {
+		display: none;
+		width: 100%;
+		height: fit-content;
+		object-fit: contain;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	@media (max-width: 768px) {
+		.footer-top {
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		.iaeste-logo-desktop {
+			display: none;
+		}
+
+		.iaeste-logo-mobile {
+			display: block;
+		}
+	}
 </style>
