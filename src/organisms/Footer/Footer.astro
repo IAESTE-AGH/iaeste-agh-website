@@ -1,9 +1,9 @@
 ---
 import {
-    defaultLang,
-    getLangFromUrl,
-    showDefaultLang,
-    supportedLanguages,
+	defaultLang,
+	getLangFromUrl,
+	showDefaultLang,
+	supportedLanguages,
 } from '@/i18n';
 import { BottomRow } from './BottomRow';
 import { TopRow } from './TopRow';
@@ -14,45 +14,61 @@ const lang = getLangFromUrl(url);
 ---
 
 <footer class="footer">
-    <TopRow />
+	<TopRow />
 
-    <div style="display: flex; gap: 1rem; justify-content: end;">
-        {
-            supportedLanguages.map((language, index) => (
-                <>
-                    <ThemedLink
-                        href={`${url.origin}${language.lang === defaultLang && !showDefaultLang ? '' : '/' + language.lang}`}
-                        color="var(--colors-text-contrast)"
-                        class={lang === language.lang ? 'active' : ''}
-                        bold={lang === language.lang}
-                    >
-                        {language.name}
-                    </ThemedLink>
-                    {index === supportedLanguages.length - 1 ? '' : '|'}
-                </>
-            ))
-        }
-    </div>
+	<div class="footer-lang-switcher">
+		{
+			supportedLanguages.map((language, index) => (
+				<>
+					<ThemedLink
+						href={`${url.origin}${language.lang === defaultLang && !showDefaultLang ? '' : '/' + language.lang}`}
+						color="var(--colors-text-contrast)"
+						class={lang === language.lang ? 'active' : ''}
+						bold={lang === language.lang}
+					>
+						{language.name}
+					</ThemedLink>
+					{index === supportedLanguages.length - 1 ? '' : '|'}
+				</>
+			))
+		}
+	</div>
 
-    <hr style="color: var(--colors-text-contrastLight); opacity: 0.5;" />
-    <BottomRow />
+	<hr style="color: var(--colors-text-contrastLight); opacity: 0.5;" />
+	<BottomRow />
 </footer>
 
 <style>
-    footer {
-        border: var(--border);
-        box-shadow: var(--shadows-default);
-        border-radius: var(--borderRadius-default);
-        color: var(--colors-text-contrastLight);
-        padding-block: var(--spacing-md);
-        padding-inline: var(--spacing-lg);
-        display: grid;
-        grid-template-rows: auto auto;
-        row-gap: 2rem;
-        background: var(--colors-accent-primary);
-    }
+	footer {
+		border: var(--border);
+		box-shadow: var(--shadows-default);
+		border-radius: var(--borderRadius-default);
+		color: var(--colors-text-contrastLight);
+		padding-block: var(--spacing-md);
+		padding-inline: var(--spacing-lg);
+		display: grid;
+		grid-template-rows: auto auto;
+		row-gap: 2rem;
+		background: var(--colors-accent-primary);
+	}
 
-    .active {
-        text-decoration: underline;
-    }
+	.footer-lang-switcher {
+		display: flex;
+		gap: 1rem;
+		justify-content: end;
+	}
+
+	.active {
+		text-decoration: underline;
+	}
+
+	@media screen and (max-width: 768px) {
+		footer {
+			padding-inline: var(--spacing-md);
+		}
+
+		.footer-lang-switcher {
+			display: none;
+		}
+	}
 </style>
