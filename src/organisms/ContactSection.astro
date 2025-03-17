@@ -157,4 +157,19 @@ const t = useTranslations(lang);
     .keen-slider {
         overflow: visible !important;
     }
+
+    /* Dla stacjonarnych */
+    @media (max-width: 900px) {
+        .keen-slider__slide {
+            width: 45%;
+        }
+    }
+
+    /* Dla mobilnych */
+    @media (max-width: 600px) {
+        .keen-slider__slide {
+            width: 30%;
+        }
+    }
+
 </style>
