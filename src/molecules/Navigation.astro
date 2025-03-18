@@ -5,7 +5,8 @@ import {
     useTranslatedPath,
 } from '../i18n/utils';
 import logo from '@/assets/IAESTE_AGH_Horizontal.png';
-import { ThemedLink } from '@/atoms';
+import menu from '@/assets/icons/Menu.svg';
+import { ThemedLink, ThemedText } from '@/atoms';
 import { Image } from 'astro:assets';
 
 const lang = getLangFromUrl(Astro.url);
@@ -17,6 +18,9 @@ const translatePath = useTranslatedPath(lang);
     <a href={translatePath('/')}>
         <Image id="logo" src={logo} alt={'iaeste logo'} />
     </a>
+    <button id="menu-toggle">
+        <Image id="menu" src={menu} alt={''} />
+    </button>
     <div id="links">
         <ThemedLink href={translatePath('/exchange')}>
             {t('nav.exchange')}
@@ -27,6 +31,11 @@ const translatePath = useTranslatedPath(lang);
         <ThemedLink href={translatePath('/contact')}>
             {t('nav.contact')}
         </ThemedLink>
+        <div id="language-switch">
+            <ThemedLink href="?lang=en">English</ThemedLink>
+            <ThemedText>|</ThemedText>
+            <ThemedLink href="?lang=pl">Polski</ThemedLink>
+        </div>
     </div>
 </nav>
 
@@ -54,11 +63,58 @@ const translatePath = useTranslatedPath(lang);
         z-index: 100;
     }
 
+    #menu-toggle {
+        display: none;
+    }
+
     #links {
         display: flex;
         gap: 24px;
         align-items: center;
         white-space: nowrap;
+    }
+
+    #language-switch {
+        display: flex;
+    }
+
+    @media (max-width: 768px) {
+        #menu-toggle {
+            display: inline;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        #links {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            text-align: center;
+            width: 200px;
+            flex-direction: column;
+        }
+
+        #links.show {
+            display: flex;
+        }
+
+        #menu-toggle img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    @media (max-width: 450px) {
+        #navbar {
+            padding: 24px 32px;
+        }
     }
 </style>
 
@@ -72,4 +128,21 @@ const translatePath = useTranslatedPath(lang);
             logo!.style.setProperty('--logo-size', '50px');
         }
     };
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('links');
+
+        if (menuToggle && menu) {
+            menuToggle.addEventListener('click', () => {
+                menu.classList.toggle('show');
+            });
+
+            document.querySelectorAll('#menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.remove('show');
+                });
+            });
+        }
+    });
 </script>
