@@ -1,11 +1,12 @@
 ---
 import {
-	getLangFromUrl,
-	useTranslations,
-	useTranslatedPath,
+    getLangFromUrl,
+    useTranslations,
+    useTranslatedPath,
 } from '../i18n/utils';
 import logo from '@/assets/IAESTE_AGH_Horizontal.png';
 import menu from '@/assets/icons/Menu.svg';
+import close from '@/assets/icons/CloseIcon.svg';
 import { ThemedLink, ThemedText } from '@/atoms';
 import { Image } from 'astro:assets';
 
@@ -15,136 +16,160 @@ const translatePath = useTranslatedPath(lang);
 ---
 
 <nav id="navbar">
-	<a href={translatePath('/')}>
-		<Image id="logo" src={logo} alt={'iaeste logo'} />
-	</a>
-	<button id="menu-toggle">
-		<Image id="menu" src={menu} alt={''} />
-	</button>
-	<div id="links">
-		<ThemedLink href={translatePath('/exchange')}>
-			{t('nav.exchange')}
-		</ThemedLink>
-		<ThemedLink href={translatePath('/companies')}>
-			{t('nav.forCompanies')}
-		</ThemedLink>
-		<ThemedLink href={translatePath('/contact')}>
-			{t('nav.contact')}
-		</ThemedLink>
-		<div id="language-switch">
-			<ThemedLink href="?lang=en">English</ThemedLink>
-			<ThemedText>|</ThemedText>
-			<ThemedLink href="?lang=pl">Polski</ThemedLink>
-		</div>
-	</div>
+    <div id="top-row">
+        <a href={translatePath('/')}>
+            <Image id="logo" src={logo} alt={'iaeste logo'} />
+        </a>
+        <button id="menu-toggle">
+            <Image id="menu" src={menu} alt={''} />
+        </button>
+        <button id="close-menu">
+            <Image id="close-menu" src={close} alt={''} />
+        </button>
+    </div>
+    <div id="links">
+        <ThemedLink href={translatePath('/exchange')}>
+            {t('nav.exchange')}
+        </ThemedLink>
+        <ThemedLink href={translatePath('/companies')}>
+            {t('nav.forCompanies')}
+        </ThemedLink>
+        <ThemedLink href={translatePath('/contact')}>
+            {t('nav.contact')}
+        </ThemedLink>
+        <!-- <div id="language-switch">
+            <ThemedLink href="?lang=en">English</ThemedLink>
+            <ThemedText>|</ThemedText>
+            <ThemedLink href="?lang=pl">Polski</ThemedLink>
+        </div> -->
+    </div>
 </nav>
 
 <style>
-	#logo {
-		--logo-size: 50px;
-		height: var(--logo-size);
-		width: auto;
-		transition: height 0.1s ease;
-	}
+    #logo {
+        --logo-size: 50px;
+        height: var(--logo-size);
+        width: auto;
+        transition: height 0.1s ease;
+    }
 
-	#navbar {
-		border: var(--border);
-		box-shadow: var(--shadows-default);
-		border-radius: var(--borderRadius-default);
-		color: var(--colors-accent-primary);
-		padding: 24px 64px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		background-color: var(--colors-background-primary);
-		position: sticky;
-		top: 4px;
-		background-color: var(--colors-background-primary);
-		z-index: 100;
-	}
+    #navbar {
+        border: var(--border);
+        box-shadow: var(--shadows-default);
+        border-radius: var(--borderRadius-default);
+        color: var(--colors-accent-primary);
+        padding: 24px 64px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--colors-background-primary);
+        position: sticky;
+        top: 4px;
+        background-color: var(--colors-background-primary);
+        z-index: 100;
+    }
 
-	#menu-toggle {
-		display: none;
-	}
+    #menu-toggle {
+        display: none;
+    }
 
-	#links {
-		display: flex;
-		gap: 24px;
-		align-items: center;
-		white-space: nowrap;
-	}
+    #links {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        white-space: nowrap;
+    }
 
-	#language-switch {
-		display: none;
-	}
+    /* #language-switch {
+        display: none;
+    } */
 
-	@media (max-width: 768px) {
-		#navbar {
-			padding: 24px 32px;
-		}
+    #close-menu {
+        display: none;
+    }
 
-		#menu-toggle {
-			display: inline;
-			background: none;
-			border: none;
-			padding: 0;
-			cursor: pointer;
-		}
+    @media (max-width: 768px) {
+        #links {
+            display: none;
+        }
 
-		#links {
-			display: none;
-			position: absolute;
-			top: 60px;
-			right: 20px;
-			background: white;
-			border-radius: 16px;
-			box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-			padding: 16px;
-			text-align: center;
-			width: 200px;
-			flex-direction: column;
-		}
+        #navbar {
+            flex-direction: column;
+            align-items: center;
+            height: auto;
+            gap: 12px;
+            padding: 24px;
+        }
 
-		#links.show {
-			display: flex;
-		}
+        #top-row {
+            display: flex;
+            gap: 32px;
+        }
 
-		#menu-toggle img {
-			width: 100%;
-			height: auto;
-		}
+        #menu-toggle {
+            display: inline;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
 
-		#language-switch {
-			display: flex;
-		}
-	}
+        #menu-toggle img {
+            width: 100%;
+            height: auto;
+        }
+
+        #navbar.open {
+            gap: 24px;
+        }
+
+        #navbar.open #links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        #navbar.open #close-menu {
+            display: inline;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        #navbar.open #menu-toggle {
+            display: none;
+        }
+
+        /* #language-switch {
+            display: flex;
+            gap: 8px;
+        } */
+    }
 </style>
 
 <script>
-	document.onscroll = () => {
-		const logo = document.getElementById('logo');
+    document.onscroll = () => {
+        const logo = document.getElementById('logo');
 
-		if (window.scrollY > 0) {
-			logo!.style.setProperty('--logo-size', '30px');
-		} else {
-			logo!.style.setProperty('--logo-size', '50px');
-		}
-	};
+        if (window.scrollY > 0) {
+            logo!.style.setProperty('--logo-size', '30px');
+        } else {
+            logo!.style.setProperty('--logo-size', '50px');
+        }
+    };
+    document.addEventListener('DOMContentLoaded', () => {
+        const navbar = document.getElementById('navbar');
+        const openBtn = document.getElementById('menu-toggle');
+        const closeBtn = document.getElementById('close-menu');
 
-	document.addEventListener('DOMContentLoaded', () => {
-		const menuToggle = document.getElementById('menu-toggle');
-		const menu = document.getElementById('links');
+        openBtn?.addEventListener('click', () => {
+            navbar?.classList.add('open');
+        });
 
-		if (menuToggle && menu) {
-			menuToggle.addEventListener('click', () => {
-				menu.classList.toggle('show');
-			});
-
-			document.querySelectorAll('#menu a').forEach(link => {
-				link.addEventListener('click', () => {
-					menu.classList.remove('show');
-				});
-			});
-		}
-	});
+        closeBtn?.addEventListener('click', () => {
+            navbar?.classList.remove('open');
+        });
+    });
 </script>
