@@ -29,22 +29,7 @@ const values = [
 <style>
     .values-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(16ch, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(14.9em, 1fr));
         gap: var(--spacing-md);
-    }
-
-    /* Dla średnich ekranów - 2 kolumny, 3 wiersze */
-    @media (max-width: 900px) {
-        .values-grid {
-            grid-template-columns: repeat(2, 1fr);
-            justify-items: center;
-        }
-    }
-
-    /* Dla mniejszych ekranów - 1 kolumna */
-    @media (max-width: 600px) {
-        .values-grid {
-            grid-template-columns: 1fr;
-        }
     }
 </style>
