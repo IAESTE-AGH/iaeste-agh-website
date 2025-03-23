@@ -24,7 +24,7 @@ const translatePath = useTranslatedPath(lang);
             <Image id="menu" src={menu} alt={''} />
         </button>
         <button id="close-menu">
-            <Image id="close-menu" src={close} alt={''} />
+            <Image id="menu" src={close} alt={''} />
         </button>
     </div>
     <div id="links">
@@ -103,20 +103,27 @@ const translatePath = useTranslatedPath(lang);
 
         #top-row {
             display: flex;
-            gap: 32px;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
         }
 
         #menu-toggle {
             display: inline;
             background: none;
             border: none;
-            padding: 0;
+            padding: 10px;
             cursor: pointer;
         }
 
         #menu-toggle img {
-            width: 100%;
-            height: auto;
+            width: 47px;
+            height: 47px;
+        }
+
+        #close-menu img {
+            width: 47px;
+            height: 47px;
         }
 
         #navbar.open {
@@ -134,7 +141,7 @@ const translatePath = useTranslatedPath(lang);
             display: inline;
             background: none;
             border: none;
-            padding: 0;
+            padding: 10px;
             cursor: pointer;
         }
 
@@ -150,9 +157,8 @@ const translatePath = useTranslatedPath(lang);
 </style>
 
 <script>
+    const logo = document.getElementById('logo');
     document.onscroll = () => {
-        const logo = document.getElementById('logo');
-
         if (window.scrollY > 0) {
             logo!.style.setProperty('--logo-size', '30px');
         } else {
