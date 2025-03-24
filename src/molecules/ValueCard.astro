@@ -4,8 +4,8 @@ import { ThemedText } from '@/atoms';
 
 // Definicja właściwości
 interface Props {
-    imageSrc: string; // Obrazek
-    title: string; // Tytuł wartości
+	imageSrc: string; // Obrazek
+	title: string; // Tytuł wartości
 }
 
 // Przypisanie właściwości z Astro.props
@@ -13,43 +13,95 @@ const { imageSrc = '/krowa.jpg', title } = Astro.props as Props;
 ---
 
 <div class="value-card">
-    <div class="image-container">
-        <img src={imageSrc} alt={title} />
-    </div>
-    <div class="value-card-title">
-        <ThemedText variant="h4" bold>{title}</ThemedText>
-    </div>
+	<div class="image-container">
+		<img src={imageSrc} alt={title} />
+	</div>
+	<div class="value-card-title">
+		<ThemedText variant="h4" bold>{title}</ThemedText>
+	</div>
 </div>
 
 <style>
-    .value-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-radius: var(--borderRadius-default);
-        background-color: var(--colors-background-primary);
-        box-shadow: var(--shadows-default);
-        text-align: center;
-        overflow: hidden;
-        transition:
-            transform 0.3s ease,
-            box-shadow 0.3s ease;
-    }
+	.value-card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border-radius: var(--borderRadius-default);
+		background-color: var(--colors-background-primary);
+		box-shadow: var(--shadows-default);
+		text-align: center;
+		overflow: hidden;
+		transition:
+			transform 0.3s ease,
+			box-shadow 0.3s ease;
+	}
 
-    .image-container {
-        width: 100%;
-        aspect-ratio: 4 / 3;
-        overflow: hidden;
-        background-color: #f0f0f0;
-    }
+	.image-container {
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		overflow: hidden;
+		background-color: #f0f0f0;
+	}
 
-    .image-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Obraz wypełnia kontener */
-    }
+	.image-container img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
 
-    .value-card-title {
-        margin-block: 1rem;
-    }
+	.value-card-title {
+		margin-block: 1rem;
+	}
+
+	@media (max-width: 618px) {
+		.value-card {
+			flex-direction: row;
+			align-items: stretch;
+			padding: 0;
+			width: 100%;
+			height: 90px;
+			gap: 0.5rem;
+		}
+
+		.image-container {
+			width: 120px;
+			height: 100%;
+			border-radius: var(--borderRadius-default) 0 0
+				var(--borderRadius-default);
+		}
+
+		.value-card-title {
+			flex: 1;
+			padding: 0.4rem;
+			white-space: nowrap;
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+		}
+	}
+
+	@media (max-width: 440px) {
+		.image-container {
+			width: 90px;
+		}
+		.value-card {
+			height: 75px;
+			gap: 0.25rem;
+		}
+		.value-card-title {
+			padding: 0.3rem;
+		}
+	}
+
+	@media (max-width: 380px) {
+		.image-container {
+			width: 70px;
+		}
+		.value-card {
+			height: 68px;
+		}
+		.value-card-title {
+			padding: 0.3rem;
+		}
+	}
 </style>
