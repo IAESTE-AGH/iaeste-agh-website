@@ -29,7 +29,7 @@ const values = [
 <style>
     .values-grid {
         display: grid;
-        grid-template-columns: repeat(5, 1fr); /* Większe karty */
-        gap: var(--spacing-md); /* Stałe odstępy między kartami */
+        grid-template-columns: repeat(auto-fit, minmax(14.9em, 1fr));
+        gap: var(--spacing-md);
     }
 </style>
