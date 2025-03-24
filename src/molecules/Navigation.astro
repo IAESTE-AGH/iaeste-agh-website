@@ -1,8 +1,8 @@
 ---
 import {
-    getLangFromUrl,
-    useTranslations,
-    useTranslatedPath,
+	getLangFromUrl,
+	useTranslations,
+	useTranslatedPath,
 } from '../i18n/utils';
 import logo from '@/assets/IAESTE_AGH_Horizontal.png';
 import menu from '@/assets/icons/Menu.svg';
@@ -16,166 +16,166 @@ const translatePath = useTranslatedPath(lang);
 ---
 
 <nav id="navbar">
-    <div id="top-row">
-        <a href={translatePath('/')}>
-            <Image id="logo" src={logo} alt={'iaeste logo'} />
-        </a>
-        <button id="menu-toggle">
-            <Image id="menu" src={menu} alt={''} />
-        </button>
-        <button id="close-menu">
-            <Image id="menu" src={close} alt={''} />
-        </button>
-    </div>
-    <div id="links">
-        <ThemedLink href={translatePath('/exchange')}>
-            {t('nav.exchange')}
-        </ThemedLink>
-        <ThemedLink href={translatePath('/companies')}>
-            {t('nav.forCompanies')}
-        </ThemedLink>
-        <ThemedLink href={translatePath('/contact')}>
-            {t('nav.contact')}
-        </ThemedLink>
-        <!-- <div id="language-switch">
+	<div id="top-row">
+		<a href={translatePath('/')}>
+			<Image id="logo" src={logo} alt={'iaeste logo'} />
+		</a>
+		<button id="menu-toggle">
+			<Image id="menu" src={menu} alt={''} />
+		</button>
+		<button id="close-menu">
+			<Image id="menu" src={close} alt={''} />
+		</button>
+	</div>
+	<div id="links">
+		<ThemedLink href={translatePath('/exchange')}>
+			{t('nav.exchange')}
+		</ThemedLink>
+		<ThemedLink href={translatePath('/companies')}>
+			{t('nav.forCompanies')}
+		</ThemedLink>
+		<ThemedLink href={translatePath('/contact')}>
+			{t('nav.contact')}
+		</ThemedLink>
+		<!-- <div id="language-switch">
             <ThemedLink href="?lang=en">English</ThemedLink>
             <ThemedText>|</ThemedText>
             <ThemedLink href="?lang=pl">Polski</ThemedLink>
         </div> -->
-    </div>
+	</div>
 </nav>
 
 <style>
-    #logo {
-        --logo-size: 50px;
-        height: var(--logo-size);
-        width: auto;
-        transition: height 0.1s ease;
-    }
+	#logo {
+		--logo-size: 50px;
+		height: var(--logo-size);
+		width: auto;
+		transition: height 0.1s ease;
+	}
 
-    #navbar {
-        border: var(--border);
-        box-shadow: var(--shadows-default);
-        border-radius: var(--borderRadius-default);
-        color: var(--colors-accent-primary);
-        padding: 24px 64px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: var(--colors-background-primary);
-        position: sticky;
-        top: 4px;
-        background-color: var(--colors-background-primary);
-        z-index: 100;
-    }
+	#navbar {
+		border: var(--border);
+		box-shadow: var(--shadows-default);
+		border-radius: var(--borderRadius-default);
+		color: var(--colors-accent-primary);
+		padding: 24px 64px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: var(--colors-background-primary);
+		position: sticky;
+		top: 4px;
+		background-color: var(--colors-background-primary);
+		z-index: 100;
+	}
 
-    #menu-toggle {
-        display: none;
-    }
+	#menu-toggle {
+		display: none;
+	}
 
-    #links {
-        display: flex;
-        gap: 24px;
-        align-items: center;
-        white-space: nowrap;
-    }
+	#links {
+		display: flex;
+		gap: 24px;
+		align-items: center;
+		white-space: nowrap;
+	}
 
-    /* #language-switch {
+	/* #language-switch {
         display: none;
     } */
 
-    #close-menu {
-        display: none;
-    }
+	#close-menu {
+		display: none;
+	}
 
-    @media (max-width: 768px) {
-        #links {
-            display: none;
-        }
+	@media (max-width: 768px) {
+		#links {
+			display: none;
+		}
 
-        #navbar {
-            flex-direction: column;
-            align-items: center;
-            height: auto;
-            gap: 12px;
-            padding: 24px;
-        }
+		#navbar {
+			flex-direction: column;
+			align-items: center;
+			height: auto;
+			gap: 12px;
+			padding: 24px;
+		}
 
-        #top-row {
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-            align-items: center;
-        }
+		#top-row {
+			display: flex;
+			width: 100%;
+			justify-content: space-between;
+			align-items: center;
+		}
 
-        #menu-toggle {
-            display: inline;
-            background: none;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
+		#menu-toggle {
+			display: inline;
+			background: none;
+			border: none;
+			padding: 10px;
+			cursor: pointer;
+		}
 
-        #menu-toggle img {
-            width: 47px;
-            height: 47px;
-        }
+		#menu-toggle img {
+			width: 32px;
+			height: 32px;
+		}
 
-        #close-menu img {
-            width: 47px;
-            height: 47px;
-        }
+		#close-menu img {
+			width: 32px;
+			height: 32px;
+		}
 
-        #navbar.open {
-            gap: 24px;
-        }
+		#navbar.open {
+			gap: 24px;
+		}
 
-        #navbar.open #links {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-        }
+		#navbar.open #links {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 16px;
+		}
 
-        #navbar.open #close-menu {
-            display: inline;
-            background: none;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
+		#navbar.open #close-menu {
+			display: inline;
+			background: none;
+			border: none;
+			padding: 10px;
+			cursor: pointer;
+		}
 
-        #navbar.open #menu-toggle {
-            display: none;
-        }
+		#navbar.open #menu-toggle {
+			display: none;
+		}
 
-        /* #language-switch {
+		/* #language-switch {
             display: flex;
             gap: 8px;
         } */
-    }
+	}
 </style>
 
 <script>
-    const logo = document.getElementById('logo');
-    document.onscroll = () => {
-        if (window.scrollY > 0) {
-            logo!.style.setProperty('--logo-size', '30px');
-        } else {
-            logo!.style.setProperty('--logo-size', '50px');
-        }
-    };
-    document.addEventListener('DOMContentLoaded', () => {
-        const navbar = document.getElementById('navbar');
-        const openBtn = document.getElementById('menu-toggle');
-        const closeBtn = document.getElementById('close-menu');
+	const logo = document.getElementById('logo');
+	document.onscroll = () => {
+		if (window.scrollY > 0) {
+			logo!.style.setProperty('--logo-size', '40px');
+		} else {
+			logo!.style.setProperty('--logo-size', '50px');
+		}
+	};
+	document.addEventListener('DOMContentLoaded', () => {
+		const navbar = document.getElementById('navbar');
+		const openBtn = document.getElementById('menu-toggle');
+		const closeBtn = document.getElementById('close-menu');
 
-        openBtn?.addEventListener('click', () => {
-            navbar?.classList.add('open');
-        });
+		openBtn?.addEventListener('click', () => {
+			navbar?.classList.add('open');
+		});
 
-        closeBtn?.addEventListener('click', () => {
-            navbar?.classList.remove('open');
-        });
-    });
+		closeBtn?.addEventListener('click', () => {
+			navbar?.classList.remove('open');
+		});
+	});
 </script>
