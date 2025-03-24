@@ -8,28 +8,28 @@ const lang = getLangFromUrl(url);
 const t = useTranslations(lang);
 
 const values = [
-    { title: t('values.trust'), imageSrc: '/krowa.jpg' },
-    { title: t('values.growth'), imageSrc: '/krowa.jpg' },
-    { title: t('values.commitment'), imageSrc: '/krowa.jpg' },
-    { title: t('values.friendship'), imageSrc: '/krowa.jpg' },
-    { title: t('values.diversity'), imageSrc: '/krowa.jpg' },
+	{ title: t('values.trust'), imageSrc: '/krowa.jpg' },
+	{ title: t('values.growth'), imageSrc: '/krowa.jpg' },
+	{ title: t('values.commitment'), imageSrc: '/krowa.jpg' },
+	{ title: t('values.friendship'), imageSrc: '/krowa.jpg' },
+	{ title: t('values.diversity'), imageSrc: '/krowa.jpg' },
 ];
 ---
 
 <ThemedSection title={t('section.ourValues')}>
-    <div class="values-grid">
-        {
-            values.map(value => (
-                <ValueCard title={value.title} imageSrc={value.imageSrc} />
-            ))
-        }
-    </div>
+	<div class="values-grid">
+		{
+			values.map(value => (
+				<ValueCard title={value.title} imageSrc={value.imageSrc} />
+			))
+		}
+	</div>
 </ThemedSection>
 
 <style>
-    .values-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(14.9em, 1fr));
-        gap: var(--spacing-md);
-    }
+	.values-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+		gap: var(--spacing-md);
+	}
 </style>

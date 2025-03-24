@@ -53,7 +53,7 @@ const { imageSrc = '/krowa.jpg', title } = Astro.props as Props;
 		margin-block: 1rem;
 	}
 
-	@media (max-width: 672px) {
+	@media (max-width: 618px) {
 		.value-card {
 			flex-direction: row;
 			align-items: stretch;
@@ -64,7 +64,7 @@ const { imageSrc = '/krowa.jpg', title } = Astro.props as Props;
 		}
 
 		.image-container {
-			flex: 0 0 28%;
+			width: 120px;
 			height: 100%;
 			border-radius: var(--borderRadius-default) 0 0
 				var(--borderRadius-default);
@@ -82,7 +82,7 @@ const { imageSrc = '/krowa.jpg', title } = Astro.props as Props;
 
 	@media (max-width: 440px) {
 		.image-container {
-			flex: 0 0 20%;
+			width: 90px;
 		}
 		.value-card {
 			height: 75px;
@@ -95,7 +95,7 @@ const { imageSrc = '/krowa.jpg', title } = Astro.props as Props;
 
 	@media (max-width: 380px) {
 		.image-container {
-			flex: 0 0 18%;
+			width: 70px;
 		}
 		.value-card {
 			height: 68px;
