@@ -11,94 +11,101 @@ const t = useTranslations(lang);
 ---
 
 <ThemedSection
-    title={t('section.visitNewPlaces')}
-    id={routes[lang].exchange.split('#')[1]}
+	title={t('section.visitNewPlaces')}
+	id={routes[lang].exchange.split('#')[1]}
 >
-    <div class="wrapper">
-        <div>
-            <InfoCardImage imgPath="/src/assets/krowa.jpg" />
-        </div>
-        <div>
-            <InfoCard title={'3 500+'} desc={t('newPlaces.internships')} />
-        </div>
-        <div>
-            <InfoCardImage imgPath="/src/assets/krowa.jpg" />
-        </div>
-        <div>
-            <InfoCard
-                imgPath="/src/assets/icons/Ranking.svg"
-                title={'8 000+'}
-                desc={t('newPlaces.sentStudents')}
-            />
-        </div>
-        <div>
-            <InfoCardImage imgPath="/src/assets/krowa.jpg" />
-        </div>
-        <div>
-            <InfoCard
-                imgPath="/src/assets/icons/Heart.svg"
-                title={'371 000+'}
-                desc={t('newPlaces.happyStudents')}
-            />
-        </div>
-        <div>
-            <InfoCardImage imgPath="/src/assets/krowa.jpg" />
-        </div>
-        <div>
-            <InfoCard title={'80+'} desc={t('newPlaces.countries')} />
-        </div>
-        <div>
-            <InfoCard
-                imgPath="/src/assets/icons/Note.svg"
-                title={t('newPlaces.info.title')}
-                desc={t('newPlaces.happyStudents')}
-                isBgBlue
-            >
-                <ThemedLink href="https://iaeste.pl/praktykant" button>
-                    {t('newPlaces.info.button')}
-                    <Icon name="solar:arrow-right-up-linear" slot="afterIcon" />
-                </ThemedLink>
-            </InfoCard>
-        </div>
-    </div>
+	<div class="wrapper">
+		<div>
+			<InfoCardImage imgPath="/src/assets/krowa.jpg" />
+		</div>
+		<div>
+			<InfoCard title={'3 500+'} desc={t('newPlaces.internships')} />
+		</div>
+		<div>
+			<InfoCardImage imgPath="/src/assets/krowa.jpg" />
+		</div>
+		<div>
+			<InfoCard
+				imgPath="/src/assets/icons/Ranking.svg"
+				title={'8 000+'}
+				desc={t('newPlaces.sentStudents')}
+			/>
+		</div>
+		<div>
+			<InfoCardImage imgPath="/src/assets/krowa.jpg" />
+		</div>
+		<div>
+			<InfoCard
+				imgPath="/src/assets/icons/Heart.svg"
+				title={'371 000+'}
+				desc={t('newPlaces.happyStudents')}
+			/>
+		</div>
+		<div>
+			<InfoCardImage imgPath="/src/assets/krowa.jpg" />
+		</div>
+		<div>
+			<InfoCard title={'80+'} desc={t('newPlaces.countries')} />
+		</div>
+		<div>
+			<InfoCard
+				imgPath="/src/assets/icons/Note.svg"
+				title={t('newPlaces.info.title')}
+				desc={t('newPlaces.happyStudents')}
+				isBgBlue
+			>
+				<ThemedLink href="https://iaeste.pl/praktykant" button>
+					{t('newPlaces.info.button')}
+					<Icon name="solar:arrow-right-up-linear" slot="afterIcon" />
+				</ThemedLink>
+			</InfoCard>
+		</div>
+	</div>
 </ThemedSection>
 
 <style>
-    .wrapper {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-areas:
-            'pic1 info1 pic2 info2'
-            'pic1 pic3 pic3 info2'
-            'info3 pic3 pic3 info4'
-            'info3 pic4 info5 info4';
-        gap: var(--spacing-md);
-    }
-    .wrapper > div:nth-child(1) {
-        grid-area: pic1;
-    }
-    .wrapper > div:nth-child(2) {
-        grid-area: info1;
-    }
-    .wrapper > div:nth-child(3) {
-        grid-area: pic2;
-    }
-    .wrapper > div:nth-child(4) {
-        grid-area: info2;
-    }
-    .wrapper > div:nth-child(5) {
-        grid-area: pic3;
-    }
-    .wrapper > div:nth-child(6) {
-        grid-area: info3;
-    }
-    .wrapper > div:nth-child(7) {
-        grid-area: pic4;
-    }
-    .wrapper > div:nth-child(8) {
-        grid-area: info5;
-    }
-    .wrapper > div:nth-child(9) {
-        grid-area: info4;
-    }
+	.wrapper {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-areas:
+			'pic1 info1 pic2 info2'
+			'pic1 pic3 pic3 info2'
+			'info3 pic3 pic3 info4'
+			'info3 pic4 info5 info4';
+		gap: var(--spacing-md);
+	}
+	.wrapper > div:nth-child(1) {
+		grid-area: pic1;
+	}
+	.wrapper > div:nth-child(2) {
+		grid-area: info1;
+	}
+	.wrapper > div:nth-child(3) {
+		grid-area: pic2;
+	}
+	.wrapper > div:nth-child(4) {
+		grid-area: info2;
+	}
+	.wrapper > div:nth-child(5) {
+		grid-area: pic3;
+	}
+	.wrapper > div:nth-child(6) {
+		grid-area: info3;
+	}
+	.wrapper > div:nth-child(7) {
+		grid-area: pic4;
+	}
+	.wrapper > div:nth-child(8) {
+		grid-area: info5;
+	}
+	.wrapper > div:nth-child(9) {
+		grid-area: info4;
+	}
+
+	@media (max-width: 768px) {
+		.wrapper {
+			display: flex;
+			flex-direction: column;
+		}
+	}
 </style>
