@@ -120,4 +120,17 @@ const t = useTranslations(lang);
 				'info5 info5 info4';
 		}
 	}
+
+	@media (max-width: 1000px) {
+		.wrapper {
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-areas:
+				'pic1 info2'
+				'pic3 pic3'
+				'info3 info1'
+				'info3 pic4'
+				'pic2 info4'
+				'info5 info4';
+		}
+	}
 </style>
