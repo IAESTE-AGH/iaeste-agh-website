@@ -3,102 +3,102 @@ import type { Color, TextVariant } from '@/types';
 import type { HTMLTag } from 'astro/types';
 
 type Props = {
-    color?: Color;
-    children?: string | string[] | HTMLElement | HTMLElement[] | HTMLElement;
-    bold?: boolean;
-    variant?: TextVariant;
-    centered?: boolean;
-    toRight?: boolean;
-    class?: string;
-    nowrap?: boolean;
+	color?: Color;
+	children?: string | string[] | HTMLElement | HTMLElement[] | HTMLElement;
+	bold?: boolean;
+	variant?: TextVariant;
+	centered?: boolean;
+	toRight?: boolean;
+	class?: string;
+	nowrap?: boolean;
 };
 
 const {
-    color,
-    variant = 'body',
-    bold: isBold = false,
-    centered: isCentered = false,
-    toRight: isToRight = false,
-    class: className = '',
-    nowrap = false,
+	color,
+	variant = 'body',
+	bold: isBold = false,
+	centered: isCentered = false,
+	toRight: isToRight = false,
+	class: className = '',
+	nowrap = false,
 } = Astro.props;
 
 var Element: HTMLTag = 'p';
 switch (variant) {
-    case 'display':
-    case 'h1':
-        Element = 'h1';
-        break;
-    case 'h2':
-        Element = 'h2';
-        break;
-    case 'h3':
-        Element = 'h3';
-        break;
-    case 'h4':
-        Element = 'h4';
-        break;
-    case 'h5':
-        Element = 'h5';
-        break;
-    case 'h6':
-        Element = 'h6';
-        break;
-    case 'body':
-        Element = 'p';
-        break;
-    case 'link':
-        Element = 'span';
-        break;
-    case 'quote':
-        Element = 'p';
-        break;
-    default:
-        Element = 'p';
-        break;
+	case 'display':
+	case 'h1':
+		Element = 'h1';
+		break;
+	case 'h2':
+		Element = 'h2';
+		break;
+	case 'h3':
+		Element = 'h3';
+		break;
+	case 'h4':
+		Element = 'h4';
+		break;
+	case 'h5':
+		Element = 'h5';
+		break;
+	case 'h6':
+		Element = 'h6';
+		break;
+	case 'body':
+		Element = 'p';
+		break;
+	case 'link':
+		Element = 'span';
+		break;
+	case 'quote':
+		Element = 'p';
+		break;
+	default:
+		Element = 'p';
+		break;
 }
 ---
 
 <Element
-    class:list={[
-        variant,
-        { bold: isBold },
-        'oneLine',
-        className,
-        { centered: isCentered },
-        { toRight: isToRight },
-    ]}
-    style={{ color: color, whiteSpace: nowrap ? 'nowrap' : 'normal' }}
+	class:list={[
+		variant,
+		{ bold: isBold },
+		'oneLine',
+		className,
+		{ centered: isCentered },
+		{ toRight: isToRight },
+	]}
+	style={{ color: color, whiteSpace: nowrap ? 'nowrap' : 'normal' }}
 >
-    {
-        Astro.slots.has('beforeIcon') && (
-            <span style="padding-top: 3px;">
-                <slot name="beforeIcon" />
-            </span>
-        )
-    }
-    <slot />
-    {
-        Astro.slots.has('afterIcon') && (
-            <span style="padding-top: 3px;">
-                <slot name="afterIcon" />
-            </span>
-        )
-    }
+	{
+		Astro.slots.has('beforeIcon') && (
+			<span style="padding-top: 2px;">
+				<slot name="beforeIcon" />
+			</span>
+		)
+	}
+	<slot />
+	{
+		Astro.slots.has('afterIcon') && (
+			<span style="padding-top: 2px;">
+				<slot name="afterIcon" />
+			</span>
+		)
+	}
 
-    <style>
-        .oneLine {
-            display: flex;
-            flex-direction: row;
-            gap: 4px;
-        }
+	<style>
+		.oneLine {
+			display: flex;
+			flex-direction: row;
+			gap: 4px;
+		}
 
-        .centered {
-            justify-content: center;
-        }
+		.centered {
+			justify-content: center;
+		}
 
-        .toRight {
-            justify-content: flex-end;
-        }
-    </style>
+		.toRight {
+			justify-content: flex-end;
+		}
+	</style>
 </Element>
