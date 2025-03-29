@@ -15,39 +15,39 @@ const t = useTranslations(lang);
 	id={routes[lang].exchange.split('#')[1]}
 >
 	<div class="wrapper">
-		<div>
+		<div class="pic1">
 			<InfoCardImage imgPath="/src/assets/krowa.jpg" />
 		</div>
-		<div>
+		<div class="info1">
 			<InfoCard title={'3 500+'} desc={t('newPlaces.internships')} />
 		</div>
-		<div>
+		<div class="pic2">
 			<InfoCardImage imgPath="/src/assets/krowa.jpg" />
 		</div>
-		<div>
+		<div class="info2">
 			<InfoCard
 				imgPath="/src/assets/icons/Ranking.svg"
 				title={'8 000+'}
 				desc={t('newPlaces.sentStudents')}
 			/>
 		</div>
-		<div>
+		<div class="pic3">
 			<InfoCardImage imgPath="/src/assets/krowa.jpg" />
 		</div>
-		<div>
+		<div class="info3">
 			<InfoCard
 				imgPath="/src/assets/icons/Heart.svg"
 				title={'371 000+'}
 				desc={t('newPlaces.happyStudents')}
 			/>
 		</div>
-		<div>
+		<div class="pic4">
 			<InfoCardImage imgPath="/src/assets/krowa.jpg" />
 		</div>
-		<div>
+		<div class="info5">
 			<InfoCard title={'80+'} desc={t('newPlaces.countries')} />
 		</div>
-		<div>
+		<div class="info4">
 			<InfoCard
 				imgPath="/src/assets/icons/Note.svg"
 				title={t('newPlaces.info.title')}
@@ -74,31 +74,31 @@ const t = useTranslations(lang);
 			'info3 pic4 info5 info4';
 		gap: var(--spacing-md);
 	}
-	.wrapper > div:nth-child(1) {
+	.pic1 {
 		grid-area: pic1;
 	}
-	.wrapper > div:nth-child(2) {
+	.info1 {
 		grid-area: info1;
 	}
-	.wrapper > div:nth-child(3) {
+	.pic2 {
 		grid-area: pic2;
 	}
-	.wrapper > div:nth-child(4) {
+	.info2 {
 		grid-area: info2;
 	}
-	.wrapper > div:nth-child(5) {
+	.pic3 {
 		grid-area: pic3;
 	}
-	.wrapper > div:nth-child(6) {
+	.info3 {
 		grid-area: info3;
 	}
-	.wrapper > div:nth-child(7) {
+	.pic4 {
 		grid-area: pic4;
 	}
-	.wrapper > div:nth-child(8) {
+	.info5 {
 		grid-area: info5;
 	}
-	.wrapper > div:nth-child(9) {
+	.info4 {
 		grid-area: info4;
 	}
 
