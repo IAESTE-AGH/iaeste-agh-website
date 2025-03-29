@@ -108,4 +108,16 @@ const t = useTranslations(lang);
 			flex-direction: column;
 		}
 	}
+
+	@media (max-width: 1300px) {
+		.wrapper {
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-areas:
+				'pic1 info1 info2'
+				'pic1 pic2 info2'
+				'info3 pic3 pic3'
+				'info3 pic4 info4'
+				'info5 info5 info4';
+		}
+	}
 </style>
