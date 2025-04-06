@@ -4,68 +4,68 @@ import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import { CoordinatorCard, ManagementCard } from '@/molecules';
 
 const COORDINATORS = [
-    {
-        title: 'IAESTE CaseWeek',
-        name: 'Imię i Nazwisko',
-        phone: '+48 123 456 789',
-        email: 'imie.nazwisko@iaeste.pl',
-    },
-    {
-        title: 'Level Up Your Skills',
-        name: 'Imię i Nazwisko',
-        phone: '+48 123 456 789',
-        email: 'imie.nazwisko@iaeste.pl',
-    },
-    {
-        title: 'Proces Pozyskiwania Praktyk',
-        name: 'Imię i Nazwisko',
-        phone: '+48 123 456 789',
-        email: 'imie.nazwisko@iaeste.pl',
-    },
-    {
-        title: 'Wiosenna Akcja Rekrutacyjna',
-        name: 'Imię i Nazwisko',
-        phone: '+48 123 456 789',
-        email: 'imie.nazwisko@iaeste.pl',
-    },
+	{
+		title: 'IAESTE CaseWeek',
+		name: 'Imię i Nazwisko',
+		phone: '+48 123 456 789',
+		email: 'imie.nazwisko@iaeste.pl',
+	},
+	{
+		title: 'Level Up Your Skills',
+		name: 'Imię i Nazwisko',
+		phone: '+48 123 456 789',
+		email: 'imie.nazwisko@iaeste.pl',
+	},
+	{
+		title: 'Proces Pozyskiwania Praktyk',
+		name: 'Imię i Nazwisko',
+		phone: '+48 123 456 789',
+		email: 'imie.nazwisko@iaeste.pl',
+	},
+	{
+		title: 'Wiosenna Akcja Rekrutacyjna',
+		name: 'Imię i Nazwisko',
+		phone: '+48 123 456 789',
+		email: 'imie.nazwisko@iaeste.pl',
+	},
 ];
 
 const MANAGEMENT = [
-    {
-        title: 'Prezes',
-        name: 'Imię i Nazwisko',
-        phone: '+48 123 456 789',
-        email: 'imie.nazwisko@iaeste.pl',
-        imgPath: '/src/assets/contact-images/krowa.jpg',
-    },
-    {
-        title: 'Wiceprezes',
-        name: 'Imię i Nazwisko',
-        phone: '+48 123 456 789',
-        email: 'imie.nazwisko@iaeste.pl',
-        imgPath: '/src/assets/contact-images/krowa.jpg',
-    },
-    {
-        title: 'Skarbnik',
-        name: 'Imię i Nazwisko',
-        phone: '+48 123 456 789',
-        email: 'imie.nazwisko@iaeste.pl',
-        imgPath: '/src/assets/contact-images/krowa.jpg',
-    },
-    {
-        title: 'I Członek Zarządu',
-        name: 'Imię i Nazwisko',
-        phone: '+48 123 456 789',
-        email: 'imie.nazwisko@iaeste.pl',
-        imgPath: '/src/assets/contact-images/krowa.jpg',
-    },
-    {
-        title: 'II Członek Zarządu',
-        name: 'Imię i Nazwisko',
-        phone: '+48 123 456 789',
-        email: 'imie.nazwisko@iaeste.pl',
-        imgPath: '/src/assets/contact-images/krowa.jpg',
-    },
+	{
+		title: 'Prezes',
+		name: 'Imię i Nazwisko',
+		phone: '+48 123 456 789',
+		email: 'imie.nazwisko@iaeste.pl',
+		imgPath: '/src/assets/contact-images/krowa.jpg',
+	},
+	{
+		title: 'Wiceprezes',
+		name: 'Imię i Nazwisko',
+		phone: '+48 123 456 789',
+		email: 'imie.nazwisko@iaeste.pl',
+		imgPath: '/src/assets/contact-images/krowa.jpg',
+	},
+	{
+		title: 'Skarbnik',
+		name: 'Imię i Nazwisko',
+		phone: '+48 123 456 789',
+		email: 'imie.nazwisko@iaeste.pl',
+		imgPath: '/src/assets/contact-images/krowa.jpg',
+	},
+	{
+		title: 'I Członek Zarządu',
+		name: 'Imię i Nazwisko',
+		phone: '+48 123 456 789',
+		email: 'imie.nazwisko@iaeste.pl',
+		imgPath: '/src/assets/contact-images/krowa.jpg',
+	},
+	{
+		title: 'II Członek Zarządu',
+		name: 'Imię i Nazwisko',
+		phone: '+48 123 456 789',
+		email: 'imie.nazwisko@iaeste.pl',
+		imgPath: '/src/assets/contact-images/krowa.jpg',
+	},
 ];
 
 const url = new URL(Astro.request.url);
@@ -74,102 +74,104 @@ const t = useTranslations(lang);
 ---
 
 <ThemedSection title={t('section.companyContact')}>
-    <div class="slider-section">
-        <ThemedText variant="h3">{t('companyContact.management')}</ThemedText>
-        <div id="management-slider" class="keen-slider">
-            {
-                MANAGEMENT.map(contact => (
-                    <div class="keen-slider__slide keen-slider__slide-clickable">
-                        <ManagementCard {...contact} />
-                    </div>
-                ))
-            }
-        </div>
-    </div>
-    <div class="slider-section">
-        <ThemedText variant="h3">{t('companyContact.coordinators')}</ThemedText>
-        <div id="coordinators-slider" class="keen-slider">
-            {
-                COORDINATORS.map(contact => (
-                    <div class="keen-slider__slide keen-slider__slide-clickable">
-                        <CoordinatorCard {...contact} />
-                    </div>
-                ))
-            }
-        </div>
-    </div>
+	<div class="slider-section">
+		<ThemedText variant="h3">{t('companyContact.management')}</ThemedText>
+		<div id="management-slider" class="keen-slider">
+			{
+				MANAGEMENT.map(contact => (
+					<div class="keen-slider__slide keen-slider__slide-clickable">
+						<ManagementCard {...contact} />
+					</div>
+				))
+			}
+		</div>
+	</div>
+	<div class="slider-section">
+		<ThemedText variant="h3">{t('companyContact.coordinators')}</ThemedText>
+		<div id="coordinators-slider" class="keen-slider">
+			{
+				COORDINATORS.map(contact => (
+					<div class="keen-slider__slide keen-slider__slide-clickable">
+						<CoordinatorCard {...contact} />
+					</div>
+				))
+			}
+		</div>
+	</div>
 </ThemedSection>
 
 <script>
-    import KeenSlider from 'keen-slider';
-    import { WheelControls } from '@/utils/wheelControls';
+	import KeenSlider from 'keen-slider';
+	import { WheelControls } from '@/utils/wheelControls';
 
-    if (document.getElementById('coordinators-slider') !== null) {
-        const slider = new KeenSlider(
-            '#coordinators-slider',
-            {
-                mode: 'free-snap',
-                dragSpeed: 0.8,
-                renderMode: 'performance',
-                slides: {
-                    perView: 'auto',
-                    spacing: 32,
-                },
-            },
-            [WheelControls]
-        );
-    }
+	if (document.getElementById('coordinators-slider') !== null) {
+		const slider = new KeenSlider(
+			'#coordinators-slider',
+			{
+				mode: 'free-snap',
+				dragSpeed: 0.8,
+				renderMode: 'performance',
+				slides: {
+					perView: 'auto',
+					spacing: 32,
+				},
+				breakpoints: {
+					'(max-width: 768px)': {
+						slides: {
+							perView: 'auto',
+							origin: 'center',
+							spacing: 32,
+						},
+					},
+				},
+			},
+			[WheelControls]
+		);
+	}
 
-    if (document.getElementById('management-slider') !== null) {
-        const slider2 = new KeenSlider(
-            '#management-slider',
-            {
-                mode: 'free-snap',
-                dragSpeed: 0.8,
-                renderMode: 'performance',
-                slides: {
-                    perView: 'auto',
-                    spacing: 32,
-                },
-            },
-            [WheelControls]
-        );
-    }
+	if (document.getElementById('management-slider') !== null) {
+		const slider2 = new KeenSlider(
+			'#management-slider',
+			{
+				mode: 'free-snap',
+				dragSpeed: 0.8,
+				renderMode: 'performance',
+				slides: {
+					perView: 'auto',
+					spacing: 32,
+				},
+				breakpoints: {
+					'(max-width: 768px)': {
+						slides: {
+							perView: 'auto',
+							origin: 'center',
+							spacing: 32,
+						},
+					},
+				},
+			},
+			[WheelControls]
+		);
+	}
 </script>
 
 <style>
-    .slider-section {
-        max-width: 100%;
-        min-width: 100%;
-        margin: 0 auto;
-        padding: 32px;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-    }
+	.slider-section {
+		max-width: 100%;
+		min-width: 100%;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+	}
 
-    .keen-slider__slide {
-        min-width: fit-content;
-        max-width: fit-content;
-        overflow: visible !important;
-    }
+	.keen-slider__slide {
+		min-width: fit-content;
+		max-width: fit-content;
+		overflow: visible !important;
+	}
 
-    .keen-slider {
-        overflow: visible !important;
-    }
-
-    /* Dla stacjonarnych */
-    @media (max-width: 900px) {
-        .keen-slider__slide {
-            width: 45%;
-        }
-    }
-
-    /* Dla mobilnych */
-    @media (max-width: 600px) {
-        .keen-slider__slide {
-            width: 30%;
-        }
-    }
-
+	.keen-slider {
+		overflow: visible !important;
+	}
 </style>
