@@ -1,6 +1,10 @@
 ---
 import { ThemedLink, ThemedText } from '@/atoms';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { Image } from 'astro:assets';
+import img_7 from '@/assets/images/img_7.png';
+import img_13 from '@/assets/images/img_13.png';
+import img_4 from '@/assets/images/img_4.png';
 
 const url = new URL(Astro.request.url);
 const lang = getLangFromUrl(url);
@@ -21,11 +25,11 @@ const t = useTranslations(lang);
         <ThemedLink button href="#" variant="h5"> Dołącz do nas! </ThemedLink>
     </div>
     <div class="double-photo">
-        <img src="/krowa.jpg" alt="#" />
-        <img src="/krowa.jpg" alt="#" />
+        <Image src={img_4} alt="IAESTE group photo" />
+        <Image src={img_13} alt="IAESTE group selfie" />
     </div>
     <div class="single-photo">
-        <img src="/krowa.jpg" alt="#" />
+        <Image src={img_7} alt="IAESTE group selfie" />
     </div>
 </section>
 
