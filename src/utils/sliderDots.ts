@@ -55,6 +55,9 @@ function SliderDots(
             dots.appendChild(dot);
         });
         wrapper.appendChild(dots);
+        if (dots.lastChild) {
+            dots.removeChild(dots.lastChild);
+        }
     }
 
     function updateClasses() {
