@@ -65,6 +65,7 @@ const translatePath = useTranslatedPath(lang);
         background-color: var(--colors-background-primary);
         position: sticky;
         top: 4px;
+        /* dałbym tu 0 bo irytuje przerwa na górze podczas scrollowania strony */
         background-color: var(--colors-background-primary);
         z-index: 100;
     }
@@ -75,9 +76,11 @@ const translatePath = useTranslatedPath(lang);
 
     #links {
         display: flex;
-        gap: 24px;
+        gap: 50px;
         align-items: center;
         white-space: nowrap;
+        transform: scale(2.2);
+        transform-origin: center right;
     }
 
     /* #language-switch {

@@ -78,7 +78,7 @@ export function createDefaultTheme(): Theme {
     const black: Color = '#000';
     const light_blue_50: Color = 'rgba(220, 232, 241, 0.5)';
     const fontFamily = 'League Spartan, sans-serif';
-    const fontFamily_quote = 'Libre Baskerville, serif';
+    const fontFamily_quote = 'League Spartan, sans-serif';
     const fontWeights = {
         regular: 400,
         bold: 600,
@@ -204,7 +204,7 @@ export function createDefaultMobileTheme(): Theme {
     const black: Color = '#000';
     const light_blue_50: Color = 'rgba(220, 232, 241, 0.5)';
     const fontFamily = 'League Spartan, sans-serif';
-    const fontFamily_quote = 'Libre Baskerville, serif';
+    const fontFamily_quote = 'League Spartan, sans-serif';
     const fontWeights = {
         regular: 400,
         bold: 600,

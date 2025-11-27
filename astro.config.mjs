@@ -24,6 +24,18 @@ export default defineConfig({
         },
     },
 
+    vite: {
+        server: {
+            watch: {
+                usePolling: true,
+                interval: 100
+            }
+        },
+        optimizeDeps: {
+            exclude: ['react-compiler-runtime'] 
+        }
+    },
+
     adapter: vercel(),
     output: 'static',
 });
