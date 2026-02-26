@@ -49,15 +49,13 @@ function SliderDots(
             return;
         }
         dots = createDiv('dots');
-        slider.track.details.slides.forEach((_e, idx) => {
+        const maxIdx = slider.track.details.maxIdx;
+        for (let idx = 0; idx <= maxIdx; idx++) {
             var dot = createDiv('dot');
             dot.addEventListener('click', () => slider.moveToIdx(idx));
             dots.appendChild(dot);
-        });
-        wrapper.appendChild(dots);
-        if (dots.lastChild) {
-            dots.removeChild(dots.lastChild);
         }
+        wrapper.appendChild(dots);
     }
 
     function updateClasses() {

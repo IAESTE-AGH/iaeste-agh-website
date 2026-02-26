@@ -1,48 +1,178 @@
 ---
 import { ThemedSection } from '@/atoms';
-import { ContactCard, EventCard } from '@/molecules';
+import { EventCard } from '@/molecules';
 ---
 
 <ThemedSection title="Akcje organizowane przez IAESTE AGH">
     <div class="content keen-slider" id="events_carousel">
         <div class="keen-slider__slide">
             <EventCard
-                title="Dni Kariery AGH"
-                linkUrl="https://dni-kariery.agh.edu.pl/"
+                title="Level Up Your Skills"
+                linkUrl="#"
                 imageUrl="/src/assets/event-logos/example_logo.png"
-                contactInfo={{
-                    title: 'Koordynator ds. akcji',
-                    name: 'Krzysztof Kowalski',
-                    email: 'krzysztof.kowalski@iaeste.pl',
-                    phone: '+48 123 456 789',
-                }}
-            />
+                contactInfo={[
+                    {
+                        title: 'Koordynator ds. akcji',
+                        name: 'Mateusz Krawczyk',
+                        email: 'mateusz.krawczyk@iaeste.pl',
+                        phone: '+48 506 438 786',
+                    },
+                ]}
+            >
+                <p>
+                    To hybrydowe wydarzenie, które oferuje studentom uczelni technicznych
+                    w całej Polsce możliwość przygotowania się do wejścia na rynek pracy.
+                    Uczestnicy mają okazję wziąć udział w próbnych rozmowach
+                    kwalifikacyjnych z rekruterami HR, a także uzyskać od nich
+                    profesjonalną ocenę swojego CV. Ponadto organizowane są prelekcje
+                    dotyczące umiejętności interpersonalnych i komunikacyjnych, dzięki
+                    którym studenci mogą dowiedzieć się, jakie kompetencje są kluczowe
+                    dla pracodawców podejmujących decyzje o zatrudnieniu.
+                </p>
+                <p>
+                    Po otrzymaniu szczegółowego feedbacku od specjalisty, uczestnik może
+                    lepiej przygotować się do realnej rekrutacji, wiedząc, jakich błędów
+                    unikać i jakie elementy warto podkreślić w swoich odpowiedziach.
+                    Wydarzenie umożliwia studentom przećwiczenie rozmowy kwalifikacyjnej
+                    w bezpiecznych warunkach, bez stresu i presji.
+                </p>
+                <p>
+                    Wydarzenie jest także doskonałą okazją do promocji dla firm, które
+                    poprzez udział w Level Up Your Skills mogą zwiększyć swoją
+                    rozpoznawalność wśród studentów i potencjalnych pracowników.
+                </p>
+                <p slot="partnership">
+                    Firmy zainteresowane współpracą mogą liczyć na szeroki wachlarz
+                    możliwości promocyjnych – od warsztatów i prelekcji, przez promocję
+                    w materiałach wydarzenia, po spotkania z uczestnikami. Zachęcamy do
+                    kontaktu i wspólnego tworzenia wydarzenia, które realnie wspiera
+                    rozwój zawodowy studentów!
+                </p>
+            </EventCard>
         </div>
         <div class="keen-slider__slide">
             <EventCard
-                title="Dni Kariery AGH"
-                linkUrl="https://dni-kariery.agh.edu.pl/"
+                title="IAESTE CaseWeek"
+                linkUrl="#"
                 imageUrl="/src/assets/event-logos/example_logo.png"
-                contactInfo={{
-                    title: 'Koordynator ds. akcji',
-                    name: 'Krzysztof Kowalski',
-                    email: 'krzysztof.kowalski@iaeste.pl',
-                    phone: '+48 123 456 789',
-                }}
-            />
+                contactInfo={[
+                    {
+                        title: 'Koordynator ds. akcji',
+                        name: 'Ewa Lewandowska',
+                        email: 'ewa.lewandowska@iaeste.pl',
+                        phone: '+48 785 449 040',
+                    },
+                ]}
+            >
+                <p>
+                    Największy w Polsce cykl warsztatów inżynierskich dla studentów,
+                    podczas którego uczestnicy pracują nad rzeczywistymi problemami
+                    branżowymi. Wydarzenie daje możliwość zdobycia praktycznego
+                    doświadczenia poprzez rozwiązywanie case study opartych na realnych
+                    wyzwaniach zawodowych. To szansa na rozwinięcie kompetencji
+                    technicznych i umiejętności analitycznych.
+                </p>
+                <p>
+                    Praca w zespołach nad konkretnymi przypadkami pozwala nie tylko na
+                    zdobycie wiedzy merytorycznej, ale również rozwija zdolności
+                    komunikacyjne i umiejętność pracy w grupie. To doskonały sposób na
+                    poznanie oczekiwań pracodawców i sprawdzenie się w warunkach
+                    zbliżonych do rzeczywistych projektów inżynierskich.
+                </p>
+                <p>
+                    Udział w IAESTE CaseWeek to także świetna okazja do nawiązania
+                    kontaktów z przedstawicielami firm oraz ekspertami z różnych branż.
+                </p>
+                <p slot="partnership">
+                    Firmy zainteresowane współpracą w ramach CaseWeek mogą skorzystać
+                    z wielu możliwości promocji i zaangażowania. Organizacja warsztatów
+                    to doskonała okazja do nawiązania kontaktu ze studentami oraz
+                    poznania potencjalnych kandydatów do pracy. Zapraszamy do wspólnego
+                    tworzenia tego unikatowego wydarzenia, które łączy edukację z
+                    praktyką!
+                </p>
+            </EventCard>
         </div>
         <div class="keen-slider__slide">
             <EventCard
-                title="Dni Kariery AGH"
-                linkUrl="https://dni-kariery.agh.edu.pl/"
+                title="Proces Pozyskiwania Praktyk"
+                linkUrl="#"
                 imageUrl="/src/assets/event-logos/example_logo.png"
-                contactInfo={{
-                    title: 'Koordynator ds. akcji',
-                    name: 'Krzysztof Kowalski',
-                    email: 'krzysztof.kowalski@iaeste.pl',
-                    phone: '+48 123 456 789',
-                }}
-            />
+                contactInfo={[
+                    {
+                        title: 'Koordynator ds. akcji',
+                        name: 'Magdalena Wilk',
+                        email: 'magdalena.wilk@iaeste.pl',
+                        phone: '+48 788 066 237',
+                    },
+                ]}
+            >
+                <p>
+                    Głównym celem działalności międzynarodowej organizacji IAESTE jest
+                    organizowanie staży zagranicznych dla studentów uczelni technicznych.
+                    Studenci z Polski mają okazję wyjechać do jednego z ponad 85 krajów,
+                    aby zdobyć cenne doświadczenie zawodowe i rozwinąć swoje umiejętności
+                    techniczne.
+                </p>
+                <p>
+                    To wyjątkowa okazja dla przedsiębiorstw, aby zyskać międzynarodową
+                    promocję. Firmy angażujące się w ten proces mają szansę nawiązania
+                    współpracy z utalentowanymi studentami z całego świata, a
+                    praktykantów można dopasować do konkretnych potrzeb firmy. Poprzez
+                    uczestnictwo w programie IAESTE firma staje się częścią
+                    międzynarodowej społeczności ponad 5000 firm i instytucji.
+                </p>
+                <p slot="partnership">
+                    Współpraca z IAESTE AGH to szansa na międzynarodowy rozwój firmy.
+                    Nasze doświadczenie i sieć współpracy z komitetami na całym globie
+                    zapewniają solidne wsparcie na każdym etapie procesu pozyskiwania
+                    praktykantów. Organizujemy staże zgodne z potrzebami i wymaganiami
+                    firm, pomagając im w zdobywaniu najnowszych technologii oraz
+                    innowacyjnych rozwiązań.
+                </p>
+            </EventCard>
+        </div>
+        <div class="keen-slider__slide">
+            <EventCard
+                title="Międzyuczelniane Igrzyska Studenckie"
+                linkUrl="#"
+                imageUrl="/src/assets/event-logos/example_logo.png"
+                contactInfo={[
+                    {
+                        title: 'Koordynator ds. akcji',
+                        name: 'Monika Bogdalska',
+                        email: 'monika.bogdalska@iaeste.pl',
+                        phone: '+48 696 576 712',
+                    },
+                ]}
+            >
+                <p>
+                    To wyjątkowe wydarzenie, które odbywa się pod koniec Krakowskich
+                    Juwenaliów, gromadząc studentów z krakowskich uczelni. Uczestnicy
+                    rywalizują w drużynach pięcioosobowych, mając szansę na zdobycie
+                    tytułu mistrza. Igrzyska oferują wiele nietypowych konkurencji,
+                    w tym jedną z najbardziej rozpoznawalnych – tradycyjny ślizg na
+                    klacie!
+                </p>
+                <p>
+                    Każdego roku MIS przyciąga studentów, którzy pragną połączyć
+                    rywalizację z integracją, świetną zabawą oraz niezapomnianą
+                    atmosferą. Dla najlepszych drużyn czekają fantastyczne nagrody
+                    oraz ogromna satysfakcja z osiągniętych wyników.
+                </p>
+                <p>
+                    Udział w MIS to doskonała okazja dla firm, które chcą dotrzeć do
+                    szerokiego grona studentów i młodych ludzi pełnych energii.
+                </p>
+                <p slot="partnership">
+                    Serdecznie zachęcamy firmy do współpracy z IAESTE AGH w ramach
+                    Międzyuczelnianych Igrzysk Studenckich. Wydarzenie, będące jednym
+                    z najważniejszych punktów finału Juwenaliów, to idealna okazja by
+                    rozepromować się wśród aktywnie uczestniczących w życiu akademickim
+                    studentów. Dzięki współpracy z nami firmy mogą nie tylko zyskać
+                    większą widoczność, ale także wesprzeć rozwój inicjatyw studenckich.
+                </p>
+            </EventCard>
         </div>
     </div>
 </ThemedSection>
